@@ -1,7 +1,6 @@
 <style>
   #shopify-section-summer-video {
-    padding: 1rem 0;
-    border: solid 1px #E3786D;
+    padding: 0 0;
     border-left: 0;
     border-right: 0;
     background: #FFF4EF;
@@ -11,10 +10,34 @@
     padding: 5px;
     border-radius: 15px;
   }
+  /*insert  */
+  .summer-video-title {
+        font-size: 32px;
+    line-height: 55px;
+    font-family: corbenr;
+    text-transform: unset;
+    font-weight: 400;
+    letter-spacing: 0;
+    border-bottom:1px solid #f47169;
+    width:55%;
+    margin:0rem auto;
+    margin-bottom:1.5rem;
+  }
+  @media(max-width: 768px) {
+    .summer-video-title {
+        font-size: 28px;
+      border-bottom:1px solid #f47169;
+      width:85%;
+      line-height:50px;
+      margin:0.7rem auto;
+  }
+  }
+  /*insert end */
 </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <div class="summer-videos">
+  <div class='summer-video-title center'>user testimonials</div>
   <div class="swiper-video">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
