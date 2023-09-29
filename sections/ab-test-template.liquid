@@ -3,7 +3,12 @@
 
 
 <style>
-  
+  .pdtb_detail.active{
+    display:block !important;
+  }
+  .pdtb_detail{
+    display:none;
+  }
   #product_slider_thumb img {
     height: 65px;
     width: 65px;
@@ -81,48 +86,62 @@
   .pack-options{
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Manrope';
   }
   .concern-options p.concern-label,
   .pack-options p.pack-label{
     margin: 0;
-    font-size: 22px;
-    width: 23%;
+    font-size: 14px;	
+    width: 20%;	
+    font-weight:bold;
+    max-width:80px;
   }
   .concern-options .options,
   .pack-options .options{
     display: flex;
     padding: 0 0.5rem;
     align-items: center;
-    width: 77%;
+     gap:6px;	
+    width: 80%;
   }
   .concern-options .options p,
   .pack-options .options p{
-    margin: 0;
-    font-size: 16px;
-    margin-right: 1rem;
-    background: grey;
-    padding: 0.5rem;
-    color: white;
-    font-weight: 600;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 30%;
-    text-align: center;
+     margin: 0;	
+    font-size: 12px;	
+    margin-right: 1rem;	
+    background: #fff;	
+    padding: 0.3rem;	
+    color: grey;	
+    font-weight: 500;	
+    border-radius: 20px;	
+    cursor: pointer;	
+    width: 30%;	
+    text-align: center;	
+    border: 1px solid #000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   .pack-options .options p {
-    background: white;
-    border: 2px solid #f37168;
-    color: black;
+    background: white;	
+    border: 1px solid black;	
+    color: grey;	
     font-weight: 500;
   }
   .concern-options p.active {
-    background: #f37168;
+    background: #f37168;	
+    border: 1px solid #f37168;	
+    color: white;
   }
   .pack-options p.active {
-    background: #FFEAEA;
+     background: #f37168;	
+    border: 1px solid #f37168 !important;	
+    color: white;
   }
-    
+  .product_sub_title{	
+    margin-bottom:1rem;	
+  }
   @media only screen and (max-width: 900px) {
     #product_slider_thumb img {
       height: 50px;
@@ -154,30 +173,45 @@
     .product_breadcrumbs {
       padding-bottom: 1rem;
     }
+    	
+    .product_sub_title{	
+    margin-bottom:1rem;	
+  }	
+  .concern-options .options p,	
+  .pack-options .options p{	
+    font-size:10px;	
+    margin-right:3px;	
+  }
   }
   @media (max-width: 768px) {
     .concern-options, .pack-options {
-      margin-bottom: 1rem;
+       margin-bottom: 0.8rem;
     }
     .concern-options p.concern-label, .pack-options p.pack-label {
-      font-size: 12px;
-      width: 28%;
+      font-size: 12px;	
+     margin-right:6px;	
+      white-space:nowrap;
     }
     .concern-options .options, .pack-options .options {
-      padding: 0;
-      padding-left: 5px;
-      width: 100%;
+      padding: 0;	
+      padding-left: 5px;	
+      width: 100%;	
+      gap:6px;
     }
-    .concern-options .options p, .pack-options .options p {
-      margin: 0;
-      font-size: 10px;
-      margin-right: 3px;
-      padding: 5px;
-      border-radius: 5px;
-      width: 100%;
+     .concern-options .options p {	
+      margin: 0;	
+      font-size: 10px;	
+      margin-right: 3px;	
+      padding: 5px;	
+      border-radius: 20px;	
+      /* width: 100%;	 */
     }
-    .pack-options .options p {
-      border: 1px solid #f37168;
+     .pack-options .options p {	
+      border: 1px solid black;	
+      margin-right:3px;
+    }	
+    .wc_product_review_badge .wc_review_badge_inner{	
+      justify-content:flex-start;	
     }
   }
 
@@ -334,7 +368,7 @@
     <div class="grid__item {{ product_description_width }}">
       <div class="product-single__meta">
         
-        <div class="product_breadcrumbs">
+        <div class="product_breadcrumbs desktop">	
           <a href="https://{{ request.host }}">
             Home 
           </a>/
@@ -342,24 +376,28 @@
             Products 
           </a>/ {{ product.title }}
         </div>
-
+          <div class="product_sub_title">	
+          {% if product.metafields.custom.product_tag != blank %}	
+            <span>{{ product.metafields.custom.product_tag }}</span>	
+          {% endif %}	
+          {% if product.metafields.my_fields.product_subtitle != blank %}	
+          {{ product.metafields.my_fields.product_subtitle }}</div>	
+          {% endif %}
+          </div>
         <h1 class="product-single__title">{{ product.title }}</h1>
         
         
-        {% if product.metafields.my_fields.product_subtitle != blank %}
-        <div class="product_sub_title">{{ product.metafields.my_fields.product_subtitle }}</div>
-        {% endif %}
         <div class="wc_product_review_badge" data-handle="happy-hair-nails-gummies" data-product_id="6092022481063"></div>
         
 
-        
+       {% comment %} 
         {% if product.metafields.my_fields.product_flavour_text != blank or product.metafields.my_fields.product_flavour_image != blank %}
         <div class="product_sub_type">
           <img src="{{ product.metafields.my_fields.product_flavour_image | img_url: 'small' }}" alt="{{ product.metafields.my_fields.product_flavour_image.alt }}"/>
           <div class="pd_sty_txt">{{ product.metafields.my_fields.product_flavour_text }}</div>
         </div>
         {% endif %}
-
+      {% endcomment %}
           <div class="product__price">
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
           </div>
@@ -417,7 +455,7 @@
             {% endcomment %}
 
              {% unless product.has_only_default_variant %}
-               <div style="display: none;" class="ab-variant-options">
+               <div class="ab-variant-options">
                  <div class="concern-options">
                    <p class="concern-label">Concern: </p>
                    <div class="options">
@@ -427,7 +465,7 @@
                    </div>
                  </div>
                  <div class="pack-options">
-                   <p class="pack-label">Choose Pack: </p>
+                   <p class="pack-label">Pack Size: </p>
                    <div class="options">
                      <p data-id="0" class="active">Pack of 1</p>
                      <p data-id="1">Pack of 2</p>
@@ -435,7 +473,7 @@
                    </div>
                  </div>
                </div>
-        <div class="product-form__controls-group1">
+        <div class="product-form__controls-group1" style="display: none;" >
           {% for option in product.options_with_values %}
           {% assign i = forloop.index %}
           {% assign i0 = forloop.index0 %}
@@ -529,10 +567,53 @@
               {% endfor %}
             </select>
 
+        	
+        {%- comment -%}	
+          Live region for announcing updated price and availability to screen readers	
+        {%- endcomment -%}	
+        <p class="visually-hidden" data-product-status	
+          aria-live="polite"	
+          role="status"	
+        ></p>	
+        {%- comment -%}	
+          Live region for announcing that the product form has been submitted and the	
+          product is in the process being added to the cart	
+        {%- endcomment -%}	
+        <p class="visually-hidden" data-loader-status	
+          aria-live="assertive"	
+          role="alert"	
+          aria-hidden="true"	
+        >{{ 'products.product.loader_label' | t }}</p>	
+      {% comment %}
+      {% if section.settings.enable_free_shipping %}	
+       <div class="shipping_label" id="shipping_info">	
+         {% if section.settings.free_shipping_icon != blank %}	
+         <div class="shipping_img">	
+           <img src="{{ section.settings.free_shipping_icon | img_url: 'master' }}" alt="shipping image" />	
+         </div>	
+         {% endif %}	
+         
+         {% if section.settings.free_shipping_text != blank %}	
+         <div class="shipping_txt">	
+           <p>{{ section.settings.free_shipping_text }}</p>	
+         </div>	
+         {% endif %}
         
+        </div>	
+        {% endif %}	
+        {% endcomment %}
+        {% if product.metafields.information.custom_message != blank %}	
+        	<div class="nyumi_custom_message" style="margin-top: 1em; font-weight: bold">{{ product.metafields.information.custom_message }}</div>	
+        {% endif %}	
+        {% if product.description != blank %}	
+        <div class="product-single__description rte">	
+          <div class='description-special'> {{ product.metafields.custom.description_special }} </div>	
+          {{ product.description }}	
+        </div>	
+        {% endif %}
            <div class="btn_qty_flx">
             {% if section.settings.show_quantity_selector %}
-              <div class="product-form__controls-group">
+              <div class="product-form__controls-group desktop">
                   <div class="prodcut_qty_box">
                     <div class="product_sign qty_minis">
                       <img src="{{ 'minus.png' | asset_url }}" alt="#"/>
@@ -590,51 +671,15 @@
           {% endform %}
        
 
-        {%- comment -%}
-          Live region for announcing updated price and availability to screen readers
-        {%- endcomment -%}
-        <p class="visually-hidden" data-product-status
-          aria-live="polite"
-          role="status"
-        ></p>
-
-        {%- comment -%}
-          Live region for announcing that the product form has been submitted and the
-          product is in the process being added to the cart
-        {%- endcomment -%}
-        <p class="visually-hidden" data-loader-status
-          aria-live="assertive"
-          role="alert"
-          aria-hidden="true"
-        >{{ 'products.product.loader_label' | t }}</p>
-      {% if section.settings.enable_free_shipping %}
-       <div class="shipping_label" id="shipping_info">
-         {% if section.settings.free_shipping_icon != blank %}
-         <div class="shipping_img">
-           <img src="{{ section.settings.free_shipping_icon | img_url: 'master' }}" alt="shipping image" />
-         </div>
-         {% endif %}
-         {% if section.settings.free_shipping_text != blank %}
-         <div class="shipping_txt">
-           <p>{{ section.settings.free_shipping_text }}</p>
-         </div>
-         {% endif %}
-        </div>
-        {% endif %}
-        {% if product.metafields.information.custom_message != blank %}
-        	<div class="nyumi_custom_message" style="margin-top: 1em; font-weight: bold">{{ product.metafields.information.custom_message }}</div>
-        {% endif %}
-        {% if product.description != blank %}
-        <div class="product-single__description rte">
-          {{ product.description }}
-        </div>
-        {% endif %}
         
-        </div>
+         
+      
+        
+        
       
         <div class="product_tab_section">
           {% if product.metafields.my_fields.product_gummies_text != blank %}
-          <div class="product_tab_heading">
+        <div class="product_tab_heading desktop">	
             {{ product.metafields.my_fields.product_gummies_text }}
           </div>
           {% endif %}
@@ -662,28 +707,40 @@
             {% endif %}
             {% for tab_item in product.metafields.tab_title.tab_title %}
             {% if tab_item != blank %}
-            <div class="product_tab_item" data-id="3" id="dailyDosage">
-              <div class="pdtb_heading">{{ tab_item }}</div>
-              <div class="pdtb_detail">
-                <div class="pdtb_flx">
-                  {{product.metafields.tab_description.tab_description[forloop.index0]}}
-                  <br>
-                </div>
-              </div>
-            </div>
+             {% if forloop.index==-1 %}	
+                <div class="product_tab_item active" data-id="3" id="dailyDosage">	
+                  <div class="pdtb_heading">{{ tab_item }}</div>	
+                  <div class="pdtb_detail" style="display:block">	
+                    <div class="pdtb_flx">	
+                      {{product.metafields.tab_description.tab_description[forloop.index0]}}	
+                      <br>	
+                    </div>	
+                  </div>	
+                </div>	
+              {% else %}	
+                <div class="product_tab_item" data-id="3" id="dailyDosage">	
+                  <div class="pdtb_heading">{{ tab_item }}</div>	
+                  <div class="pdtb_detail">	
+                    <div class="pdtb_flx">	
+                      {{product.metafields.tab_description.tab_description[forloop.index0]}}	
+                      <br>	
+                    </div>	
+                  </div>	
+                </div>	
+              {% endif %}
             {% endif %}
             {% endfor %}
            
           </div>
           
         </div>
-
+  </div>
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
         {% endif %}
     </div>
   </div>
-</div>
+
 
  
 
@@ -1050,22 +1107,22 @@
     console.log(params_variant.get('variant').split('?')[0]);
     if(params_variant.get('variant').split('?')[0] == '43191116792064') {
       $('.single-option-selector')[0].checked = true;
-      // $('.single-option-selector')[1].click()
-      // $('.single-option-selector')[0].click()
+      $('.single-option-selector')[1].click()
+      $('.single-option-selector')[0].click()
       $('.product-form__item--submit_new button')[0].attributes['variant-id'].value = '43191116792064'
       $('.product-form__item--submit_new button')[0].attributes['variant-name'].value = 'Pack of 1'
     }
     else if(params_variant.get('variant').split('?')[0] == '43191116824832') {
       $('.single-option-selector')[1].checked = true;
-      // $('.single-option-selector')[2].click()
-      // $('.single-option-selector')[1].click()
+      $('.single-option-selector')[2].click()
+      $('.single-option-selector')[1].click()
       $('.product-form__item--submit_new button')[0].attributes['variant-id'].value = '43191116824832'
       $('.product-form__item--submit_new button')[0].attributes['variant-name'].value = 'Pack of 2'
     }
     else if(params_variant.get('variant').split('?')[0] == '43191116857600') {
       $('.single-option-selector')[2].checked = true;
-      // $('.single-option-selector')[1].click()
-      // $('.single-option-selector')[2].click()
+      $('.single-option-selector')[1].click()
+      $('.single-option-selector')[2].click()
       $('.product-form__item--submit_new button')[0].attributes['variant-id'].value = '43191116857600'
       $('.product-form__item--submit_new button')[0].attributes['variant-name'].value = 'Pack of 3'
     }
@@ -1098,6 +1155,10 @@
       }
     }
     $('.single-option-selector')[variant_index].click()
+    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))	
+    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',""))	
+    const disper=((camp-disp)/camp)*100	
+    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`
   })
   $('.concern-options .options p').click(function(event){
     for(var i=0; i<$('.concern-options .options p').length; i++) {
@@ -1113,11 +1174,15 @@
       }
     }
     $('.single-option-selector')[variant_index].click()
+    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))	
+    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',""))	
+    const disper=((camp-disp)/camp)*100	
+    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`
   })
 
   setInterval(function(){
-    for(var i=1; i<$('.slider_itmes').length-2; i++){
-      if($('.slider_itmes')[i].classList.contains('slick-active')) {
+    for(var i=0; i<=$('.slider_itmes').length-3; i++){
+      if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
         $('.slider_thumb')[i].style.opacity = 1
       }
       else {
@@ -1129,6 +1194,10 @@
 </script>
 
 <script>
+//   $(".pdtb_heading").click(function(e){
+//     e.target.parentNode.classList.toggle("active");
+//     e.target.nextElementSibling.classList.toggle("active");
+// })
   $(document).ready(function() {
     $('.product-recommendations__inner .add_to_cart_custom').click(function(event){
       console.log('recommend event', event)

@@ -817,6 +817,7 @@ slate.Variants = (function() {
         type: 'variantPriceChange',
         variant: variant
       });
+     
     },
 
     /**

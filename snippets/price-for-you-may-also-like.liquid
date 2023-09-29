@@ -23,7 +23,7 @@
 
   assign money_price = price | money
 -%}
-<div class="custom_pricing center">
+<div id="price-container" class="custom_pricing center">
 <dl class="price price--listing center
   {%- if available == false %} price--sold-out {% endif -%}
   {%- if compare_at_price > price %} price--on-sale {% endif -%}
@@ -54,9 +54,11 @@
     </dt>
     <dd>
       <span class="price-item price-item--regular">
-        
+        {%- if product.price_varies -%}
+          {{ 'products.product.from_lowest_price_html' | t: lowest_price: money_price }}
+        {%- else -%}
         <g:sale_price>{{ money_price  | remove: ','  }}</g:sale_price>
-        
+        {%- endif -%}
       </span>
     </dd>
   </div>
@@ -65,7 +67,7 @@
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
     </dt>
     <dd>
-      <span class="price-item price-item--sale">
+      <span id="new-price" class="price-item price-item--sale">
         {%- if product.price_varies -%}
          {% comment %} {{ 'products.product.from_lowest_price_html' | t: lowest_price: money_price }} {% endcomment %}
           {{ money_price }}
@@ -74,7 +76,7 @@
         {%- endif -%}
       </span>
     </dd>
-     <div class="price__compare">
+     <div id="compare-price-hide" class="price__compare">
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
       </dt>
@@ -113,10 +115,10 @@
   {% assign sale_text = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price| round %}
   {% if sale_text > 0 %}
   <div class="price__badges price__badges--listing">
-    <span class="price__badge price__badge--sale" aria-hidden="true">
+    <span class="price__badge price__badge--sale hide" aria-hidden="true">
       <span data="{{ 'products.product.on_sale' | t }}">{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price| round }}% off</span>
     </span>
-    <span class="price__badge price__badge--sold-out">
+    <span class="price__badge price__badge--sold-out hide">
       <span>{{ 'products.product.sold_out' | t }}</span>
     </span>
   </div>

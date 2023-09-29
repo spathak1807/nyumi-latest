@@ -25,7 +25,7 @@
 
 <style>
   .price-item {
-    color: black !important;
+    
   }
 </style>
 
@@ -55,12 +55,13 @@
       - div.price__availability: Displayed when the product is sold out
   {%- endcomment -%}
   <div class="price__pricing-group">
+    
     <div class="price__regular">
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
       </dt>
       <dd>
-        <span class="price-item price-item--regular" data-regular-price>
+        <span class="price-item price-item--sale" data-regular-price>
           <g:sale_price>{{ money_price | remove: ',' }}</g:sale_price>
         </span>
       </dd>
@@ -70,7 +71,7 @@
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
       </dt>
       <dd>
-        <span class="price-item price-item--sale" data-sale-price>
+        <span class="price-item price-item--sale" data-sale-price id="price-item--sale_id">
           <g:sale_price> {{ money_price | remove: ',' }}</g:sale_price>
         </span>
       </dd>
@@ -78,11 +79,17 @@
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
       </dt>
       <dd>
-        <s class="price-item price-item--regular" data-regular-price>
+        <s class="price-item price-item--regular" data-regular-price id="price-item--regular_id">
           <g:price> {{ compare_at_price | money | remove: ',' }}</g:price>
         </s>
       </dd>
+      <dd>
+        <span class=" price-item--sale"  style="color:#f37168;font-size:18px;font-family:manropes" data-sale-discount id="data-sale-discount_id">
+          <g:price>{{ compare_at_price | minus: price | times: 100.0 | divided_by: compare_at_price | round }}%</g:price>
+        </span>
+      </dd>
     </div>
+   
     <div class="price__badges">
       <span class="price__badge price__badge--sale" aria-hidden="true">
         <span>{{ 'products.product.on_sale' | t }}</span>

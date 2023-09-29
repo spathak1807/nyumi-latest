@@ -50,6 +50,6 @@ $(document).ready(function(){
   
   
 
-    $('#product_slider').slick('slickGoTo', 1);
+     $('#product_slider').slick('slickGoTo', 1);
 
 });

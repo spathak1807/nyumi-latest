@@ -1,102 +1,64 @@
-<link
+{% comment %} <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-/>
+/> 
 <style>
-  #shopify-section-product-recommendations{
-    padding-top:0;
+#also-like{
+  color: #4d4d4d;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: left!important;
+    margin-left: 25px;
+    font-family: 'Manrope';
+}
+  li#also-like-section {
+   width: 117px;
+    padding-left: 0;
+    border-radius: 18px;
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.16 ));
+    height: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 3px;
+}
+  #also-may-like-section{
+padding-top:0;
+    /* margin-top: -30px; */
   }
-  #shopify-section-product-recommendations .product-recommendations__inner .section-header{
-    margin-top:25px;
-    margin-bottom:10px;
+  ul#also-like-ul {
+    margin-left: 0;
+    display: flex;
+    padding-left: 25px;
+    overflow-x: scroll;
+    padding-bottom: 5px;
+    gap: 17px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  ul#also-like-ul::-webkit-scrollbar {
+   display: none; 
   }
 </style>
-{% comment %}
 {%- if section.settings.show_product_recommendations -%}
-  {%- if recommendations.performed -%}
-    {%- if recommendations.products_count > 0 -%}
-      <div class="product-recommendations__inner">
+      <div id="also-may-like-section" class="product-recommendations__inner">
         {%- if section.settings.heading != blank -%}
-          <div class="section-header text-center">
-            <h2>{{ section.settings.heading | escape }}</h2>
+          <div id="also-like" class="section-header text-center">
+            You may also like:
           </div>
         {%- endif -%}
-        <ul class="grid grid--uniform grid--view-items">
-          {%- for product in recommendations.products -%}
-            <li class="grid__item small--one-half medium-up--one-quarter">
-              {% include 'product-card-grid', max_height: 250, product: product, show_vendor: section.settings.show_vendor %}
-            </li>
-          {%- endfor -%}
-        </ul>
-      </div>
-    {%- endif -%}
-  {%- else  -%}
-    <div class="page-width" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}" data-section-type="product-recommendations"></div>
-  {%- endif -%}
-{%- endif -%}
-{% endcomment %}
-{% comment %}
-{%- if section.settings.show_product_recommendations -%}
-      <div class="product-recommendations__inner">
-        {%- if section.settings.heading != blank -%}
-          <div class="section-header text-center">
-            <strong>more for you</strong>
-          </div>
-        {%- endif -%}
-          <!-- Slider main container -->
-        <div class="swiper3">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
+        <ul id="also-like-ul" class="grid grid--uniform grid--view-items">
           {% assign count = 1 %}
-          {%- for reco_product in collections.all.products -%}
-          {% if reco_product.id != product.id and count < 5 %}
-            {% assign count = count | plus: 1 %} 
-            <!-- Slides -->
-            <div class="swiper-slide">
-              {% include 'product-card-for-pdp-carousel', max_height: 100,  product: reco_product, show_vendor: section.settings.show_vendor %}
-            </div>
-          {% endif %}
-          {%- endfor -%}
-          </div>
-          
-        </div>
-        {% comment %}
-        <ul class="grid grid--uniform grid--view-items">
-          {% assign count = 1 %}
-          {%- for reco_product in collections.all.products -%}
-          {% if reco_product.id != product.id and count < 5 %}
-            {% assign count = count | plus: 1 %} 
-            <li class="grid__item small--one-half medium-up--one-quarter recommendation">
-              {% include 'product-card-for-pdp-carousel', max_height: 250, product: reco_product, show_vendor: section.settings.show_vendor %}
-            </li>
-          {% endif %}
-          {%- endfor -%}
-        </ul>
-  {% endcomment %}
-      </div>
-{%- endif -%}
-{% endcomment %}
-{%- if section.settings.show_product_recommendations -%}
-      <div class="product-recommendations__inner">
-        {%- if section.settings.heading != blank -%}
-          <div class="section-header text-center">
-            <strong>more for you</strong>
-          </div>
-        {%- endif -%}
-        <ul class="grid grid--uniform grid--view-items">
-          {% assign count = 1 %}
-          {%- for reco_product in collections.all.products -%}
-          {% if reco_product.id != product.id and count < 5 %}
+          {%- for reco_product in collections.upsell-cart.products -%}
+          {% if reco_product.id != product.id and count < 14 %}
             {% assign count = count | plus: 1 %}
-            <li class="grid__item small--one-half medium-up--one-quarter recommendation">
-              {% include 'product-card-for-pdp-carousel', max_height: 250, product: reco_product, show_vendor: section.settings.show_vendor %}
+            <li id="also-like-section" class="grid__item small--one-half medium-up--one-quarter recommendation">
+              {% include 'product-card-for-slider-cart-carousel', max_height: 250, product: reco_product, show_vendor: section.settings.show_vendor %}
             </li>
           {% endif %}
           {%- endfor -%}
         </ul>
       </div>
 {%- endif -%}
-<script>
+<!-- <script>
   const swiper = new Swiper('.swiper3', {
   // Optional parameters
   direction: 'horizontal',
@@ -107,8 +69,8 @@
 
 });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
+ <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+ -->
 {% schema %}
 {
   "name": {
@@ -248,4 +210,4 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %}{% endcomment %}
