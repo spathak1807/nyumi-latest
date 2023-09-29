@@ -1,3 +1,11 @@
+<style>
+  #shopify-section-summer-video{
+    background:white !important;
+  }
+  .wc_product_review_badge .wc_icon_color svg path{
+    fill:#ffcf47 !important;
+  }
+</style>
 {% comment %}
   The contents of the product.liquid template can be found in /sections/product-template.liquid
 {% endcomment %}
@@ -11,6 +19,10 @@
 {% endif %}
 {% section 'FactsBox' %}
 {% section 'facts_carousel' %}
+<!--inserted  -->
+{% section 'hairfall-woe' %}
+{% section 'clinical-proof' %}
+<!--inserted end -->
 {% section 'product-page-icon' %}
 {% section 'product-ingredients' %}
 {% section 'ingredients-slider' %}
@@ -19,6 +31,9 @@
 {% section 'why-nyumi' %}
 {% section 'product-reviews' %}
 {% section 'product-faq' %}
+<!--inserted  -->
+{% section 'summer-video' %}
+<!--inserted end -->
 {% section 'product-recommendations' %}
 
 {% if collection %}
@@ -30,6 +45,17 @@
   </div>
 {% endif %}
 
+<div style="text-align:center; margin-bottom:1rem;">
+<div class="product_breadcrumbs">
+          <a href="https://{{ request.host }}">
+            Home 
+          </a>/
+          <a href="https://{{ request.host }}/collections/all">
+            Products 
+          </a>/ <strong>{{ product.title }}</strong>
+        </div>
+  </div>
+  
 <script>
   // Override default values of shop.strings for each template.
   // Alternate product templates can change values of
