@@ -1048,8 +1048,7 @@ header.section-header{
 }
 .cm_but{
     margin-top: 35px;
-    margin-bottom: 35px;
-  
+    margin-bottom: 65px;
    @media only screen and (max-width: 768px){ 
      margin-bottom: 0;
      margin-top: 20px;
@@ -1572,6 +1571,11 @@ header.site-header.logo--left, .site-header__mobile-nav{
     object-fit: contain;
     }
   }
+  .pdtb_flx {
+    .pdtb_item{
+      margin-bottom: 10px !important;
+    }
+  }
 }
 .announcement-bar__message{
    margin-bottom: 0;
@@ -1599,7 +1603,7 @@ a.site-header__logo-image{
     width:50%;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     justify-content: space-between;
   }
   .pdtb_img{
@@ -1637,7 +1641,8 @@ a.site-header__logo-image{
     position: relative;
     padding:15px 20px 15px 0;
     font-family: 'manropes';
-    font-size:14px;
+    font-size:16px;
+    font-weight:bold;
     text-transform: uppercase;
     &:before{
       content: '';
@@ -1762,6 +1767,14 @@ a.site-header__logo-image{
       font-size: 16px;
       text-transform: capitalize;
 }
+.product_sub_title span{
+    font-size: 10px;
+    background-color: #F37168;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+    margin-right: 10px;
+}
 .pd_sty_txt{
   color:#231F20;
   font-size:16px;
@@ -1773,8 +1786,8 @@ a.site-header__logo-image{
   font-size:16px;
   line-height:24px;
   @media screen and (max-width: 768px){
-     font-size:17x;
-  	line-height:31px;
+     font-size:14px;
+  	line-height:22px;
   }
 }
 .product_tab_heading{
@@ -1800,10 +1813,10 @@ a.site-header__logo-image{
     margin-top: -20px;
 }
 .product__price{
-   margin-bottom: 20px;
+   margin-bottom: 14px;
   .price-item--regular{
     font-size: 26px;
-    font-family: 'corbenr';
+    font-family: 'manropes';
     font-weight: 400;
   }
 }
@@ -2875,7 +2888,6 @@ span.nameset.first1{
 .insta_header{
   text-align: center;
   margin-top: 40px;
-  margin-bottom: 20px;
   p{
     margin-bottom: 0;
     a{
@@ -6229,6 +6241,8 @@ img.logo_shop{
 .remove_and_qty{
   display:flex;
   align-items:center;
+  justify-content:flex-end;
+  padding-right:10px;
   margin-top: 13px;
   margin-bottom: 25px;
   .minct_item_qty{
@@ -6915,7 +6929,10 @@ article{
 
 @media screen and (max-width: 500px){
   .product_image{
-    height: 360px !important;
+    width:100%;
+     height:unset !important;
+    aspect-ratio: unset;
+    padding:0 1rem;
   }
 }
 
@@ -6928,8 +6945,17 @@ article{
     height: 450px;
     width: 450px;
     @media screen and (max-width: 620px){
-      height: 350px;
+      width:100%;
+      height:unset;
+      aspect-ratio:1;
     }
+  }
+}
+@media screen and (max-width: 500px){
+  .product_image{
+    width:100%;
+     height:unset !important;
+    aspect-ratio:unset;
   }
 }
 .product_thumb{
@@ -7207,11 +7233,12 @@ td.cart__removed-product{
         text-transform: capitalize !important;
         position: relative !important;
         z-index:99 !important;
+        margin-bottom: 0.5rem;
       }
       .price--on-sale .price__sale {
         display: flex;
       flex-direction: inherit;
-      align-items: flex-end;
+      align-items: center;
       }
       h1.product-single__title {
         font-size: 40px;
@@ -7232,8 +7259,9 @@ td.cart__removed-product{
         }
       }
       .product__price .price-item--regular {
-        font-size: 20px;
-        color: #000;
+        font-size: 18px;
+        color: grey;
+        font-family: 'corbenr';
       }
       
       .price__regular{
@@ -7628,7 +7656,6 @@ td.cart__removed-product{
 #shopify-section-product-recommendations {
   padding-top: 20px;
   .product-recommendations__inner {
-    max-width: 1200px;
     margin: 0 auto;
     padding:0 15px;
     padding-bottom: 50px;
@@ -7733,17 +7760,23 @@ td.cart__removed-product{
 
 @media screen and(max-width: 768px) {
   .product-template__container {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
     .product-single {
+      margin-left:0px;
       >.grid__item {
         width: 100%;
-        padding-left: 15px;
+        padding-left: 0px;
         .product-featured-media {
           padding-top: 0px;
           padding-bottom: 0px;
         }
       }
+      >.grid__item:nth-child(2){
+          padding-left: 15px;
+          padding-right: 15px;
+        margin-top:0.5rem;
+        }
       .product-single__media-group {
         width: 45%;
       }
@@ -7775,14 +7808,54 @@ td.cart__removed-product{
     }
   }
 }
-
-
+.product__price .price-item--regular {
+          font-size: 20px!important;
+           color:grey;
+        }
+  span.price-item.price-item--sale {
+          font-size: 24px!important;
+        }
+h1.product-single__title {
+          font-size: 40px;
+          margin-top: -10px;
+          color: #F37168;
+          font-family: 'corbenr';
+          font-weight:400;
+        }
 @media screen and(max-width: 767px) {
+  .wc_review_graph li .wc_rating_filter{
+    width:100%;
+  }
+  .wc_review_graph li .wc_rating_filter{
+      display:flex;
+  }
+  .wc_review_layout_2 ul.wc_review_graph li .wc_rating_filter_lay_2 .wc_graph_value_lyt_2{
+    flex:1;
+  }
+  .wc_graph_value .wc_graph_bar{
+    width:100%;
+  }
   .template-product {
     .main-content {
       padding-top: 0px!important;
     }
   }
+   .product__price .price-item--regular {
+          font-size: 20px!important;
+           color:grey;
+        }
+  span.price-item.price-item--sale {
+          font-size: 18px!important;
+        }
+  h1.product-single__title {
+          font-size: 30px;
+          margin-top: -10px;
+          color: #F37168;
+          font-family: 'corbenr';
+        }
+  .product__price {
+          margin-bottom: 7px;
+        }
   .product-template__container {
     margin-top: 0px!important;
     .product-single {
@@ -7807,9 +7880,7 @@ td.cart__removed-product{
             height: 21px;
           }
         }
-        .product__price .price-item--regular {
-          font-size: 20px!important;
-        }
+       
         span.price-item.price-item--sale {
           font-size: 25px!important;
         }
@@ -7885,10 +7956,10 @@ td.cart__removed-product{
           }
           .pdtb_img {
             @media screen and(max-width: 768px) {
-              min-height: 50px;
+              min-height: 35px;
               align-items: center;
               display: flex;
-              margin-bottom: 5px;
+              margin-bottom: 0px;
             }
           }
         }
@@ -7950,7 +8021,7 @@ td.cart__removed-product{
   .row.icon_boxes {
     padding-top: 0px!important;
     .boxes {
-      margin: 17px 0px!important;
+      margin: 4px 0px!important;
     }
   }
   .ingredient_section {
@@ -8174,10 +8245,10 @@ td.cart__removed-product{
 
 
 .product-reviews-section {
-  padding-top: 100px;
+  padding-top: 60px;
   padding-bottom: 10px;
    @media screen and (max-width: 768px){
-     padding-top: 90px;
+     padding-top: 50px;
    }
   .section_heading {
     font-size: 40px;
@@ -8936,12 +9007,20 @@ div#shopify-section-cart-template{
   .ingredient_section .fade-slider li h4{
     font-size: 16px;
     margin-top: 30px;
+    margin-bottom:30px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-family:"Manrope";
   }
 }
 @media screen and (max-width: 374px){
  .ingredient_section .fade-slider li h4{
     font-size: 12px;
     margin-top: 30px;
+    display:flex;
+    align-items:center;
+    gap:5px;
   }
 }
 @media screen and (max-width: 790px){
@@ -9843,7 +9922,7 @@ span.nameset.first1 {
     margin-bottom: 15px;
 }
   .boxes .icon_txt {
-    margin-top: 20px;
+    margin-top: 8px;
   }
   .row.icon_boxes {
     padding: 20px 0px;
@@ -10207,6 +10286,7 @@ li.grid__item.medium-up--one-third {
   .faq-main .product_tab_item .pdtb_heading {
     font-size: 16px;
     line-height: 24px;
+    font-weight:bold;
   }
   .faq-main section.ac-container .pdtb_detail p {
     font-size: 14px;
@@ -10251,7 +10331,7 @@ li.grid__item.medium-up--one-third {
 }  
   
 #shopify-section-product-recommendations .product-recommendations__inner {
-    padding: 20px;
+    padding: 20px 0;
 }
   
 #shopify-section-product-recommendations .product-recommendations__inner li {
@@ -10295,7 +10375,7 @@ li.grid__item.medium-up--one-third {
   }
   
   .component_section.ingred_slider {
-    padding: 40px 0px;
+    padding: 20px 0px;
   }
   
  
@@ -10433,4 +10513,16 @@ li.grid__item.medium-up--one-third {
 .component_section .component_slider li span.component_location img {
     width: auto;
     height: auto;
+}
+
+.description-special {
+  font-weight: bold;
+  color: black;
+  padding: 5px;
+  margin-bottom: 0.25rem;
+  background-color: #fff4ef ;
+  font-size: 16px;
+  @media only screen and (max-width: 768px){
+    font-size:12px;
+  }
 }

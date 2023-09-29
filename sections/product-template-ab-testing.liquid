@@ -112,6 +112,9 @@
     letter-spacing: 0.02em;
     color: #f37168;
   }
+  .product_sub_title{
+    margin-bottom:1rem;
+  }
   @media only screen and (max-width: 900px) {
     #product_slider_thumb img {
       height: 50px;
@@ -136,6 +139,9 @@
    }
   }
   @media only screen and (max-width: 500px) {
+     .product_sub_title{
+    margin-bottom:1rem;
+  }
     .concern-option p {
       font-size: 14px;
     }
@@ -176,6 +182,9 @@
     }
     .product-price-btn {
       display: block;
+    }
+    .wc_product_review_badge .wc_review_badge_inner{
+      justify-content:flex-start;
     }
   }
 
@@ -341,12 +350,17 @@
           </a>/ {{ product.title }}
         </div>
         {% endcomment %}
+         
+        <div class="product_sub_title">
+          {% if product.metafields.custom.product_tag != blank %}
+            <span>{{ product.metafields.custom.product_tag }}</span>
+          {% endif %}
+          {% if product.metafields.my_fields.product_subtitle != blank %}
+          {{ product.metafields.my_fields.product_subtitle }}</div>
+        {% endif %}
         <h1 class="product-single__title">{{ product.title }}</h1>
         
         
-        {% if product.metafields.my_fields.product_subtitle != blank %}
-        <div class="product_sub_title">{{ product.metafields.my_fields.product_subtitle }}</div>
-        {% endif %}
         <div class="reviews" style="display: flex; align-items: end; margin-bottom: 1.5rem; margin-top: 5px;">
           <div style="width: fit-content;" class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
           <span style="padding: 0 5px"> | </span>
@@ -355,12 +369,12 @@
         
 
         
-        {% if product.metafields.my_fields.product_flavour_text != blank or product.metafields.my_fields.product_flavour_image != blank %}
+        <!-- {% if product.metafields.my_fields.product_flavour_text != blank or product.metafields.my_fields.product_flavour_image != blank %}
         <div class="product_sub_type">
           <img src="{{ product.metafields.my_fields.product_flavour_image | img_url: 'small' }}" alt="{{ product.metafields.my_fields.product_flavour_image.alt }}"/>
           <div class="pd_sty_txt">{{ product.metafields.my_fields.product_flavour_text }}</div>
         </div>
-        {% endif %}
+        {% endif %} -->
 
           <div class="product__price">
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
@@ -454,6 +468,7 @@
                       data-index="option{{ i }}"
                       name="{{ option.name | handleize }}"
                       id="SingleOptionSelector-{{ option.name | handleize }}-{{ value | escape }}"
+                      onchange="variantchangefunc()"
                   >
                   <label style="padding: 1rem 0 !important;" for="SingleOptionSelector-{{ option.name | handleize }}-{{ value | escape }}">
                   
@@ -461,6 +476,7 @@
                     {% assign var-disc-percent = var-disc | times:100.0 %}
                 
                     <span class="variant-title">{{ value | escape }}</span>
+                {% comment %}
                     <small class="variant-desc">{{ product.variants[forloop.index0].metafields.global.PacksOf.value }}</small>
                     <span class="variant-price" style="display: flex; justify-content: space-evenly; flex-direction: row-reverse; margin: 0.5rem 0 !important;">
                       {% if product.variants[forloop.index0].compare_at_price > product.variants[forloop.index0].price %}
@@ -468,13 +484,11 @@
                       {% endif %}
                       <p>{{product.variants[forloop.index0].price | money}}</p>
                     </span>
-                {% comment %}
                     {% assign var-disc = product.variants[forloop.index0].compare_at_price | minus: product.variants[forloop.index0].price %}
                     {% assign var-disc-percent = var-disc | times:100.0 %}
                     {% if product.variants[forloop.index0].compare_at_price >= product.variants[forloop.index0].price %}
                     <span class="variant-discount">You Save {{var-disc | money}} ({{ var-disc-percent | divided_by: product.variants[forloop.index0].compare_at_price | round }}% Off)</span>
                     {% endif %}
-                {% endcomment %}
 
                      <!--[Variant discount % price]-->
           {% assign var-disc = product.variants[forloop.index0].compare_at_price | minus: product.variants[forloop.index0].price %}
@@ -482,6 +496,7 @@
             {% if product.variants[forloop.index0].compare_at_price > product.variants[forloop.index0].price %}
               <p style="background: none !important; color: #ec716a !important;" class="save_txt_pd_inner_variant_box">SAVE {{ var-disc-percent | divided_by: product.variants[forloop.index0].compare_at_price | round }}%</p>
             {% endif %}
+                {% endcomment %}
       <!--[Variant discount % price]-->
           <!--[Most popular]-->
 {% comment %}                      <p class="most_popular_text">Most Popular</p>  {% endcomment %}
@@ -510,7 +525,7 @@
         
            <div class="btn_qty_flx">
             {% if section.settings.show_quantity_selector %}
-              <div class="product-form__controls-group">
+              <div class="product-form__controls-group desktop">
                   <div class="prodcut_qty_box">
                     <div class="product_sign qty_minis">
                       <img src="{{ 'minus.png' | asset_url }}" alt="#"/>
@@ -568,7 +583,7 @@
         
          </div>
         <div class="product__price_ab_test" style="display: none;">
-            {% include 'product-price-ab-test', variant: current_variant, show_vendor: section.settings.show_vendor %}
+            {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
           </div>
           {% endform %}
        
@@ -609,6 +624,7 @@
         {% endif %}
         {% if product.description != blank %}
         <div class="product-single__description rte">
+          <div class='description-special'> {{ product.metafields.custom.special_description }} </div>
           {{ product.description }}
         </div>
         {% endif %}
@@ -1017,7 +1033,12 @@
 {% endunless %}
 
 <script>
-
+ function variantchangefunc(){
+    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))
+    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',""))
+    const disper=((camp-disp)/camp)*100
+    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`
+ }
   $(document).ready(function() {
     
     for(var i=0; i<$('.single-option-selector').length; i++) {
@@ -1055,11 +1076,15 @@
       }
     }
     $('.options p')[variant_index].classList.add('active')
+    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))
+    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',""))
+    const disper=((camp-disp)/camp)*100
+    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`
   })
 
   setInterval(function(){
-    for(var i=1; i<$('.slider_itmes').length-2; i++){
-      if($('.slider_itmes')[i].classList.contains('slick-active')) {
+    for(var i=0; i<=$('.slider_itmes').length-3; i++){
+      if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
         $('.slider_thumb')[i].style.opacity = 1
       }
       else {

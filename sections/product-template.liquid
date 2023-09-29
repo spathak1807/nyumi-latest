@@ -12,6 +12,9 @@
     height: auto !important;
     width: 100% !important;
   }
+  .product_sub_title{
+    margin-bottom:1rem;
+  }
   .variant-section {
     display: flex;
     flex-flow: row wrap;
@@ -106,6 +109,9 @@
     }
     .product_breadcrumbs {
       padding-bottom: 1rem;
+    }
+    .wc_product_review_badge .wc_review_badge_inner{
+      justify-content:flex-start;
     }
   }
 
@@ -271,23 +277,28 @@
           </a>/ {{ product.title }}
         </div>
 
-        <h1 class="product-single__title">{{ product.title }}</h1>
         
-        
-        {% if product.metafields.my_fields.product_subtitle != blank %}
-        <div class="product_sub_title">{{ product.metafields.my_fields.product_subtitle }}</div>
+        <div class="product_sub_title">
+          {% if product.metafields.custom.product_tag != blank %}
+            <span>{{ product.metafields.custom.product_tag }}</span>
+          {% endif %}
+          {% if product.metafields.my_fields.product_subtitle != blank %}
+          {{ product.metafields.my_fields.product_subtitle }}</div>
         {% endif %}
+        <h1 class="product-single__title">{{ product.title }}</h1>
+       
+        
         <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
         
 
         
-        {% if product.metafields.my_fields.product_flavour_text != blank or product.metafields.my_fields.product_flavour_image != blank %}
+        <!-- {% if product.metafields.my_fields.product_flavour_text != blank or product.metafields.my_fields.product_flavour_image != blank %}
         <div class="product_sub_type">
           <img src="{{ product.metafields.my_fields.product_flavour_image | img_url: 'small' }}" alt="{{ product.metafields.my_fields.product_flavour_image.alt }}"/>
           <div class="pd_sty_txt">{{ product.metafields.my_fields.product_flavour_text }}</div>
         </div>
         {% endif %}
-
+ -->
           <div class="product__price">
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
           </div>
@@ -371,6 +382,7 @@
                       data-index="option{{ i }}"
                       name="{{ option.name | handleize }}"
                       id="SingleOptionSelector-{{ option.name | handleize }}-{{ value | escape }}"
+                      onchange="variantchangefunc()"
                   >
                   <label for="SingleOptionSelector-{{ option.name | handleize }}-{{ value | escape }}">
 
@@ -398,7 +410,7 @@
                       {% if product.variants[forloop.index0].compare_at_price > product.variants[forloop.index0].price %}
                         <p><small><s class="price-item--regular" data-regular-price="">{{product.variants[forloop.index0].compare_at_price | money}}</s></small></p>
                       {% endif %}
-                      <p>{{product.variants[forloop.index0].price | money}}</p>
+                      <p>{{product.variants[forloop.index0].price | money}} </p>
                     </span>
                 {% comment %}
                     {% assign var-disc = product.variants[forloop.index0].compare_at_price | minus: product.variants[forloop.index0].price %}
@@ -442,7 +454,7 @@
         
            <div class="btn_qty_flx">
             {% if section.settings.show_quantity_selector %}
-              <div class="product-form__controls-group">
+              <div class="product-form__controls-group desktop">
                   <div class="prodcut_qty_box">
                     <div class="product_sign qty_minis">
                       <img src="{{ 'minus.png' | asset_url }}" alt="#"/>
@@ -536,6 +548,7 @@
         {% endif %}
         {% if product.description != blank %}
         <div class="product-single__description rte">
+          <div class='description-special'> {{ product.metafields.custom.description_special }} </div>
           {{ product.description }}
         </div>
         {% endif %}
@@ -961,19 +974,26 @@
     }
   });
   setInterval(function(){
-      for(var i=1; i<$('.slider_itmes').length-2; i++){
-        if($('.slider_itmes')[i].classList.contains('slick-active')) {
-          $('.slider_thumb')[i].style.opacity = 1
-        }
-        else {
-          $('.slider_thumb')[i].style.opacity = 0.5
-        }
+    for(var i=0; i<=$('.slider_itmes').length-3; i++){
+      if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
+        $('.slider_thumb')[i].style.opacity = 1
       }
-    })
+      else {
+        $('.slider_thumb')[i].style.opacity = 0.5
+      }
+    }
+  })
   
 </script>
 
 <script>
+  function variantchangefunc(){
+    setInterval(function(){
+    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))
+    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',""))
+    const disper=((camp-disp)/camp)*100
+    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`},500)
+ }
   $(document).ready(function() {
     $('.product-recommendations__inner .add_to_cart_custom').click(function(event){
       console.log('recommend event', event)

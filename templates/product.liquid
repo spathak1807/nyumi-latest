@@ -1,3 +1,11 @@
+<style>
+  #shopify-section-summer-video{
+    background:white !important;
+  }
+  .wc_product_review_badge .wc_icon_color svg path{
+    fill:#ffcf47 !important;
+  }
+</style>
 {% comment %}
   The contents of the product.liquid template can be found in /sections/product-template.liquid
 {% endcomment %}
@@ -9,16 +17,17 @@
 {% else %}
   {% section 'product-template' %}
 {% endif %}
-{% section 'FactsBox' %}
-{% section 'facts_carousel' %}
+{% section 'hairfall-woe' %}
+{% section 'clinical-proof' %}
 {% section 'product-page-icon' %}
 {% section 'product-ingredients' %}
 {% section 'ingredients-slider' %}
-{% section 'nutrition-info' %}
 {% section 'kept-out' %}
-{% section 'why-nyumi' %}
 {% section 'product-reviews' %}
+{% comment %}
 {% section 'product-faq' %}
+{% endcomment %}
+{% section 'summer-video' %}
 {% section 'product-recommendations' %}
 
 {% if collection %}
@@ -29,7 +38,16 @@
     </a>
   </div>
 {% endif %}
-
+<div style="text-align:center; margin-bottom:1rem;">
+<div class="product_breadcrumbs">
+          <a href="https://{{ request.host }}">
+            Home 
+          </a>/
+          <a href="https://{{ request.host }}/collections/all">
+            Products 
+          </a>/ <strong>{{ product.title }}</strong>
+        </div>
+  </div>
 <script>
   // Override default values of shop.strings for each template.
   // Alternate product templates can change values of
@@ -118,7 +136,7 @@
   // GA4 dataLayer => add to cart main product
   document.addEventListener('click', function (event) {
   if(!event.target.matches('.product-single button.product-form__cart-submit, .product-single button.product-form__cart-submit > span')) return;
-    var qty = document.getElementById('Quantity-product-template');
+    // var qty = $('#Quantity-product-template')[0].value || $('#Quantity-ab-test-template')[0].value;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'add_to_cart',
@@ -128,7 +146,7 @@
           item_id: '{{ product.id }}',
           price: '{{ product.price | divided_by:100 | json }}',
           item_brand: '{{ product.vendor }}',
-          quantity: qty.value
+          quantity: '1'
         }]
       }
     });

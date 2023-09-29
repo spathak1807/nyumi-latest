@@ -340,7 +340,7 @@ a.button {
 }
 .text_right{
     top: 20%;
-    right: 1%;
+    right: 2%;
     width: 47%;
     z-index: 999;
 }
@@ -382,7 +382,7 @@ div#Science-subheading {
 .Science_section{ 
   position:relative;
   padding: 0 0 100px 0;
-  margin-top:35px;
+  margin-top:60px;
   min-height:450px;
 }
 .Science_section:before{
@@ -633,6 +633,7 @@ max-width: 220px;
   	position: absolute;
     opacity: 1;
     right: -16px;
+  top:14px;
 }
 .newslater_design {
     position: relative;
@@ -760,6 +761,17 @@ span.price__badge.price__badge--sale {
     padding: 18px 7px;
     font-size: 11px;
   }
+  #shopify-section-collection-template .price__regular,span.price-item.price-item--sale{
+    font-size: 24px !important;
+  }
+  .price__regular,span.price-item.price-item--sale {
+    font-size: 18px !important;
+    font-family: 'manropes';
+  	font-weight: 400;
+}
+}
+.newslater_design input[type=submit]{
+  top:14px !important;
 }
 .template-collection span.price__badge.price__badge--sale {
    top: 0 ;
@@ -776,7 +788,7 @@ span.price-item.price-item--sale {
     color: #000;
 }
 .h4.grid-view-item__title.product-card__title.center {
-    font-family: 'corbenr';
+    font-family: 'manropes';
     font-size: 20px;
   	line-height: 25px;
     text-transform: lowercase;
@@ -796,7 +808,7 @@ span.price-item.price-item--sale {
 }
 .price__compare span.price-item.price-item--regular {
     font-size: 12px;
-  font-family: 'corbenr';  
+  font-family: 'manropes';  
   text-decoration: line-through;
   position: relative;
     top: 3px;
@@ -804,8 +816,8 @@ span.price-item.price-item--sale {
   font-weight: 100;
 }
 .price__regular,span.price-item.price-item--sale {
-    font-size: 20px;
-    font-family: 'corbenr';
+    font-size: 24px;
+    font-family: 'manropes';
   	font-weight: 400;
 }
 .template-search .product_description {
@@ -965,6 +977,7 @@ dl.price.price--listing.center .price__regular, dl.price.price--listing.center.p
     font-family: 'corbenr';
     padding-bottom: 35px;
 }
+
 body.template-product .bottom_section.bst {
     margin-top: 0px;
 }
@@ -984,18 +997,18 @@ ul.strikeout {
         display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
      
   }
 }
 ul.strikeout li {
     font-size: 36px;
-  	color: #f37168;
+  	color: white;
   	padding-right: 25px;
   	font-family: 'corbenr';
 }
 ul.strikeout li:first-child{
-   padding-left: 5px;
+   padding-left: 0px;
 }
 
 
@@ -1033,7 +1046,7 @@ ul.strikeout li:after {
     width: calc(100% - 10px);
     border-bottom: 2px solid;
     /* padding-left: 40px; */
-    right: -15px;
+    right: 0px;
     top: -15px;
     transform: translate(0%, -50%);
   	position:relative;
@@ -1048,17 +1061,17 @@ ul.strikeout li:after {
     height: unset;
 }
 .strikewords {
-    padding: 50px 0px;
-    background: #FFF4ED; 
+    padding: 30px 0px;
+    background: #F37168; 
 }
 @media screen and (max-width: 768px) {
   .strikewords {
-     padding: 40px 15px;
+     padding: 20px 15px;
      
    }
 }
 span.inner {
-    color: #000;
+    color: white;
 }
 .black {
     color: #000;
@@ -1089,7 +1102,7 @@ span.inner {
 }
 ul.strikeout li:before {
     content: "\2022";
-    color: #000;
+    color: white;
     margin-right: 12px;
   	top: 2px;
     position: relative;
@@ -1759,10 +1772,12 @@ body.template-collection .bottom_section {
 }
 
 .faq_section.relative .cm_but.center {
-    padding-top: 50px;
+    padding-top: 0px;
   	margin-bottom: 4px;
 }
-
+.read_more_faq button{
+  position:relative;
+}
 body.template-product div#shopify-section-product-recommendations {
     padding-bottom: 60px;
 }
@@ -1963,6 +1978,52 @@ body.template-customers-register .form-vertical,
    
 }
 
+/* PDP Revamp */
+/* Copy the whole file for migration */
+.strikewords > p {
+  font-family: "Manrope";
+  font-size: 25px;
+  font-weight: normal;
+  color: white;
+}
+
+.strikewords_title {
+    color: white;
+    font-size: 23px;
+    font-family: 'corbenr';
+}
+
+@media screen and (max-width: 768px) {
+  #nutritionInfo {
+    padding-bottom: 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .strikewords > p {
+    font-family: "Manrope";
+    font-size: 32px;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+  .strikewords_title {
+    color: white;
+    text-align: center;
+    font-size: 23px;
+    font-family: 'corbenr';
+}
+  ul.strikeout {
+    margin-top: 0.5rem;
+  }
+  ul.strikeout li {
+        font-size: 24px;
+    color: white;
+    padding-right: 25px;
+    font-family: 'corbenr';
+}
+}
 
 
 
