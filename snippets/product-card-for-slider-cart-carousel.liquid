@@ -1,0 +1,351 @@
+{% comment %}
+    Renders a product card using "Grid" style
+    Accepts:
+    - max_height: {Number} Maximum height of the product's image (required)
+    - product: {Object} Product Liquid object (required)
+    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+    Usage:
+    {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+{% comment %}
+<style>
+  .product_icon_sec_outer .custom_icon_content p {
+    font-size: 12px;
+  }
+</style>
+<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url }}">
+    <span class="visually-hidden">{{ product.title }}</span>
+  </a>
+
+  {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {%- assign preview_image = product.featured_media.preview_image -%}
+  {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+  {% unless preview_image == blank %}
+    {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+  {% endunless %}
+
+  <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
+    {% if product.metafields.my_fields.product_hover_image != blank %}
+    <div class="prdocut_icon">
+      <img class="lazyload" data-src="{{ product.metafields.my_fields.product_hover_image | img_url: 'master' }}" alt="{{ product.metafields.my_fields.product_hover_image.alt }}">
+    </div>
+    {% endif %}
+    <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
+      <div style="padding-top:{% unless preview_image == blank %}{{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
+        <img id="{{ img_id }}"
+              class="grid-view-item__image lazyload"
+              alt="{{ preview_image.alt }}"
+              data-src="{{ product.featured_media.preview_image | img_url: '680x'}}" />
+      </div>
+    </div>
+    <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
+  </div>
+
+  <noscript>
+    {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+    <img class="grid-view-item__image lazyload" data-src="{{ preview_image | img_url: image_size, scale: 2 }}" alt="{{ preview_image.alt }}" style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;">
+  </noscript>
+  <div class="product_details">
+  <div class="h4 grid-view-item__title product-card__title center" aria-hidden="true">{{ product.title }}</div>
+  {% if product.metafields.my_fields.product_sub_title != blank and collection.id == 400236118272 %}
+    <div class="product_description" data-url="https://nyumi.com/products/{{product.handle }}">
+    {{ product.metafields.my_fields.product_sub_title }}
+  </div>
+    {% endif %}
+ 
+  
+    
+  {% include 'collection-price', product: product, show_vendor: show_vendor %}
+<!--     <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div> -->
+
+</div>
+</div>  
+{% if collection.id == 400236118272 %}
+  <div class="product_icon_sec_outer">
+    <div class="custom_icon_content">
+      {% if product.metafields.custom.icon_1_nyumi_collection.value["icon"] != blank %}
+        <img class="lazyload" data-src="{{ product.metafields.custom.icon_1_nyumi_collection.value["icon"] }}" alt="" />
+      {% endif %}
+      {% if product.metafields.custom.icon_1_nyumi_collection.value["text"] != blank %}
+        <p>{{ product.metafields.custom.icon_1_nyumi_collection.value["text"] }}</p>
+      {% endif %}
+    </div>
+    <div class="custom_icon_content">
+      {% if product.metafields.custom.icon_2_nyumi_collection.value["icon"] != blank %}
+        <img class="lazyload" data-src="{{ product.metafields.custom.icon_2_nyumi_collection.value["icon"] }}" alt="" />
+      {% endif %}
+      {% if product.metafields.custom.icon_2_nyumi_collection.value["text"] != blank %}
+        <p>{{ product.metafields.custom.icon_2_nyumi_collection.value["text"] }}</p>
+      {% endif %}
+    </div>
+    <div class="custom_icon_content">
+      {% if product.metafields.custom.icon_3_nyumi_collection.value["icon"] != blank %}
+        <img class="lazyload" data-src="{{ product.metafields.custom.icon_3_nyumi_collection.value["icon"] }}" alt="" />
+      {% endif %}
+      {% if product.metafields.custom.icon_3_nyumi_collection.value["text"] != blank %}
+        <p>{{ product.metafields.custom.icon_3_nyumi_collection.value["text"] }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+<div class="add_to_cart_custom" variant-id="{{ product.variants.first.id }}" variant-name="{{ product.variants.first.title }}" price="{{ product.price }}" product-name="{{ product.title }}" product-id="{{ product.id }}">
+<form method="post" action="/cart/add">
+    <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+    <input min="1" type="number" id="quantity" name="quantity" value="1"/>
+    <button type="submit" name="add" variant-id="{{ product.variants.first.id }}" variant-name="{{ product.variants.first.title }}" price="{{ product.price }}" product-name="{{ product.title }}" product-id="{{ product.id }}"
+                  {% unless product.available %} aria-disabled="true"{% endunless %}
+                  aria-label="{% unless product.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
+                  class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
+                  aria-haspopup="dialog"
+                  data-add-to-cart>
+                  <span data-add-to-cart-text>
+                    {% unless product.available %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% else %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% endunless %}
+                  </span>
+                  <span class="hide" data-loader>
+                    {% include 'icon-spinner' %}
+                  </span>
+                </button>
+  </form> 
+</div>
+{% endcomment %}
+{% comment %}
+    Renders a product card using "Grid" style
+    Accepts:
+    - max_height: {Number} Maximum height of the product's image (required)
+    - product: {Object} Product Liquid object (required)
+    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+    Usage:
+    {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+
+<style>
+  .product_icon_sec_outer .custom_icon_content p {
+    font-size: 12px;
+  }
+  .add_to_cart_custom button.btn.product-form__cart-submit{
+    border-radius:0 0 30px 30px;
+  }
+  .add_to_cart_custom{
+    max-width:unset !important;
+  }
+  #shopify-section-product-recommendations .product-recommendations__inner .grid__item{
+    box-shadow: 0px -4px 3px 0px rgba(0,0,0,0.1),0px 0px 3px 0px rgba(0,0,0,0.1);
+    padding-left: 0px;
+    padding-top: 0px;
+    border-radius:30px;
+    margin-top:1rem;
+  }
+  #shopify-section-product-recommendations .product-recommendations__inner .grid{
+    margin-left:0;
+    gap:1.5rem;
+    padding: 1rem;
+    flex-wrap:nowrap;
+  }
+  #shopify-section-product-recommendations .product-recommendations__inner .grid-view-item__image-wrapper{
+    margin-bottom:10px;
+  }
+  #shopify-section-product-recommendations .product-recommendations__inner .grid-view-item__image{
+    height:150px;
+  }
+  #shopify-section-product-recommendations .product-recommendations__inner .grid-view-item__image-wrapper{
+    height:150px;
+    margin-top:1rem;
+  }
+  #product-title-also-like {
+    font-size: 10px!important;
+    display: flex;
+    justify-content: center;
+    font-family: 'corbenr';
+    color:#000000;
+}
+div#image-also-like {
+    max-width: 80px;
+    margin: 0 auto;
+}
+  div#image-also-like-2 {
+    width: 117px;
+}
+  div#image-also-like-1 {
+    width: 117px;
+    margin-bottom: 0;
+}
+  div#product-image-also-like {
+   width: 80px;
+    max-height: 80px;
+    margin: 0 auto;
+    padding:10px;
+}
+.product-recommendations__inner .also-like-section.grid-view-item__image-wrapper.product-card__image-wrapper.js {
+    margin-bottom: 0;
+}
+  div#compare-price-hide {
+    display: none;
+}
+  span#new-price {
+    font-size: 11px;
+}
+div#price-container {
+  margin: 0px;
+    margin-top: -6px;
+    padding-bottom: 2px;
+}
+ 
+ .add_to_cart_custom button.btn.product-form__cart-submit.may-also-like {
+    min-height: 0px;
+    padding: 0px!important;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   border-radius: 0px 0px 18px 18px;
+}
+  .product_details-new {
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+  span.atc-btn {
+    font-family: 'Manrope';
+    font-size: 10px!important;
+    padding: 5px;
+}
+  @media (max-width:767px){
+   div#image-also-like-2{
+      margin:0!important;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    .add_to_cart_custom button.btn.product-form__cart-submit{
+   max-width:unset !important;
+  }
+   
+    #shopify-section-product-recommendations .product-recommendations__inner .grid__item{
+      margin-top:0.8rem;
+      min-width:190px;
+  }
+    #shopify-section-product-recommendations .product-card__image-with-placeholder-wrapper{
+      min-height:120px;
+    }
+    #shopify-section-product-recommendations .product-recommendations__inner li{
+      padding-bottom:0;
+    }
+    #shopify-section-product-recommendations .product-recommendations__inner .grid-view-item__image-wrapper{
+    margin-bottom:8px;
+  }
+  #shopify-section-product-recommendations .product-recommendations__inner .grid-view-item__image{
+    height:120px;
+  }
+  #shopify-section-product-recommendations .product-recommendations__inner .grid-view-item__image-wrapper{
+    height:120px;
+    margin-top:0.5rem;
+  }
+  }
+</style>
+<div id="image-also-like-1" class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card" >
+  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url }}">
+    <span id="title-also" class="visually-hidden title-also-like">{{ product.title }}</span>
+  </a>
+
+  {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {%- assign preview_image = product.featured_media.preview_image -%}
+  {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+  {% unless preview_image == blank %}
+    {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+  {% endunless %}
+
+  <div id="product-image-also-like" class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
+    {% if product.metafields.my_fields.product_hover_image != blank %}
+    <div class="prdocut_icon">
+      <img class="lazyload" data-src="{{ product.metafields.my_fields.product_hover_image | img_url: 'master' }}" alt="{{ product.metafields.my_fields.product_hover_image.alt }}">
+    </div>
+    {% endif %}
+    <div id="{{ wrapper_id }}" class="also-like-section grid-view-item__image-wrapper product-card__image-wrapper js">
+      <div style="padding-top:{% unless preview_image == blank %}{{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
+        <img id="{{ img_id }}"
+              class="grid-view-item__image lazyload"
+              alt="{{ preview_image.alt }}"
+              data-src="{{ product.featured_media.preview_image | img_url: '680x'}}" />
+      </div>
+    </div>
+    <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
+  </div>
+
+  <noscript>
+    {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+    <img class="grid-view-item__image lazyload" data-src="{{ preview_image | img_url: image_size, scale: 2 }}" alt="{{ preview_image.alt }}" style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;">
+  </noscript>
+  <div class="product_details-new">
+  <div id="product-title-also-like" class="h4 grid-view-item__title product-card__title center" aria-hidden="true">{{ product.title }}</div>
+  {% if product.metafields.my_fields.product_sub_title != blank and collection.id == 400236118272 %}
+    <div class="product_description" data-url="https://nyumi.com/products/{{product.handle }}">
+    {{ product.metafields.my_fields.product_sub_title }}
+  </div>
+    {% endif %}
+ 
+  
+    
+  {% include 'price-for-you-may-also-like', product: product, show_vendor: show_vendor %}
+<!--     <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div> -->
+
+</div>
+</div>  
+{% if collection.id == 400236118272 %}
+  <div class="product_icon_sec_outer">
+    <div class="custom_icon_content">
+      {% if product.metafields.custom.icon_1_nyumi_collection.value["icon"] != blank %}
+        <img class="lazyload" data-src="{{ product.metafields.custom.icon_1_nyumi_collection.value["icon"] }}" alt="" />
+      {% endif %}
+      {% if product.metafields.custom.icon_1_nyumi_collection.value["text"] != blank %}
+        <p>{{ product.metafields.custom.icon_1_nyumi_collection.value["text"] }}</p>
+      {% endif %}
+    </div>
+    <div class="custom_icon_content">
+      {% if product.metafields.custom.icon_2_nyumi_collection.value["icon"] != blank %}
+        <img class="lazyload" data-src="{{ product.metafields.custom.icon_2_nyumi_collection.value["icon"] }}" alt="" />
+      {% endif %}
+      {% if product.metafields.custom.icon_2_nyumi_collection.value["text"] != blank %}
+        <p>{{ product.metafields.custom.icon_2_nyumi_collection.value["text"] }}</p>
+      {% endif %}
+    </div>
+    <div class="custom_icon_content">
+      {% if product.metafields.custom.icon_3_nyumi_collection.value["icon"] != blank %}
+        <img class="lazyload" data-src="{{ product.metafields.custom.icon_3_nyumi_collection.value["icon"] }}" alt="" />
+      {% endif %}
+      {% if product.metafields.custom.icon_3_nyumi_collection.value["text"] != blank %}
+        <p>{{ product.metafields.custom.icon_3_nyumi_collection.value["text"] }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+<div id="image-also-like-2" class="add_to_cart_custom" variant-id="{{ product.variants.first.id }}" variant-name="{{ product.variants.first.title }}" price="{{ product.price }}" product-name="{{ product.title }}" product-id="{{ product.id }}">
+<form method="post" action="/cart/add">
+    <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+    <input min="1" type="number" id="quantity" name="quantity" value="1"/>
+    <button type="submit" name="add" variant-id="{{ product.variants.first.id }}" variant-name="{{ product.variants.first.title }}" price="{{ product.price }}" product-name="{{ product.title }}" product-id="{{ product.id }}"
+                  {% unless product.available %} aria-disabled="true"{% endunless %}
+                  aria-label="{% unless product.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
+                  class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %} may-also-like"
+                  aria-haspopup="dialog"
+                  data-add-to-cart>
+                  <span class="atc-btn" data-add-to-cart-text>
+                    {% unless product.available %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% else %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% endunless %}
+                  </span>
+                  <span class="hide" data-loader>
+                    {% include 'icon-spinner' %}
+                  </span>
+                </button>
+  </form> 
+</div
+{% endcomment %}
