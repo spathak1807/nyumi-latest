@@ -7756,17 +7756,22 @@ td.cart__removed-product{
 
 @media screen and(max-width: 768px) {
   .product-template__container {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
     .product-single {
       >.grid__item {
         width: 100%;
-        padding-left: 15px;
+        padding-left: 0px;
         .product-featured-media {
           padding-top: 0px;
           padding-bottom: 0px;
         }
       }
+      >.grid__item:nth-child(2){
+          padding-left: 15px;
+          padding-right: 15px;
+        margin-top:0.5rem;
+        }
       .product-single__media-group {
         width: 45%;
       }
