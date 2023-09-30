@@ -1048,7 +1048,7 @@ header.section-header{
 }
 .cm_but{
     margin-top: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 65px;
   
    @media only screen and (max-width: 768px){ 
      margin-bottom: 0;
@@ -1572,6 +1572,11 @@ header.site-header.logo--left, .site-header__mobile-nav{
     object-fit: contain;
     }
   }
+  .pdtb_flx {
+    .pdtb_item{
+      margin-bottom: 10px !important;
+    }
+  }
 }
 .announcement-bar__message{
    margin-bottom: 0;
@@ -1599,7 +1604,7 @@ a.site-header__logo-image{
     width:50%;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     justify-content: space-between;
   }
   .pdtb_img{
@@ -1637,7 +1642,8 @@ a.site-header__logo-image{
     position: relative;
     padding:15px 20px 15px 0;
     font-family: 'manropes';
-    font-size:14px;
+    font-size:16px;
+    font-weight:bold;
     text-transform: uppercase;
     &:before{
       content: '';
@@ -1762,6 +1768,15 @@ a.site-header__logo-image{
       font-size: 16px;
       text-transform: capitalize;
 }
+.product_sub_title span{
+    font-size: 10px;
+    background-color: #F37168;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+    margin-right: 10px;
+}
+
 .pd_sty_txt{
   color:#231F20;
   font-size:16px;
@@ -1773,8 +1788,8 @@ a.site-header__logo-image{
   font-size:16px;
   line-height:24px;
   @media screen and (max-width: 768px){
-     font-size:17x;
-  	line-height:31px;
+     font-size:14px;
+  	line-height:22px;
   }
 }
 .product_tab_heading{
@@ -1800,10 +1815,10 @@ a.site-header__logo-image{
     margin-top: -20px;
 }
 .product__price{
-   margin-bottom: 20px;
+   margin-bottom: 14px;
   .price-item--regular{
     font-size: 26px;
-    font-family: 'corbenr';
+    font-family: 'manropes';
     font-weight: 400;
   }
 }
@@ -6229,6 +6244,8 @@ img.logo_shop{
 .remove_and_qty{
   display:flex;
   align-items:center;
+  justify-content:flex-end;
+  padding-right:10px;
   margin-top: 13px;
   margin-bottom: 25px;
   .minct_item_qty{
