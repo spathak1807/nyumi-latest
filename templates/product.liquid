@@ -49,7 +49,12 @@
 {% section 'summer-video' %}
 <!--inserted end -->
 {% endif %}}
-{% section 'product-recommendations' %}
+{% if product.id == 6092022481063 %}
+  {% section 'product-recommendations2' %}
+{% else %}
+  {% section 'product-recommendations' %}
+{% endif %}
+
 
 {% if collection %}
   <div class="text-center return-link-wrapper page-width">
