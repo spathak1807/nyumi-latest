@@ -6932,7 +6932,10 @@ article{
 
 @media screen and (max-width: 500px){
   .product_image{
-    height: 360px !important;
+     width:100%;
+     height:unset !important;
+    aspect-ratio: unset;
+    padding:0 1rem;
   }
 }
 
@@ -6945,7 +6948,9 @@ article{
     height: 450px;
     width: 450px;
     @media screen and (max-width: 620px){
-      height: 350px;
+      width:100%;
+      height:unset;
+      aspect-ratio:1;
     }
   }
 }
