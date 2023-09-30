@@ -728,7 +728,6 @@ p.wc_review_author_name {
   text-transform: capitalize !important;
   position: relative !important;
   z-index: 99 !important;
-  font-family:"Manrope";
 }
 
 /*================ Slick Slider Theme ================*/
@@ -2938,12 +2937,8 @@ hr {
 .grid--view-items {
   overflow: auto;
   margin-bottom: -$section-spacing-small;
- -ms-overflow-style: none; 
-  scrollbar-width: none;  
 }
-.grid--view-items::-webkit-scrollbar {
-  display: none;
-}
+
 .grid-view-item {
   margin: 0 auto 15px;
   .custom__item & {
@@ -8736,31 +8731,3 @@ $min-height-disclosure: 92px;
   }
 }
 
-
-/* Nyumi product  page revamp - 21 July */
-
-#product_slider_thumb li {
-  background : #F37168 !important;
-}
-
-@media screen and (max-width: 767px) {
-  .pdtb_flx .pdtb_img img {
-    width: 35px !important;
-    height: 35px !important;
-    object-fit: contain;
-}
-.product-template__container .product-single .pdtb_flx .pdtb_item {
-    flex-direction: row !important;
-    width: 50% !important;
-    gap: 8px;
-    justify-content: center !important;
-}
-  .product-template__container .product-single .pdtb_flx .pdtb_item .pdtb_txt {
-    margin-left: 0;
-    font-size: 12px !important;
-    text-align: left !important; 
-    max-width: 100%;
-    min-height: unset !important;
-    width: 100%;
-}
-}
