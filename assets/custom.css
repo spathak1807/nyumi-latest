@@ -118,6 +118,7 @@
 .ingredient_section .fade-slider li p span {
   background-color: transparent !important;
   color: #231f20 !important;
+  font-family:"Manrope";
 }
 .collection_flx .product_details .price span.price__badge.price__badge--sold-out, .product_section_outer .page_width:after {
   display: none;
@@ -719,7 +720,7 @@ font-family: 'Manrope', sans-serif;
     margin-bottom: 0;
   }
   ul.strikeout li:before {
-    display: none
+    display: none;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -727,6 +728,11 @@ font-family: 'Manrope', sans-serif;
     font-size: 14px !important;
     line-height: 22px !important;
   }
+  .price__compare .price-item--regular {
+  font-size: 18px !important;
+  font-family: "corbenr" !important;
+  line-height:20px;
+}
   .product-template__container .product-single .btn_qty_flx [type=submit] {
     opacity: 1;
     height: 51px !important;
@@ -931,7 +937,7 @@ font-family: 'Manrope', sans-serif;
 }
 .wc_product_review_badge .wc_review_badge_inner{
   display:flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .wc_product_review_badge .wc_review_badge_inner .wc_product_review_title{
   margin-top:6px;
