@@ -25,6 +25,11 @@
 <!--inserted end -->
 {% section 'product-page-icon' %}
 {% section 'product-ingredients' %}
+{% if product.id == 6092022481063 %}
+  {% section 'ingredients-slider2' %}
+{% else %}
+  {% section 'ingredients-slider' %}
+{% endif %}
 {% section 'ingredients-slider' %}
 {% section 'nutrition-info' %}
 {% section 'kept-out' %}
