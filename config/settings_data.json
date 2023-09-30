@@ -4315,11 +4315,31 @@
               "ingr_desc": "<p>The glue that binds the gummy. Naturally derived from fruits, it is a cleaner alternative to gelatin.<\/p>",
               "location": "Germany & Italy"
             }
+          },
+          "831ed612-0e22-41ed-9204-28d8972c5832": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/sugar_8.png",
+              "ingre_title": "Cane Sugar",
+              "ingr_desc": "<p>The sweetness and texture to each gummy comes from this responsible replacement to artificial sweeteners.<\/p>",
+              "location": "Villupuram"
+            }
+          },
+          "ab02e0e0-b14f-4d45-9179-65d0af6a0e2d": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/Glucose_5.png",
+              "ingre_title": "Glucose Syrup",
+              "ingr_desc": "<p>From fingertips to your taste buds, each gummy’s structure, moistness and flavour is sealed in thanks to this ingredient.<\/p>",
+              "location": "Karnataka"
+            }
           }
         },
         "block_order": [
           "f49811cb-b6db-4e22-a376-6936747f6583",
-          "ef130ed8-44de-45a5-ab77-10c761d70d44"
+          "ef130ed8-44de-45a5-ab77-10c761d70d44",
+          "831ed612-0e22-41ed-9204-28d8972c5832",
+          "ab02e0e0-b14f-4d45-9179-65d0af6a0e2d"
         ],
         "settings": {
           "title": "quiet companions",
