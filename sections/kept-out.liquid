@@ -1,7 +1,6 @@
 <div class="strikewords" id="pdp_kept" style="display: block;">
-  <p>{{ section.settings.description }}</p>
   {% if section.settings.title != blank %}
-  <div class="strikewords_title">      
+  <div class="faq_title center">      
     {{ section.settings.title }}
   </div>
   {% endif %}
@@ -17,6 +16,7 @@
     {% endfor %}      
   </ul>
 </div>
+
 {% schema %}
   {
     "name": "Kept Out For Good",
@@ -25,13 +25,7 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "we keep out:"
-        } ,
-        {
-          "type": "text",
-          "id": "description",
-          "label": "Description",
-          "default": "We have zero tolerance for unnecessary or harmful ingredients"
+          "default": "kept out for good"
         }
 	],
     "blocks":[
@@ -50,6 +44,7 @@
         ]
   }
 {% endschema %}
+
 {% stylesheet %}
 {% endstylesheet %}
 
