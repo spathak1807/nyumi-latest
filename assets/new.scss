@@ -991,8 +991,22 @@ ul.strikeout {
   	    flex-wrap: wrap;
   justify-content: center;
 }
+ul.strikeout2 {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+  	    flex-wrap: wrap;
+  justify-content: center;
+}
 @media screen and (max-width: 768px){
   ul.strikeout{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     
+  }
+  ul.strikeout2{
         display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1002,17 +1016,30 @@ ul.strikeout {
 }
 ul.strikeout li {
     font-size: 36px;
-  	color: white;
+  	color: #f37168;
   	padding-right: 25px;
   	font-family: 'corbenr';
 }
 ul.strikeout li:first-child{
+   padding-left: 5px;
+}
+
+ul.strikeout2 li {
+    font-size: 36px;
+  	color: white;
+  	padding-right: 25px;
+  	font-family: 'corbenr';
+}
+ul.strikeout2 li:first-child{
    padding-left: 0px;
 }
 
-
   
   ul.strikeout li:first-child:before
+  {
+      display:none;
+  }
+ ul.strikeout2 li:first-child:before
   {
       display:none;
   }
@@ -1020,6 +1047,10 @@ ul.strikeout li:first-child{
 	@media only screen and (min-width:770px)
     {
     	ul.strikeout li:nth-child(4):before
+        {
+            display:none;
+        }
+      ul.strikeout2 li:nth-child(4):before
         {
             display:none;
         }
@@ -1034,12 +1065,29 @@ ul.strikeout li:first-child{
         {
             display:none;
         }
-      
+
+      ul.strikeout2 li:nth-child(3):before,
+      ul.strikeout2 li:nth-child(5):before,
+      ul.strikeout2 li:nth-child(6):before
+        {
+            display:none;
+        }
     }
 
 
 
 ul.strikeout li:after {
+    display: block;
+    content: '';
+    width: calc(100% - 10px);
+    border-bottom: 2px solid;
+    /* padding-left: 40px; */
+    right: -15px;
+    top: -15px;
+    transform: translate(0%, -50%);
+  	position:relative;
+}
+ul.strikeout2 li:after {
     display: block;
     content: '';
     width: calc(100% - 10px);
@@ -1055,16 +1103,28 @@ ul.strikeout li:after {
     top: unset;
     bottom:13px;
   }
+  ul.strikeout2 li:after {
+    top: unset;
+    bottom:13px;
+  }
 }
 .icon_img.imgk {
     height: unset;
 }
 .strikewords {
+    padding: 50px 0px;
+    background: #FFF4ED; 
+}
+.strikewords2 {
     padding: 30px 0px;
     background: #F37168; 
 }
 @media screen and (max-width: 768px) {
   .strikewords {
+     padding: 40px 15px;
+     
+   }
+  .strikewords2 {
      padding: 20px 15px;
      
    }
@@ -1101,6 +1161,13 @@ span.inner {
 }
 ul.strikeout li:before {
     content: "\2022";
+    color: #000;
+    margin-right: 12px;
+  	top: 2px;
+    position: relative;
+}
+ul.strikeout2 li:before {
+    content: "\2022";
     color: white;
     margin-right: 12px;
   	top: 2px;
@@ -1108,6 +1175,9 @@ ul.strikeout li:before {
 }
 @media screen and (max-width: 768px){
   ul.strikeout li:before{
+    top: 3px;
+  }
+  ul.strikeout2 li:before{
     top: 3px;
   }
 }
@@ -2024,6 +2094,51 @@ body.template-customers-register .form-vertical,
 }
 
 
+
+.strikewords2 > p {
+  font-family: "Manrope";
+  font-size: 25px;
+  font-weight: normal;
+  color: white;
+}
+
+.strikewords_title {
+    color: white;
+    font-size: 23px;
+    font-family: 'corbenr';
+}
+
+@media screen and (max-width: 768px) {
+  #nutritionInfo {
+    padding-bottom: 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .strikewords2 > p {
+    font-family: "Manrope";
+    font-size: 32px;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+  .strikewords_title {
+    color: white;
+    text-align: center;
+    font-size: 23px;
+    font-family: 'corbenr';
+}
+  ul.strikeout2 {
+    margin-top: 0.5rem;
+  }
+  ul.strikeout2 li {
+        font-size: 24px;
+    color: white;
+    padding-right: 25px;
+    font-family: 'corbenr';
+}
+}
 
 
 /**** slick file ********/
