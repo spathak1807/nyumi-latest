@@ -35,7 +35,12 @@
 {% endif %}
 
 {% section 'nutrition-info' %}
-{% section 'kept-out' %}
+{% if product.id == 6092022481063 %}
+  {% section 'kept-out2' %}
+{% else %}
+  {% section 'kept-out' %}
+{% endif %}
+
 {% section 'why-nyumi' %}
 {% section 'product-reviews' %}
 {% section 'product-faq' %}
