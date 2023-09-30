@@ -4333,13 +4333,83 @@
               "ingr_desc": "<p>From fingertips to your taste buds, each gummy’s structure, moistness and flavour is sealed in thanks to this ingredient.<\/p>",
               "location": "Karnataka"
             }
+          },
+          "04d092d6-b62f-40f1-8250-b6815a37267d": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/Trisodium_Cirate_9.png",
+              "ingre_title": "Trisodium Citrate",
+              "ingr_desc": "<p>Gummies get you going, and this ingredient keeps them going for you. It maintains the texture, firmness and pH level of your gummies.<\/p>",
+              "location": "Mumbai"
+            }
+          },
+          "e9ace50c-0c6e-471b-b792-1298f1c234ff": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/Natural_Colour__sweet_potato_carrot_berry.png",
+              "ingre_title": "Natural Colour",
+              "ingr_desc": "<p>Extracted from vegetables, we used natural colours to add vibrancy to each gummy.<\/p>",
+              "location": "Chennai"
+            }
+          },
+          "1d8a3c35-19ef-4c22-a292-8531b11ff306": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/Fruit.png",
+              "ingre_title": "Natural Flavour",
+              "ingr_desc": "<p>To give your taste buds as treat minus the guilt, we used flavours extracted from fruit juices. Enjoy a burst of fruity deliciousness daily.<\/p>",
+              "location": "Germany"
+            }
+          },
+          "970d2d3f-2ac1-44c9-8c2b-4c350192404f": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/coconut_oil.png",
+              "ingre_title": "Coconut Oil",
+              "ingr_desc": "<p>Gummies are no fun if they turn sticky, mushy or too hard. We use Virgin Coconut oil to make sure your gummies stay the way they arrived.<\/p>",
+              "location": "Chennai"
+            }
+          },
+          "8d1163ee-4808-48a7-b90e-14cbe00e3e8a": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/olive_oil_7.png",
+              "ingre_title": "Olive Oil",
+              "ingr_desc": "<p>Gummies are no fun if they turn sticky, mushy or too hard. We add Olive oil to make sure your gummies stay the way they arrived.<\/p>",
+              "location": "Spain"
+            }
+          },
+          "6ecb11fb-b2f0-4173-a5bb-5cae0c99d65b": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/Locust_Bean_Gum.png",
+              "ingre_title": "Locust Bean",
+              "ingr_desc": "<p>Extracted from the seeds of the carob tree, this helps keep the gummies plump.<\/p>",
+              "location": "Turkey"
+            }
+          },
+          "ad7d3bd2-9fe0-4497-b23b-ccdd111c3d41": {
+            "type": "slider",
+            "settings": {
+              "ingre_image": "shopify:\/\/shop_images\/Carnuaba_Wax_1.png",
+              "ingre_title": "Carnuaba Wax",
+              "ingr_desc": "<p>Made from leaves of Carnuaba palm trees, this ensures the gummies don’t get sticky, and gives them a natural shine<\/p>",
+              "location": "USA"
+            }
           }
         },
         "block_order": [
           "f49811cb-b6db-4e22-a376-6936747f6583",
           "ef130ed8-44de-45a5-ab77-10c761d70d44",
           "831ed612-0e22-41ed-9204-28d8972c5832",
-          "ab02e0e0-b14f-4d45-9179-65d0af6a0e2d"
+          "ab02e0e0-b14f-4d45-9179-65d0af6a0e2d",
+          "04d092d6-b62f-40f1-8250-b6815a37267d",
+          "e9ace50c-0c6e-471b-b792-1298f1c234ff",
+          "1d8a3c35-19ef-4c22-a292-8531b11ff306",
+          "970d2d3f-2ac1-44c9-8c2b-4c350192404f",
+          "8d1163ee-4808-48a7-b90e-14cbe00e3e8a",
+          "6ecb11fb-b2f0-4173-a5bb-5cae0c99d65b",
+          "ad7d3bd2-9fe0-4497-b23b-ccdd111c3d41"
         ],
         "settings": {
           "title": "quiet companions",
