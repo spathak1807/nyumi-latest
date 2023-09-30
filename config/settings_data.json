@@ -2279,8 +2279,7 @@
           "aa13d908-21f3-4cf4-95e6-a4421dab12f5"
         ],
         "settings": {
-          "title": "kept out for good",
-          "description": "We have zero tolerance for unnecessary or harmful ingredients"
+          "title": "kept out for good"
         }
       },
       "nutrition-info": {
@@ -4414,6 +4413,52 @@
         "settings": {
           "title": "quiet companions",
           "description": "<p>Our non-active ingredients help with important tasks like binding active ingredients, nutrient stability and absorption.<\/p>"
+        }
+      },
+      "kept-out2": {
+        "type": "kept-out2",
+        "blocks": {
+          "295a3b28-47a0-4fa0-aa67-bb79e3a46160": {
+            "type": "flavour",
+            "settings": {
+              "flavour": "gelatin"
+            }
+          },
+          "bf2770a2-fe62-42af-92b2-b59b4e44c2b8": {
+            "type": "flavour",
+            "settings": {
+              "flavour": "preservatives"
+            }
+          },
+          "7ee8d6c2-2f44-42db-bcdb-2459de04ac96": {
+            "type": "flavour",
+            "settings": {
+              "flavour": "titanium dioxide"
+            }
+          },
+          "97f7828b-ece4-4b8f-a6ee-77e80053f016": {
+            "type": "flavour",
+            "settings": {
+              "flavour": "stevia"
+            }
+          },
+          "3dd1bb47-8d35-4143-bbc1-6b5f87de1a65": {
+            "type": "flavour",
+            "settings": {
+              "flavour": "artificial sweeteners"
+            }
+          }
+        },
+        "block_order": [
+          "295a3b28-47a0-4fa0-aa67-bb79e3a46160",
+          "bf2770a2-fe62-42af-92b2-b59b4e44c2b8",
+          "7ee8d6c2-2f44-42db-bcdb-2459de04ac96",
+          "97f7828b-ece4-4b8f-a6ee-77e80053f016",
+          "3dd1bb47-8d35-4143-bbc1-6b5f87de1a65"
+        ],
+        "settings": {
+          "title": "we keep out:",
+          "description": "We have zero tolerance for unnecessary or harmful ingredients"
         }
       }
     },
