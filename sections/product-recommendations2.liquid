@@ -16,6 +16,18 @@
     padding: 1rem;
     flex-wrap: nowrap;
 }
+  #shopify-section-product-recommendations2 .product-recommendations__inner .grid__item {
+    box-shadow: 0px -4px 3px 0px rgba(0,0,0,0.1), 0px 0px 3px 0px rgba(0,0,0,0.1);
+    padding-left: 0px;
+    padding-top: 0px;
+    border-radius: 30px;
+    margin-top: 1rem;
+}
+  @media only screen and (max-width: 768px)
+#shopify-section-product-recommendations2 .product-recommendations__inner .grid__item {
+    margin-top: 0.8rem;
+    min-width: 190px;
+}
 </style>
 {% comment %}
 {%- if section.settings.show_product_recommendations -%}
