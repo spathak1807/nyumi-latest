@@ -1233,7 +1233,12 @@ ul.strikeout2 li:before {
     margin-left: auto;
     margin-right: auto;
 }
+#shopify-section-product-recommendations2 .product-recommendations__inner .grid .add_to_cart_custom {
 
+    max-width: 170px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* .product-recommendations__inner .product-card__image-with-placeholder-wrapper {
    position: relative;
@@ -1858,6 +1863,9 @@ body.template-product div#shopify-section-product-recommendations {
     padding-bottom: 60px;
 }
 
+body.template-product div#shopify-section-product-recommendations2 {
+    padding-bottom: 60px;
+}
 body.template-page.faq .faq_section_main {
     padding-bottom: 70px;
 }
