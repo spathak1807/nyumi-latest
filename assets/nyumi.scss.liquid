@@ -7713,7 +7713,69 @@ td.cart__removed-product{
   }
 }
 
-
+#shopify-section-product-recommendations2 {
+  padding-top: 20px;
+  .product-recommendations__inner {
+    margin: 0 auto;
+    padding:0 15px;
+    padding-bottom: 50px;
+    
+    @media only screen and (max-width: 768px){
+      padding:0;
+    }
+    .grid{
+      margin-left: -22px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .grid__item{
+          padding-left: 15px;
+          padding-top: 60px;
+    }
+    .grid-view-item__image, .grid-view-item__image-wrapper{
+      height: 260px;
+      width: 280px;
+      object-fit: contain;
+      max-height: unset;
+/*       width: 100%; */
+      max-width: unset;
+      @media only screen and (max-width: 520px){
+         height: 190px;
+        width: 150px;
+      }
+    }
+    .section-header {
+      margin-bottom: 30px;
+      margin-top: 35px;
+    }
+    @media only screen and (max-width: 1024px){
+        .medium-up--one-quarter {
+            width: 50%;
+        }
+    }
+    strong {
+      font-size: 45px;
+      line-height: 55px;
+      font-family: 'corbenr';
+      text-transform: unset;
+      font-weight:400;
+      letter-spacing:0;
+      
+    }
+    .h4.grid-view-item__title.product-card__title.center {
+      display: flex;
+      justify-content: center;
+      font-weight: 400;
+      /*min-height: 60px;*/
+      @media screen and(max-width: 767px) {
+        min-height: 50px;
+      }
+    }
+    .product_description {
+      display: none;
+    }
+  }
+}
 
 @media screen and(max-width: 1200px) {
 	.component_section {
@@ -10338,7 +10400,11 @@ li.grid__item.medium-up--one-third {
 #shopify-section-product-recommendations .product-recommendations__inner strong {
     font-size: 30px;
     line-height: 0px;
-}  
+} 
+#shopify-section-product-recommendations2 .product-recommendations__inner strong {
+    font-size: 30px;
+    line-height: 0px;
+} 
   
 #shopify-section-product-recommendations .product-recommendations__inner {
     padding: 20px 0;
@@ -10348,10 +10414,19 @@ li.grid__item.medium-up--one-third {
     padding-bottom: 40px;
 }  
   
+#shopify-section-product-recommendations2 .product-recommendations__inner {
+    padding: 20px 0;
+}
   
+#shopify-section-product-recommendations2 .product-recommendations__inner li {
+    padding-bottom: 40px;
+}  
   
   
 #shopify-section-product-recommendations  .product-card__image-with-placeholder-wrapper {
+    min-height: 180px;
+}
+  #shopify-section-product-recommendations2  .product-card__image-with-placeholder-wrapper {
     min-height: 180px;
 }
   
