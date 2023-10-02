@@ -4457,8 +4457,19 @@
           "3dd1bb47-8d35-4143-bbc1-6b5f87de1a65"
         ],
         "settings": {
-          "title": "we keep out:",
+          "title": "",
           "description": "We have zero tolerance for unnecessary or harmful ingredients"
+        }
+      },
+      "ab-test-template2": {
+        "type": "ab-test-template2",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": true,
+          "enable_free_shipping": false,
+          "free_shipping_text": ""
         }
       }
     },
