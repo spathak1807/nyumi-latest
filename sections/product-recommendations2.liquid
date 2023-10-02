@@ -23,7 +23,19 @@
     border-radius: 30px;
     margin-top: 1rem;
 }
-  @media only screen and (max-width: 768px)
+  #shopify-section-product-recommendations2 .product-recommendations__inner .grid-view-item {
+    margin-bottom: 0;
+}
+  #shopify-section-product-recommendations2 .product-recommendations__inner .h4.grid-view-item__title.product-card__title.center {
+    min-height: 20px;
+    font-size: 14px;
+}
+  #shopify-section-product-recommendations2 .product-recommendations__inner .h4.grid-view-item__title.product-card__title.center {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+}
+  @media only screen and (max-width: 768px){
 #shopify-section-product-recommendations2 .product-recommendations__inner .grid__item {
     margin-top: 0.8rem;
     min-width: 190px;
@@ -31,6 +43,10 @@
   #shopify-section-product-recommendations2 .product-recommendations__inner .medium-up--one-quarter {
     width: 50%;
 }
+    #shopify-section-product-recommendations2 .product-card__image-with-placeholder-wrapper {
+    min-height: 120px;
+}
+  }
 </style>
 {% comment %}
 {%- if section.settings.show_product_recommendations -%}
