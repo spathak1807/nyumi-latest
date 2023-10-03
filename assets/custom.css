@@ -937,7 +937,7 @@ font-family: 'Manrope', sans-serif;
 }
 .wc_product_review_badge .wc_review_badge_inner{
   display:flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .wc_product_review_badge .wc_review_badge_inner .wc_product_review_title{
   margin-top:6px;
