@@ -909,7 +909,7 @@
         ],
         "settings": {
           "show_anouncement_bar": true,
-          "announcement_bar_text": "Extra 3% OFF & faster delivery on online payments",
+          "announcement_bar_text": "Use NYU50, get ₹50 OFF on orders above ₹499",
           "announcement_link": "shopify:\/\/collections\/all",
           "logo": "shopify:\/\/shop_images\/logo-min.png",
           "menu_linklist": "new-header-menu",
