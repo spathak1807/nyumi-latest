@@ -2403,6 +2403,30 @@
       "16594380063e9bf78f": {
         "type": "nyumi-slideshow",
         "blocks": {
+          "c5683119-5a64-4c9b-8c09-05594b4f2219": {
+            "type": "slide",
+            "settings": {
+              "title": "",
+              "description": "",
+              "button_label": "",
+              "button_link": "shopify:\/\/collections\/all",
+              "title_color": "#231f20",
+              "subtitle_color": "#231f20",
+              "button_background_color": "#f47169",
+              "button_text_color": "#ffffff",
+              "desktop_image": "shopify:\/\/shop_images\/Dusshera_Homepage_Banners_HP_Desktop.jpg",
+              "content_alignment": "middle_right",
+              "text_align": "default",
+              "content_padding": 20,
+              "horizontal_position": 8,
+              "vertical_position": 8,
+              "mobile_image": "shopify:\/\/shop_images\/Dusshera_Homepage_Banners_HP_Mobile_Final.jpg",
+              "content_alignment_mobile": "bottom",
+              "vertical_position_mobile": 0,
+              "text_align_mobile": "default",
+              "content_padding_mobile": 20
+            }
+          },
           "a05600fa-91f2-4dc8-9634-e8956e3ab36a": {
             "type": "slide",
             "settings": {
@@ -2470,31 +2494,6 @@
               "vertical_position": 5,
               "mobile_image": "shopify:\/\/shop_images\/HP-new-banner-revised-mobile_27a9308c-3618-4440-8243-25ec4d39fd73.jpg",
               "content_alignment_mobile": "top",
-              "vertical_position_mobile": 0,
-              "text_align_mobile": "default",
-              "content_padding_mobile": 20
-            }
-          },
-          "c5683119-5a64-4c9b-8c09-05594b4f2219": {
-            "type": "slide",
-            "disabled": true,
-            "settings": {
-              "title": "",
-              "description": "",
-              "button_label": "",
-              "button_link": "",
-              "title_color": "#231f20",
-              "subtitle_color": "#231f20",
-              "button_background_color": "#f47169",
-              "button_text_color": "#ffffff",
-              "desktop_image": "shopify:\/\/shop_images\/Dusshera_Homepage_Banners_HP_Desktop.jpg",
-              "content_alignment": "middle_right",
-              "text_align": "default",
-              "content_padding": 20,
-              "horizontal_position": 8,
-              "vertical_position": 8,
-              "mobile_image": "shopify:\/\/shop_images\/Dusshera_Homepage_Banners_HP_Mobile_Final.jpg",
-              "content_alignment_mobile": "bottom",
               "vertical_position_mobile": 0,
               "text_align_mobile": "default",
               "content_padding_mobile": 20
@@ -2575,10 +2574,10 @@
           }
         },
         "block_order": [
+          "c5683119-5a64-4c9b-8c09-05594b4f2219",
           "a05600fa-91f2-4dc8-9634-e8956e3ab36a",
           "d9910198-f9e3-4e19-8474-e7c6c0f8b5b8",
           "389f4702-3f17-45da-96cc-c5d8c9588cba",
-          "c5683119-5a64-4c9b-8c09-05594b4f2219",
           "a802f47c-8ab5-4699-8ae9-5d92afdbc63d",
           "d44ed0ad-4c12-4002-b94e-1ac2a7949eb9",
           "c71041c4-8814-4607-86b8-e1b8e3f8163d"
