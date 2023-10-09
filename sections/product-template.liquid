@@ -3,6 +3,54 @@
 
 
 <style>
+.loader {
+    border: 4px solid #231f20!important;
+    border-top: 4px solid #fff!important;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: none;
+    position: absolute;
+    top: 25%;
+    right: 20%;
+    border: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+ }
+
+  @media (max-width:767px){
+  .loader {
+    border: 4px solid #231f20!important;
+    border-top: 4px solid #fff!important;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: none;
+    position: fixed;
+    top: 95.5%;
+    right: 21%;
+    transform: translate(-50%, -50%);
+    z-index: 199;
+ }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+ }
+    
+}
+   @media (max-width:380px){
+   .loader {
+     top:94%;
+   }   
+ }
+ /* ends loader style */
   
   #product_slider_thumb img {
     height: 65px;
@@ -489,6 +537,15 @@
                     {% include 'icon-spinner' %}
                   </span>
                 </button>
+
+                {% if current_variant.available %}
+                    <button style="display:inline-block" type="button" id="buy-now-button" class="btn btn--secondary-accent" variant-id="{{ current_variant.id }}" variant-name="{{ current_variant.title }}" product-title="{{ product.title }}" product-price="{{ product.price }}">
+                      buy now
+                    </button>
+                   <div id="loader" class="loader"></div>
+                {% endif %}
+
+                
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
@@ -943,6 +1000,67 @@
   </script>
 {% endunless %}
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var buyNowButton = document.getElementById('buy-now-button');
+  
+  if (buyNowButton) {
+    buyNowButton.addEventListener('click', function() {
+      $("#buy-now-button")[0].innerHTML = ""
+      $("#loader").show();
+      const urlParams = new URLSearchParams(window.location.search);
+      const variant_id = urlParams.get('variant') || "{{ current_variant.id }}"      
+       console.log("param",variant_id)
+      var variantId =  variant_id;
+      var productTitle = this.getAttribute('product-title');
+      var productPrice = this.getAttribute('product-price');
+
+      // Create a JSON object representing the item to be added to the cart
+      var item = {
+        id: variantId,
+        quantity: 1,
+        properties: {},
+      };
+
+      // Add the item to the cart using the Shopify AJAX API
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(item),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+         
+         // $("#loader").hide();
+       window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ecommerce:null});
+              window.dataLayer.push({
+                event: 'buy_now',
+                ecommerce: {
+                  items: [{
+                    // product_id: product_id,
+                    variant_id: variantId,
+                    quantity: 1
+                  }]
+                }
+              });
+          // Redirect to the checkout page
+          window.location.href = '/checkout';
+       
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  }
+});
+</script>
+
+        
 <script>
 
   function myFunction() {
