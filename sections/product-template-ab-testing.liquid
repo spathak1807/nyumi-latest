@@ -616,6 +616,7 @@
                     <button style="display:inline-block" type="button" id="buy-now-button" class="btn btn--secondary-accent" variant-id="{{ current_variant.id }}" variant-name="{{ current_variant.title }}" product-title="{{ product.title }}" product-price="{{ product.price }}">
                       buy now
                     </button>
+                <div id="loader" class="loader"></div>
                 {% endif %}
 
                 
@@ -1081,8 +1082,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (buyNowButton) {
     buyNowButton.addEventListener('click', function() {
+      $("#buy-now-button")[0].innerHTML = ""
+      $("#loader").show();
       const urlParams = new URLSearchParams(window.location.search);
-      const variant_id = urlParams.get('variant')
+      const variant_id = urlParams.get('variant') || "{{ current_variant.id }}"      
        console.log("param",variant_id)
       var variantId =  variant_id;
       var productTitle = this.getAttribute('product-title');
@@ -1107,6 +1110,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
       })
       .then(function(data) {
+         
+         // $("#loader").hide();
+       window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ecommerce:null});
+              window.dataLayer.push({
+                event: 'buy_now',
+                ecommerce: {
+                  items: [{
+                    // product_id: product_id,
+                    variant_id: variantId,
+                    quantity: 1
+                  }]
+                }
+              });
           // Redirect to the checkout page
           window.location.href = '/checkout';
        
@@ -1118,7 +1135,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-
 
 
 
