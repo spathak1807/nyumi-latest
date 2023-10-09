@@ -1006,11 +1006,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (buyNowButton) {
     buyNowButton.addEventListener('click', function() {
-     setTimeout(function(){
         $("#buy-now-button")[0].innerHTML = ""
        $("#loader").show();
-       
-     },1000) 
       const urlParams = new URLSearchParams(window.location.search);
       const variant_id = urlParams.get('variant') || "{{ current_variant.id }}"      
        console.log("param",variant_id)
