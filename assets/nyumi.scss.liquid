@@ -1728,7 +1728,7 @@ a.site-header__logo-image{
   }
   [type="submit"]{
     margin:0;
-    width:50%;
+    max-width:300px;
     border-radius:30px;
     margin-left:20px;
     outline:none;
@@ -1742,54 +1742,7 @@ a.site-header__logo-image{
       background-color:#F37168;
     }
   }
-  [type="button"]{
-    border: none!important;
-    border-color:none!important;
-    width: 50%;
-    border-radius: 30px;
-    margin: 0 0 0 20px;
-    outline: none;
-    background-color: #FFF4EE;
-    text-transform: lowercase;
-    font-family: manropes;
-    font-size: 16px;
-    letter-spacing: .5px;
-    color: #F37168;
-    &:hover{
-      background-color:#FFF4EE;
-      color: #F37168;
-    }
-  }
 }
-.product-template__container .product-single .btn_qty_flx {
-  [type=submit]{
-    border-color:transparent!important;
-  }
-}
-.product-form__item--submit_new {
-    display: flex;
-  position:relative;
-}
-/* css for making buynow button aside addtocart button */
-@media (max-width:767px){
-  .btn_qty_flx{
-    [type=button]{
-    height: 51px;
-    margin-left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-    z-index: 9;
-    border-radius: 0;
-    /* border-left: 1px solid black; */
-    }
-  } 
-  .product-form__item--submit_new{
-    position:static;
-  }
-}
-
-
 .product-form__controls-group--submit_new{
   width:100%;
 }
@@ -8011,7 +7964,6 @@ h1.product-single__title {
       }
       .btn_qty_flx {
         [type="submit"] {
-          border:none!important;
           height: 47px;
           margin-left: 0;
           max-width: 100%;
