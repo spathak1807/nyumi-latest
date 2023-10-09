@@ -1114,8 +1114,11 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (buyNowButton) {
     buyNowButton.addEventListener('click', function() {
-      $("#buy-now-button")[0].innerHTML = ""
-      $("#loader").show();
+      setTimeout(function(){
+        $("#buy-now-button")[0].innerHTML = ""
+       $("#loader").show();
+       
+     },1000) 
       const urlParams = new URLSearchParams(window.location.search);
       const variant_id = urlParams.get('variant') || "{{ current_variant.id }}"      
        console.log("param",variant_id)
@@ -1142,8 +1145,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
       })
       .then(function(data) {
-         
-         // $("#loader").hide();
+         $("#loader").hide();
+         $("#buy-now-button")[0].innerHTML = "buy now"
        window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ecommerce:null});
               window.dataLayer.push({
