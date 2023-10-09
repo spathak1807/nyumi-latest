@@ -3,6 +3,57 @@
 
 
 <style>
+
+.loader {
+    border: 4px solid #231f20!important;
+    border-top: 4px solid #fff!important;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: none;
+    position: absolute;
+    top: 25%;
+    right: 20%;
+    border: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+ }
+
+  @media (max-width:767px){
+  .loader {
+    border: 4px solid #231f20!important;
+    border-top: 4px solid #fff!important;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: none;
+    position: fixed;
+    top: 95.5%;
+    right: 21%;
+    transform: translate(-50%, -50%);
+    z-index: 199;
+ }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+ }
+    
+}
+   @media (max-width:380px){
+   .loader {
+     top:94%;
+   }   
+ }
+ /* ends loader style */
+
+  
   .pdtb_detail.active{
     display:block !important;
   }
@@ -91,8 +142,8 @@
   .concern-options p.concern-label,
   .pack-options p.pack-label{
     margin: 0;
-    font-size: 14px;	
-    width: 20%;	
+    font-size: 14px;  
+    width: 20%; 
     font-weight:bold;
     max-width:80px;
   }
@@ -101,45 +152,45 @@
     display: flex;
     padding: 0 0.5rem;
     align-items: center;
-     gap:6px;	
+     gap:6px; 
     width: 80%;
   }
   .concern-options .options p,
   .pack-options .options p{
-     margin: 0;	
-    font-size: 12px;	
-    margin-right: 1rem;	
-    background: #fff;	
-    padding: 0.3rem;	
-    color: grey;	
-    font-weight: 500;	
-    border-radius: 20px;	
-    cursor: pointer;	
-    width: 30%;	
-    text-align: center;	
+     margin: 0; 
+    font-size: 12px;  
+    margin-right: 1rem; 
+    background: #fff; 
+    padding: 0.3rem;  
+    color: grey;  
+    font-weight: 500; 
+    border-radius: 20px;  
+    cursor: pointer;  
+    width: 30%; 
+    text-align: center; 
     border: 1px solid #000;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
   .pack-options .options p {
-    background: white;	
-    border: 1px solid black;	
-    color: grey;	
+    background: white;  
+    border: 1px solid black;  
+    color: grey;  
     font-weight: 500;
   }
   .concern-options p.active {
-    background: #f37168;	
-    border: 1px solid #f37168;	
+    background: #f37168;  
+    border: 1px solid #f37168;  
     color: white;
   }
   .pack-options p.active {
-     background: #f37168;	
-    border: 1px solid #f37168 !important;	
+     background: #f37168; 
+    border: 1px solid #f37168 !important; 
     color: white;
   }
-  .product_sub_title{	
-    margin-bottom:1rem;	
+  .product_sub_title{ 
+    margin-bottom:1rem; 
   }
   @media only screen and (max-width: 900px) {
     #product_slider_thumb img {
@@ -172,14 +223,14 @@
     .product_breadcrumbs {
       padding-bottom: 1rem;
     }
-    	
-    .product_sub_title{	
-    margin-bottom:1rem;	
-  }	
-  .concern-options .options p,	
-  .pack-options .options p{	
-    font-size:10px;	
-    margin-right:3px;	
+      
+    .product_sub_title{ 
+    margin-bottom:1rem; 
+  } 
+  .concern-options .options p,  
+  .pack-options .options p{ 
+    font-size:10px; 
+    margin-right:3px; 
   }
   }
   @media (max-width: 768px) {
@@ -187,30 +238,30 @@
        margin-bottom: 0.8rem;
     }
     .concern-options p.concern-label, .pack-options p.pack-label {
-      font-size: 12px;	
-     margin-right:6px;	
+      font-size: 12px;  
+     margin-right:6px;  
       white-space:nowrap;
     }
     .concern-options .options, .pack-options .options {
-      padding: 0;	
-      padding-left: 5px;	
-      width: 100%;	
+      padding: 0; 
+      padding-left: 5px;  
+      width: 100%;  
       gap:6px;
     }
-     .concern-options .options p {	
-      margin: 0;	
-      font-size: 10px;	
-      margin-right: 3px;	
-      padding: 5px;	
-      border-radius: 20px;	
-      /* width: 100%;	 */
+     .concern-options .options p {  
+      margin: 0;  
+      font-size: 10px;  
+      margin-right: 3px;  
+      padding: 5px; 
+      border-radius: 20px;  
+      /* width: 100%;  */
     }
-     .pack-options .options p {	
-      border: 1px solid black;	
+     .pack-options .options p { 
+      border: 1px solid black;  
       margin-right:3px;
-    }	
-    .wc_product_review_badge .wc_review_badge_inner{	
-      justify-content:flex-start;	
+    } 
+    .wc_product_review_badge .wc_review_badge_inner{  
+      justify-content:flex-start; 
     }
   }
  .product_thumb .slider_thumb.packs_img{
@@ -354,7 +405,7 @@
     <div class="grid__item {{ product_description_width }}">
       <div class="product-single__meta">
 
-        <div class="product_breadcrumbs desktop">	
+        <div class="product_breadcrumbs desktop"> 
           <a href="https://{{ request.host }}">
             Home 
           </a>/
@@ -362,12 +413,12 @@
             Products 
           </a>/ {{ product.title }}
         </div>
-          <div class="product_sub_title">	
-          {% if product.metafields.custom.product_tag != blank %}	
-            <span>{{ product.metafields.custom.product_tag }}</span>	
-          {% endif %}	
-          {% if product.metafields.my_fields.product_subtitle != blank %}	
-          {{ product.metafields.my_fields.product_subtitle }}</div>	
+          <div class="product_sub_title"> 
+          {% if product.metafields.custom.product_tag != blank %} 
+            <span>{{ product.metafields.custom.product_tag }}</span>  
+          {% endif %} 
+          {% if product.metafields.my_fields.product_subtitle != blank %} 
+          {{ product.metafields.my_fields.product_subtitle }}</div> 
           {% endif %}
           </div>
         <h1 class="product-single__title">{{ product.title }}</h1>
@@ -472,7 +523,7 @@
                   {%- assign variant_label_state = false -%}
                 {%- endunless -%}
               {%- endif -%}
-			   <div {{product.options.size}} class="{% cycle 'variant_first_outer', 'variant_second_outer', 'variant_third_outer' %}">
+         <div {{product.options.size}} class="{% cycle 'variant_first_outer', 'variant_second_outer', 'variant_third_outer' %}">
                   <input type="radio" 
                       class="single-option-selector single-option-selector-{{ section.id }} product-form__input"
                  {% if option.selected_value == value %} checked="checked"{% endif %}
@@ -547,48 +598,48 @@
             </select>
 
 
-        {%- comment -%}	
-          Live region for announcing updated price and availability to screen readers	
-        {%- endcomment -%}	
-        <p class="visually-hidden" data-product-status	
-          aria-live="polite"	
-          role="status"	
-        ></p>	
-        {%- comment -%}	
-          Live region for announcing that the product form has been submitted and the	
-          product is in the process being added to the cart	
-        {%- endcomment -%}	
-        <p class="visually-hidden" data-loader-status	
-          aria-live="assertive"	
-          role="alert"	
-          aria-hidden="true"	
-        >{{ 'products.product.loader_label' | t }}</p>	
+        {%- comment -%} 
+          Live region for announcing updated price and availability to screen readers 
+        {%- endcomment -%}  
+        <p class="visually-hidden" data-product-status  
+          aria-live="polite"  
+          role="status" 
+        ></p> 
+        {%- comment -%} 
+          Live region for announcing that the product form has been submitted and the 
+          product is in the process being added to the cart 
+        {%- endcomment -%}  
+        <p class="visually-hidden" data-loader-status 
+          aria-live="assertive" 
+          role="alert"  
+          aria-hidden="true"  
+        >{{ 'products.product.loader_label' | t }}</p>  
       {% comment %}
-      {% if section.settings.enable_free_shipping %}	
-       <div class="shipping_label" id="shipping_info">	
-         {% if section.settings.free_shipping_icon != blank %}	
-         <div class="shipping_img">	
-           <img src="{{ section.settings.free_shipping_icon | img_url: 'master' }}" alt="shipping image" />	
-         </div>	
-         {% endif %}	
+      {% if section.settings.enable_free_shipping %}  
+       <div class="shipping_label" id="shipping_info">  
+         {% if section.settings.free_shipping_icon != blank %}  
+         <div class="shipping_img"> 
+           <img src="{{ section.settings.free_shipping_icon | img_url: 'master' }}" alt="shipping image" /> 
+         </div> 
+         {% endif %}  
          
-         {% if section.settings.free_shipping_text != blank %}	
-         <div class="shipping_txt">	
-           <p>{{ section.settings.free_shipping_text }}</p>	
-         </div>	
+         {% if section.settings.free_shipping_text != blank %}  
+         <div class="shipping_txt"> 
+           <p>{{ section.settings.free_shipping_text }}</p> 
+         </div> 
          {% endif %}
         
-        </div>	
-        {% endif %}	
+        </div>  
+        {% endif %} 
         {% endcomment %}
-        {% if product.metafields.information.custom_message != blank %}	
-        	<div class="nyumi_custom_message" style="margin-top: 1em; font-weight: bold">{{ product.metafields.information.custom_message }}</div>	
-        {% endif %}	
-        {% if product.description != blank %}	
-        <div class="product-single__description rte">	
-          <div class='description-special'> {{ product.metafields.custom.description_special }} </div>	
-          {{ product.description }}	
-        </div>	
+        {% if product.metafields.information.custom_message != blank %} 
+          <div class="nyumi_custom_message" style="margin-top: 1em; font-weight: bold">{{ product.metafields.information.custom_message }}</div>  
+        {% endif %} 
+        {% if product.description != blank %} 
+        <div class="product-single__description rte"> 
+          <div class='description-special'> {{ product.metafields.custom.description_special }} </div>  
+          {{ product.description }} 
+        </div>  
         {% endif %}
            <div class="btn_qty_flx">
             {% if section.settings.show_quantity_selector %}
@@ -637,6 +688,16 @@
                     {% include 'icon-spinner' %}
                   </span>
                 </button>
+
+
+                 {% if current_variant.available %}
+                    <button style="display:inline-block" type="button" id="buy-now-button" class="btn btn--secondary-accent" variant-id="{{ current_variant.id }}" variant-name="{{ current_variant.title }}" product-title="{{ product.title }}" product-price="{{ product.price }}">
+                      buy now
+                    </button>
+                 <div id="loader" class="loader"></div>
+                {% endif %}
+
+                
                 <!-- {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %} -->
@@ -656,7 +717,7 @@
 
         <div class="product_tab_section">
           {% if product.metafields.my_fields.product_gummies_text != blank %}
-        <div class="product_tab_heading desktop">	
+        <div class="product_tab_heading desktop"> 
             {{ product.metafields.my_fields.product_gummies_text }}
           </div>
           {% endif %}
@@ -667,7 +728,7 @@
               <div class="pdtb_heading ">{{product.metafields.look_forward_title.look_forward_title}}</div>
               {% endif %}
               <div class="pdtb_detail" style="display:block">
-              	<div class="pdtb_flx">
+                <div class="pdtb_flx">
                   {% for image in product.metafields.look_forward_name.look_forward_name %}
                   <div class="pdtb_item">
                     <div class="pdtb_img">
@@ -684,26 +745,26 @@
             {% endif %}
             {% for tab_item in product.metafields.tab_title.tab_title %}
             {% if tab_item != blank %}
-             {% if forloop.index==-1 %}	
-                <div class="product_tab_item active" data-id="3" id="dailyDosage">	
-                  <div class="pdtb_heading">{{ tab_item }}</div>	
-                  <div class="pdtb_detail" style="display:block">	
-                    <div class="pdtb_flx">	
-                      {{product.metafields.tab_description.tab_description[forloop.index0]}}	
-                      <br>	
-                    </div>	
-                  </div>	
-                </div>	
-              {% else %}	
-                <div class="product_tab_item" data-id="3" id="dailyDosage">	
-                  <div class="pdtb_heading">{{ tab_item }}</div>	
-                  <div class="pdtb_detail">	
-                    <div class="pdtb_flx">	
-                      {{product.metafields.tab_description.tab_description[forloop.index0]}}	
-                      <br>	
-                    </div>	
-                  </div>	
-                </div>	
+             {% if forloop.index==-1 %} 
+                <div class="product_tab_item active" data-id="3" id="dailyDosage">  
+                  <div class="pdtb_heading">{{ tab_item }}</div>  
+                  <div class="pdtb_detail" style="display:block"> 
+                    <div class="pdtb_flx">  
+                      {{product.metafields.tab_description.tab_description[forloop.index0]}}  
+                      <br>  
+                    </div>  
+                  </div>  
+                </div>  
+              {% else %}  
+                <div class="product_tab_item" data-id="3" id="dailyDosage"> 
+                  <div class="pdtb_heading">{{ tab_item }}</div>  
+                  <div class="pdtb_detail"> 
+                    <div class="pdtb_flx">  
+                      {{product.metafields.tab_description.tab_description[forloop.index0]}}  
+                      <br>  
+                    </div>  
+                  </div>  
+                </div>  
               {% endif %}
             {% endif %}
             {% endfor %}
@@ -767,9 +828,9 @@
           </li>
            {% endcomment %}
         </ul>
-        	<div class="mobile center">
-        	<button onclick="myFunction()" class="button show_all_list">show more +</button>
-        	</div>
+          <div class="mobile center">
+          <button onclick="myFunction()" class="button show_all_list">show more +</button>
+          </div>
             
       </div>
     </div>
@@ -814,9 +875,9 @@
           </li>
            {% endcomment %}
         </ul>
-        	<div class="mobile center">
-        	<button onclick="myFunction()" class="button">show more +</button>
-        	</div>
+          <div class="mobile center">
+          <button onclick="myFunction()" class="button">show more +</button>
+          </div>
             
       </div>
     </div>
@@ -862,9 +923,9 @@
           </li>
            {% endcomment %}
         </ul>
-        	<div class="mobile center">
-        	<button onclick="myFunction()" class="button">show more +</button>
-        	</div>
+          <div class="mobile center">
+          <button onclick="myFunction()" class="button">show more +</button>
+          </div>
             
       </div>
     </div>
@@ -922,9 +983,9 @@
   </div>
 </div>
 <div class="strikewords" id="pdp_kept">
-	 <div class="faq_title center"> </div>
+   <div class="faq_title center"> </div>
   
-  		<ul class="strikeout">
+      <ul class="strikeout">
           {% comment %}
           <li><span class="inner">gelatin</span></li>
           <li><span class="inner">preservatives</span></li>
@@ -933,7 +994,7 @@
           <li><span class="inner">artificial  sweeteners</span></li>
           <li><span class="inner">malic acid</span></li>
           {% endcomment %}
-  		</ul>  
+      </ul>  
 </div>
 <div class="bottom_section bst icon-section2  {{ product.handle }}" id="why_nyumi">
   <div class="page_width">
@@ -942,17 +1003,17 @@
   <div class="three">
            <div class="icon_img"><img class="res_width1" src="https://cdn.shopify.com/s/files/1/0412/3027/0631/files/Image_32.png?v=1606804552" alt="color"></div>
            <div class="icon_txts white">born from science</div>
-    	   <div class="icon_des">Our German-developed formulation works double hard for you. It uses the most effective nutrients, and also balances an enriching blend of Indian and western ingredients, bringing you the best of both sciences.</div>	
+         <div class="icon_des">Our German-developed formulation works double hard for you. It uses the most effective nutrients, and also balances an enriching blend of Indian and western ingredients, bringing you the best of both sciences.</div>  
   </div>
   <div class="three">
            <div class="icon_img"><img class="res_width1" src="https://cdn.shopify.com/s/files/1/0412/3027/0631/files/Image_34.png?v=1606804561" alt="color"></div>
            <div class="icon_txts white">superior ingredients</div>
-    		<div class="icon_des">We found that all nutrients are not created equal. So we handpicked ingredients only from the best sources, and ensured optimum extract ratios, to enable better nutrient absorption from every gummy. </div>	
+        <div class="icon_des">We found that all nutrients are not created equal. So we handpicked ingredients only from the best sources, and ensured optimum extract ratios, to enable better nutrient absorption from every gummy. </div> 
   </div>
   <div class="three">
            <div class="icon_img"><img class="res_width1" src="https://cdn.shopify.com/s/files/1/0412/3027/0631/files/Image_33.png?v=1606804561" alt="color"></div>
            <div class="icon_txts white">deliciously simple </div>
-    	   <div class="icon_des">Taking care of yourself should be a joy, not a chore. That’s why we really took our time to create these gummies as a flavourful and easy way for you to stay nourished. Bon appétit!</div>	
+         <div class="icon_des">Taking care of yourself should be a joy, not a chore. That’s why we really took our time to create these gummies as a flavourful and easy way for you to stay nourished. Bon appétit!</div>  
   </div> 
     {% endcomment %}
     
@@ -967,17 +1028,17 @@
   <div class="three">
            <div class="icon_img imgk"><img class="res_width1" src="https://cdn.shopify.com/s/files/1/0412/3027/0631/files/cal.png?v=1607164410" alt="color"></div>
            <div class="icon_txts white">overnight results </div>
-    	   <div class="icon_des">Good things take time, and the same goes for nutrition. While the effect begins from Day 1 of starting our gummies, it is a gradual process. A month of dailyuse may begin to show results, and 2-3 months can make all the difference.</div>	
+         <div class="icon_des">Good things take time, and the same goes for nutrition. While the effect begins from Day 1 of starting our gummies, it is a gradual process. A month of dailyuse may begin to show results, and 2-3 months can make all the difference.</div>  
   </div>
   <div class="three">
            <div class="icon_img imgk"><img class="res_width1" src="https://cdn.shopify.com/s/files/1/0412/3027/0631/files/time.png?v=1607164324" alt="color"></div>
            <div class="icon_txts white">superior ingredients</div>
-    		<div class="icon_des">Until that mystical elixir of youth is discovered, ageing will continue to be a natural process of life. But slowing it down by reducing the appearance of wrinkles, pigmentation and dullness is well within reach. And that’s exactly what we’re here for.</div>	
+        <div class="icon_des">Until that mystical elixir of youth is discovered, ageing will continue to be a natural process of life. But slowing it down by reducing the appearance of wrinkles, pigmentation and dullness is well within reach. And that’s exactly what we’re here for.</div>  
   </div>
   <div class="three">
            <div class="icon_img imgk"><img class="res_width1" src="https://cdn.shopify.com/s/files/1/0412/3027/0631/files/Image_23.png?v=1606981975" alt="color"></div>
            <div class="icon_txts white">deliciously simple </div>
-    	   <div class="icon_des">Skin is a result of many factors besides good nourishment. Like restful sleep, physical activity, protection from the sun, and care routines. While you mindfully include these factors in your daily life, we have you covered on daily nutrition.</div>	
+         <div class="icon_des">Skin is a result of many factors besides good nourishment. Like restful sleep, physical activity, protection from the sun, and care routines. While you mindfully include these factors in your daily life, we have you covered on daily nutrition.</div>  
   </div> 
     
     
@@ -1045,6 +1106,70 @@
     {{ product.media | where: 'media_type', 'model' | json }}
   </script>
 {% endunless %}
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var buyNowButton = document.getElementById('buy-now-button');
+  
+  if (buyNowButton) {
+    buyNowButton.addEventListener('click', function() {
+      $("#buy-now-button")[0].innerHTML = ""
+      $("#loader").show();
+      const urlParams = new URLSearchParams(window.location.search);
+      const variant_id = urlParams.get('variant') || "{{ current_variant.id }}"      
+       console.log("param",variant_id)
+      var variantId =  variant_id;
+      var productTitle = this.getAttribute('product-title');
+      var productPrice = this.getAttribute('product-price');
+
+      // Create a JSON object representing the item to be added to the cart
+      var item = {
+        id: variantId,
+        quantity: 1,
+        properties: {},
+      };
+
+      // Add the item to the cart using the Shopify AJAX API
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(item),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+         
+         // $("#loader").hide();
+       window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ecommerce:null});
+              window.dataLayer.push({
+                event: 'buy_now',
+                ecommerce: {
+                  items: [{
+                    // product_id: product_id,
+                    variant_id: variantId,
+                    quantity: 1
+                  }]
+                }
+              });
+          // Redirect to the checkout page
+          window.location.href = '/checkout';
+       
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  }
+});
+</script>
+
+
+
 <script>
   function myFunction() {
 //   var x = document.getElementById("ul#fade-sliders li:nth-child(n+4)");
@@ -1108,9 +1233,9 @@
       }
     }
     $('.single-option-selector')[variant_index].click()
-    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))	
-    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',""))	
-    const disper=((camp-disp)/camp)*100	
+    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))  
+    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',"")) 
+    const disper=((camp-disp)/camp)*100 
     const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`
   })
   $('.concern-options .options p').click(function(event){
@@ -1127,9 +1252,9 @@
       }
     }
     $('.single-option-selector')[variant_index].click()
-    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))	
-    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',""))	
-    const disper=((camp-disp)/camp)*100	
+    const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))  
+    const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',"")) 
+    const disper=((camp-disp)/camp)*100 
     const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`
   })
   setInterval(function(){
@@ -1441,23 +1566,23 @@
         "zh-TW": "深入瞭解 [媒體類型](https://help.shopify.com/manual/products/product-media)"
       }
     },
-	{
-	  "type": "checkbox",
-	  "id": "enable_free_shipping",
-	  "label": "Enable free shipping",
-	  "info": "check to show free shipping text"
-	},
-	{
-	  "type": "image_picker",
-	  "id": "free_shipping_icon",
-	  "label": "Free shipping icon"
-	},
-	{
-	  "type": "text",
-	  "id": "free_shipping_text",
-	  "label": "Free shipping",
-	  "info": "Free Delivery "
-	}
+  {
+    "type": "checkbox",
+    "id": "enable_free_shipping",
+    "label": "Enable free shipping",
+    "info": "check to show free shipping text"
+  },
+  {
+    "type": "image_picker",
+    "id": "free_shipping_icon",
+    "label": "Free shipping icon"
+  },
+  {
+    "type": "text",
+    "id": "free_shipping_text",
+    "label": "Free shipping",
+    "info": "Free Delivery "
+  }
   ]
 }
 {% endschema %}
