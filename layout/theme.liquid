@@ -6046,7 +6046,12 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     <!-- Snapchat CAPI - PageView -->
     </script>
-
+<script>
+  $(document).ready(function(){
+   var buttonWithAriaLabelSoldOut = $("button[aria-label='Sold out']");
+   buttonWithAriaLabelSoldOut.css("width","100%")
+  })
+</script>
 
 {{ 'crucial-commerce-page-speed.js' | asset_url | script_tag }}
 </body>
