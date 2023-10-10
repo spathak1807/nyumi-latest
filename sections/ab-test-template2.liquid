@@ -1128,7 +1128,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Create a JSON object representing the item to be added to the cart
       var item = {
         id: variantId,
-        quantity: qty,
+        quantity: qty === undefined?1:qty,
         properties: {},
       };
 
