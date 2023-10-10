@@ -1120,7 +1120,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const variant_id = urlParams.get('variant') || "{{ current_variant.id }}"      
        console.log("param",variant_id)
       var variantId =  variant_id;
-      var qty = $('#Quantity-product-template')[0].value;
+      var qty = $('#Quantity-product-template')[0]?.value;
       console.log("quantity",qty)
       var productTitle = this.getAttribute('product-title');
       var productPrice = this.getAttribute('product-price');
