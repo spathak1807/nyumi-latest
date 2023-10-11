@@ -909,7 +909,7 @@
         ],
         "settings": {
           "show_anouncement_bar": true,
-          "announcement_bar_text": "Dussehra Sale: Up to 40% OFF 🌟",
+          "announcement_bar_text": "Extra 3% OFF on online payments 🌟",
           "announcement_link": "shopify:\/\/collections\/all",
           "logo": "shopify:\/\/shop_images\/logo-min.png",
           "menu_linklist": "new-header-menu",
@@ -2405,6 +2405,7 @@
         "blocks": {
           "c5683119-5a64-4c9b-8c09-05594b4f2219": {
             "type": "slide",
+            "disabled": true,
             "settings": {
               "title": "",
               "description": "",
