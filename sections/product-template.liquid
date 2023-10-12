@@ -320,6 +320,12 @@
         </div>
 
         <h1 class="product-single__title">{{ product.title }}</h1>
+
+        <!-- Start of Judge.me code -->
+      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.badge }}
+      </div>
+      <!-- End of Judge.me code -->
         
         
         {% if product.metafields.my_fields.product_subtitle != blank %}
