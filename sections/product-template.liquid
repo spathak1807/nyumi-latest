@@ -329,11 +329,7 @@
         {% endif %}
         <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
         
-<!-- Start of Judge.me code -->
-      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
-        {{ product.metafields.judgeme.badge }}
-      </div>
-      <!-- End of Judge.me code -->
+
         
         {% if product.metafields.my_fields.product_flavour_text != blank or product.metafields.my_fields.product_flavour_image != blank %}
         <div class="product_sub_type">
@@ -341,6 +337,12 @@
           <div class="pd_sty_txt">{{ product.metafields.my_fields.product_flavour_text }}</div>
         </div>
         {% endif %}
+
+        <!-- Start of Judge.me code -->
+      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.badge }}
+      </div>
+      <!-- End of Judge.me code -->
 
           <div class="product__price">
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
