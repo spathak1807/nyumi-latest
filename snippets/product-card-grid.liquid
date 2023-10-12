@@ -17,7 +17,11 @@
   <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url }}">
     <span class="visually-hidden">{{ product.title }}</span>
   </a>
-
+<!-- Start of Judge.me code -->
+      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.badge }}
+      </div>
+      <!-- End of Judge.me code -->
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
   {%- assign preview_image = product.featured_media.preview_image -%}
@@ -50,11 +54,6 @@
   </noscript>
   <div class="product_details">
   <div class="h4 grid-view-item__title product-card__title center" aria-hidden="true">{{ product.title }}</div>
-    <!-- Start of Judge.me code -->
-      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
-        {{ product.metafields.judgeme.badge }}
-      </div>
-      <!-- End of Judge.me code -->
   {% if product.metafields.my_fields.product_sub_title != blank and collection.id == 400236118272 %}
     <div class="product_description" data-url="https://nyumi.com/products/{{product.handle }}">
     {{ product.metafields.my_fields.product_sub_title }}
