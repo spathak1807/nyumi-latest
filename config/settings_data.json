@@ -904,6 +904,7 @@
           },
           "fc1c5d1b-7930-4054-b3d6-ea68cad7877f": {
             "type": "mega_menu_style_3",
+            "disabled": true,
             "settings": {
               "mega_menu_title": "ingredients",
               "mega_menu_image_1": "shopify:\/\/shop_images\/Iron_8becd8ab-41cc-4376-a8fe-df2d6ed68f16.png",
