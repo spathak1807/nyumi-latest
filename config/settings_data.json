@@ -245,6 +245,9 @@
       },
       "collection-template": {
         "type": "collection-template",
+        "custom_css": [
+          ".jdgm-widget.jdgm-widget{margin:auto}"
+        ],
         "settings": {
           "layout": "grid",
           "grid": 3,
