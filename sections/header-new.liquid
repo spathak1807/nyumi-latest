@@ -60,6 +60,36 @@
             {% endif %}
             {% assign data_order = data_order | plus: 1 %}
             {% endif %}
+
+            {% if block.type == 'mega_menu_style_3' %}
+            {% assign block_title = block.settings.mega_menu_title | downcase | handlize %}
+            {% if block_title == link_title%}
+            <div class="site_mega_menut"> 
+              <ul>
+                {% for b in (1..5) %}
+                {% assign block_img = 'mega_menu_image_' | append: b %}
+                {% assign block_title = 'mega_menu_title_' | append: b %}
+                {% assign block_url = 'mega_menu_url_' | append: b %}
+                <li class="mega_items " data-hover="">
+                  <a class="_new" href="{{ block.settings[block_url] }}">
+                    <img class="lazy lazyload" data-src="{{  block.settings[block_img] | img_url: '150x150' }}" alt="{{ block.settings[block_img].alt }}">
+                    <span class="mega_txt"> 
+                      <span class="mega_txt_style">
+                        {{ block.settings[block_title] }}
+                      </span> 
+                      <span class="menu_sign"> 
+                        &gt; 
+                      </span> 
+                    </span>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul> 
+            </div>
+            {% endif %}
+            {% assign data_order = data_order | plus: 1 %}
+            {% endif %}
+            
             {% if block.type == 'mega_menu_product' %}
             {% assign block_title = block.settings.mega_menu_title | downcase | handlize %}
             {% if block_title == link_title%}
@@ -422,6 +452,93 @@
 		  "type": "url",
 		  "id": "mega_menu_url_3",
 		  "label": "Select URL 3"
+		}
+	]
+	},
+  {
+	  "name": "Mega menu style 3",
+	  "type": "mega_menu_style_3",
+	  "settings": [
+		{
+		  "type": "text",
+		  "id": "mega_menu_title",
+		  "label": "Text title",
+		  "info": "please add menu title where this mega menu will show"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "mega_menu_image_1",
+		  "label": "Select Image 1"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_1",
+		  "label": "Select title 1"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_1",
+		  "label": "Select URL 1"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "mega_menu_image_2",
+		  "label": "Select Image 2"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_2",
+		  "label": "Select title 2"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_2",
+		  "label": "Select URL 2"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "mega_menu_image_3",
+		  "label": "Select Image 3"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_3",
+		  "label": "Select title 3"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_3",
+		  "label": "Select URL 3"
+		},
+        {
+		  "type": "image_picker",
+		  "id": "mega_menu_image_4",
+		  "label": "Select Image 4"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_4",
+		  "label": "Select title 4"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_4",
+		  "label": "Select URL 4"
+		},
+        {
+		  "type": "image_picker",
+		  "id": "mega_menu_image_5",
+		  "label": "Select Image 5"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_5",
+		  "label": "Select title 5"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_5",
+		  "label": "Select URL 5"
 		}
 	]
 	}
