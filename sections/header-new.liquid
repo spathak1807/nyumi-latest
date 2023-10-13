@@ -208,11 +208,13 @@
               </a>
             </li>
             {% endfor %}
+            {% if forloop.index==1 %}
             <li class="mobile-nav__item">
               <a href="/pages/kriti-sanon-favourite" class="mobile-nav__sublist-link">
                 <span class="mobile-nav__label">Kriti Sanon X Nyumi</span>
               </a>
             </li>
+            {% endif %}
           </ul>
           {% else %}
            <a href="{{ mobile_link.url }}" class="mobile-nav__link">
