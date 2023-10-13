@@ -931,8 +931,12 @@
         ],
         "settings": {
           "show_anouncement_bar": true,
-          "announcement_bar_text": "Use FIRST10, get 10% OFF on your 1st order ❤",
-          "announcement_link": "shopify:\/\/collections\/all",
+          "announcement_bar_text-1": "Use FIRST10 & get flat 10% OFF on your 1st Order",
+          "announcement_link-1": "shopify:\/\/collections\/all",
+          "announcement_bar_text-2": "Use NYU150, get ₹150 OFF on orders above ₹1499",
+          "announcement_link-2": "shopify:\/\/collections\/all",
+          "announcement_bar_text-3": "Buy Iron Gummies at ₹499 🤩",
+          "announcement_link-3": "shopify:\/\/products\/iron-gummies-for-women",
           "logo": "shopify:\/\/shop_images\/logo-min.png",
           "menu_linklist": "new-header-menu",
           "mobile_menu_linklist": "mobile-menu-new"
