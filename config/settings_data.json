@@ -901,11 +901,33 @@
               "mega_menu_title_3": "ingredients",
               "mega_menu_url_3": "shopify:\/\/pages\/ingredients"
             }
+          },
+          "fc1c5d1b-7930-4054-b3d6-ea68cad7877f": {
+            "type": "mega_menu_style_3",
+            "settings": {
+              "mega_menu_title": "ingredients",
+              "mega_menu_image_1": "shopify:\/\/shop_images\/Iron_8becd8ab-41cc-4376-a8fe-df2d6ed68f16.png",
+              "mega_menu_title_1": "Iron",
+              "mega_menu_url_1": "shopify:\/\/pages\/iron",
+              "mega_menu_image_2": "shopify:\/\/shop_images\/Melatonin.png",
+              "mega_menu_title_2": "Melatonin",
+              "mega_menu_url_2": "shopify:\/\/pages\/melatonin",
+              "mega_menu_image_3": "shopify:\/\/shop_images\/hyaluronic_acid.png",
+              "mega_menu_title_3": "Hyaluronic Acid",
+              "mega_menu_url_3": "shopify:\/\/pages\/hyaluronic-acid",
+              "mega_menu_image_4": "shopify:\/\/shop_images\/Vitamin_C_d0e16ec9-88b2-4e56-a12a-de2d07825b93.png",
+              "mega_menu_title_4": "Vitamin C",
+              "mega_menu_url_4": "shopify:\/\/pages\/vitamin-c",
+              "mega_menu_image_5": "shopify:\/\/shop_images\/Biotin_d6741f24-af4f-49aa-994d-8f61ad47ac5a.png",
+              "mega_menu_title_5": "Biotin",
+              "mega_menu_url_5": "shopify:\/\/pages\/biotin"
+            }
           }
         },
         "block_order": [
           "1f1baf93-09ef-4850-9197-83c7ea374336",
-          "a189d048-b89e-4e11-88ed-e1050bffa71e"
+          "a189d048-b89e-4e11-88ed-e1050bffa71e",
+          "fc1c5d1b-7930-4054-b3d6-ea68cad7877f"
         ],
         "settings": {
           "show_anouncement_bar": true,
