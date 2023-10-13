@@ -1,3 +1,29 @@
+
+<style>
+.announcement-container {
+   height: 40px;
+    background-color: #f37168;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+div#announcement_bar {
+    display: flex;
+    gap: 5rem;
+}
+  a.urlToRedirect{
+    color:#ffffff;
+  }
+
+  @media (max-width:767px){
+    .announcement-container {
+height:35px;
+}
+  }
+
+</style>
+
+
 <div id="shopify-section-header" class="shopify-section">
 {% include 'search-drawer' %}
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
@@ -240,18 +266,31 @@
       </ul>
     </nav>
   </header>
-  {% if section.settings.show_anouncement_bar and section.settings.announcement_bar_text != blank %}
-  <a href="{{ section.settings.announcement_link }}">
-    <div id="announcement_bar" class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-      <p class="announcement-bar__message">
-        {{ section.settings.announcement_bar_text }}
-      </p>
-    </div>
-  </a>
+  {% if section.settings.show_anouncement_bar and section.settings.announcement_bar_text-1 != blank %}
+  <marquee class="announcement-container" width="100%" behavior="scroll" direction="left" scrollamount="5" height="40px" onmouseover="stopMarquee()" onmouseout="startMarquee()">
+      <div id="announcement_bar" class="announcement_bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
+       <a class="urlToRedirect" href="{{ section.settings.announcement_link-1 }}"><span> {{ section.settings.announcement_bar_text-1 }}</span></a>
+      <a class="urlToRedirect" href="{{ section.settings.announcement_link-2 }}"> <span> {{ section.settings.announcement_bar_text-2 }}</span></a>
+       <a class="urlToRedirect" href="{{ section.settings.announcement_link-3 }}"><span> {{ section.settings.announcement_bar_text-3 }}</span></a>
+      </div>
+    
+  </marquee>
   {% endif %}
   
 </div>
 
+
+  <script>
+    var marquee = document.querySelector('.announcement-container');
+
+    function stopMarquee() {
+        marquee.stop();
+    }
+
+    function startMarquee() {
+        marquee.start();
+    }
+</script>
 
   {% comment %}
 
@@ -347,14 +386,36 @@
 	  },
 	  {
 		"type": "text",
-		"id": "announcement_bar_text",
-		"label": "Anouncement bar text",
+		"id": "announcement_bar_text-1",
+		"label": "Anouncement bar text-1",
+		"default": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders."
+	  },
+       {
+		"type": "url",
+		"id": "announcement_link-1",
+		"label": "Anouncement bar link-1"
+	  },
+	  {
+		"type": "text",
+		"id": "announcement_bar_text-2",
+		"label": "Anouncement bar text-2",
+		"default": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders."
+	  },
+       {
+		"type": "url",
+		"id": "announcement_link-2",
+		"label": "Anouncement bar link-2"
+	  },
+	  {
+		"type": "text",
+		"id": "announcement_bar_text-3",
+		"label": "Anouncement bar text-3",
 		"default": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders."
 	  },
 	  {
 		"type": "url",
-		"id": "announcement_link",
-		"label": "Anouncement bar link"
+		"id": "announcement_link-3",
+		"label": "Anouncement bar link-3"
 	  },
 	  {
 		"type": "header",
