@@ -1,4 +1,30 @@
-<div id="shopify-section-header" class="shopify-section" data>
+
+<style>
+.announcement-container {
+   height: 40px;
+    background-color: #f37168;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+div#announcement_bar {
+    display: flex;
+    gap: 5rem;
+}
+  a.urlToRedirect{
+    color:#ffffff;
+  }
+
+  @media (max-width:767px){
+    .announcement-container {
+height:35px;
+}
+  }
+
+</style>
+
+
+<div id="shopify-section-header" class="shopify-section">
 {% include 'search-drawer' %}
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
   <header class="site-header border-bottom logo--left" role="banner">
@@ -60,6 +86,36 @@
             {% endif %}
             {% assign data_order = data_order | plus: 1 %}
             {% endif %}
+
+            {% if block.type == 'mega_menu_style_3' %}
+            {% assign block_title = block.settings.mega_menu_title | downcase | handlize %}
+            {% if block_title == link_title%}
+            <div class="site_mega_menut"> 
+              <ul>
+                {% for b in (1..5) %}
+                {% assign block_img = 'mega_menu_image_' | append: b %}
+                {% assign block_title = 'mega_menu_title_' | append: b %}
+                {% assign block_url = 'mega_menu_url_' | append: b %}
+                <li class="mega_items " data-hover="">
+                  <a class="_new" href="{{ block.settings[block_url] }}">
+                    <img class="lazy lazyload" data-src="{{  block.settings[block_img] | img_url: '150x150' }}" alt="{{ block.settings[block_img].alt }}">
+                    <span class="mega_txt"> 
+                      <span class="mega_txt_style">
+                        {{ block.settings[block_title] }}
+                      </span> 
+                      <span class="menu_sign"> 
+                        &gt; 
+                      </span> 
+                    </span>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul> 
+            </div>
+            {% endif %}
+            {% assign data_order = data_order | plus: 1 %}
+            {% endif %}
+            
             {% if block.type == 'mega_menu_product' %}
             {% assign block_title = block.settings.mega_menu_title | downcase | handlize %}
             {% if block_title == link_title%}
@@ -178,11 +234,13 @@
               </a>
             </li>
             {% endfor %}
+            {% if forloop.index==1 %}
             <li class="mobile-nav__item">
               <a href="/pages/kriti-sanon-favourite" class="mobile-nav__sublist-link">
                 <span class="mobile-nav__label">Kriti Sanon X Nyumi</span>
               </a>
             </li>
+            {% endif %}
           </ul>
           {% else %}
            <a href="{{ mobile_link.url }}" class="mobile-nav__link">
@@ -208,18 +266,31 @@
       </ul>
     </nav>
   </header>
-  {% if section.settings.show_anouncement_bar and section.settings.announcement_bar_text != blank %}
-  <a href="{{ section.settings.announcement_link }}">
-    <div id="announcement_bar" class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-      <p class="announcement-bar__message">
-        {{ section.settings.announcement_bar_text }}
-      </p>
-    </div>
-  </a>
+  {% if section.settings.show_anouncement_bar and section.settings.announcement_bar_text-1 != blank %}
+  <marquee class="announcement-container" width="100%" behavior="scroll" direction="left" scrollamount="5" height="40px" onmouseover="stopMarquee()" onmouseout="startMarquee()">
+      <div id="announcement_bar" class="announcement_bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
+       <a class="urlToRedirect" href="{{ section.settings.announcement_link-1 }}"><span> {{ section.settings.announcement_bar_text-1 }}</span></a>
+      <a class="urlToRedirect" href="{{ section.settings.announcement_link-2 }}"> <span> {{ section.settings.announcement_bar_text-2 }}</span></a>
+       <a class="urlToRedirect" href="{{ section.settings.announcement_link-3 }}"><span> {{ section.settings.announcement_bar_text-3 }}</span></a>
+      </div>
+    
+  </marquee>
   {% endif %}
   
 </div>
 
+
+  <script>
+    var marquee = document.querySelector('.announcement-container');
+
+    function stopMarquee() {
+        marquee.stop();
+    }
+
+    function startMarquee() {
+        marquee.start();
+    }
+</script>
 
   {% comment %}
 
@@ -315,14 +386,36 @@
 	  },
 	  {
 		"type": "text",
-		"id": "announcement_bar_text",
-		"label": "Anouncement bar text",
+		"id": "announcement_bar_text-1",
+		"label": "Anouncement bar text-1",
+		"default": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders."
+	  },
+       {
+		"type": "url",
+		"id": "announcement_link-1",
+		"label": "Anouncement bar link-1"
+	  },
+	  {
+		"type": "text",
+		"id": "announcement_bar_text-2",
+		"label": "Anouncement bar text-2",
+		"default": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders."
+	  },
+       {
+		"type": "url",
+		"id": "announcement_link-2",
+		"label": "Anouncement bar link-2"
+	  },
+	  {
+		"type": "text",
+		"id": "announcement_bar_text-3",
+		"label": "Anouncement bar text-3",
 		"default": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders."
 	  },
 	  {
 		"type": "url",
-		"id": "announcement_link",
-		"label": "Anouncement bar link"
+		"id": "announcement_link-3",
+		"label": "Anouncement bar link-3"
 	  },
 	  {
 		"type": "header",
@@ -422,6 +515,93 @@
 		  "type": "url",
 		  "id": "mega_menu_url_3",
 		  "label": "Select URL 3"
+		}
+	]
+	},
+  {
+	  "name": "Mega menu style 3",
+	  "type": "mega_menu_style_3",
+	  "settings": [
+		{
+		  "type": "text",
+		  "id": "mega_menu_title",
+		  "label": "Text title",
+		  "info": "please add menu title where this mega menu will show"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "mega_menu_image_1",
+		  "label": "Select Image 1"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_1",
+		  "label": "Select title 1"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_1",
+		  "label": "Select URL 1"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "mega_menu_image_2",
+		  "label": "Select Image 2"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_2",
+		  "label": "Select title 2"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_2",
+		  "label": "Select URL 2"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "mega_menu_image_3",
+		  "label": "Select Image 3"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_3",
+		  "label": "Select title 3"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_3",
+		  "label": "Select URL 3"
+		},
+        {
+		  "type": "image_picker",
+		  "id": "mega_menu_image_4",
+		  "label": "Select Image 4"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_4",
+		  "label": "Select title 4"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_4",
+		  "label": "Select URL 4"
+		},
+        {
+		  "type": "image_picker",
+		  "id": "mega_menu_image_5",
+		  "label": "Select Image 5"
+		},
+		{
+		  "type": "text",
+		  "id": "mega_menu_title_5",
+		  "label": "Select title 5"
+		},
+		{
+		  "type": "url",
+		  "id": "mega_menu_url_5",
+		  "label": "Select URL 5"
 		}
 	]
 	}

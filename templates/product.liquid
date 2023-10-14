@@ -46,8 +46,38 @@
 {% if product.id != 6092022481063 %}
 {% section 'why-nyumi' %}
   {% endif %}
-{% section 'product-reviews' %}
 
+  <!-- Start of Judge.me code -->
+  <div class='padding-rev_widget__jdgm'>
+      <div style='clear:both'></div>
+      <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.widget }}
+      </div>
+    <style>
+      .jdgm-review-widget {
+  padding: 6em !important;
+  } 
+      .jdgm-row-media {
+    display: none!important;
+}
+      a.jdgm-write-rev-link {
+    border: none!important;
+    background-color: #f37168!important;
+}
+      .jdgm-histogram__bar-content {
+    background-color: #388e3c!important;
+}
+      @media (max-width:767px){
+        .jdgm-review-widget {
+ padding: 6rem 1rem 1rem 1rem !important;
+  } 
+      }
+    </style>
+  </div>
+      <!-- End of Judge.me code -->
+{% comment %}
+{% section 'product-reviews' %}
+ {% endcomment %}
 {% section 'product-faq' %}
 
 {% if product.id == 6092022481063 %}

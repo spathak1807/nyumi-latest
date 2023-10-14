@@ -2,7 +2,7 @@
   "current": {
     "upsell_title": "Recommended for you",
     "upsell_collection": "upsell-products",
-    "upsell_message": "Extra 3% OFF on online payments 🌟",
+    "upsell_message": "Use FIRST10, get 10% OFF on your 1st order",
     "free_shipping_text": "Free",
     "share_image": "shopify:\/\/shop_images\/image_10.png",
     "social_twitter_link": "https:\/\/mobile.twitter.com\/hellonyumi",
@@ -245,6 +245,9 @@
       },
       "collection-template": {
         "type": "collection-template",
+        "custom_css": [
+          ".jdgm-widget.jdgm-widget{margin:auto}"
+        ],
         "settings": {
           "layout": "grid",
           "grid": 3,
@@ -901,16 +904,42 @@
               "mega_menu_title_3": "ingredients",
               "mega_menu_url_3": "shopify:\/\/pages\/ingredients"
             }
+          },
+          "fc1c5d1b-7930-4054-b3d6-ea68cad7877f": {
+            "type": "mega_menu_style_3",
+            "settings": {
+              "mega_menu_title": "ingredients",
+              "mega_menu_image_1": "shopify:\/\/shop_images\/Iron_8becd8ab-41cc-4376-a8fe-df2d6ed68f16.png",
+              "mega_menu_title_1": "Iron",
+              "mega_menu_url_1": "shopify:\/\/pages\/iron",
+              "mega_menu_image_2": "shopify:\/\/shop_images\/Melatonin.png",
+              "mega_menu_title_2": "Melatonin",
+              "mega_menu_url_2": "shopify:\/\/pages\/melatonin",
+              "mega_menu_image_3": "shopify:\/\/shop_images\/hyaluronic_acid.png",
+              "mega_menu_title_3": "Hyaluronic Acid",
+              "mega_menu_url_3": "shopify:\/\/pages\/hyaluronic-acid",
+              "mega_menu_image_4": "shopify:\/\/shop_images\/Vitamin_C_d0e16ec9-88b2-4e56-a12a-de2d07825b93.png",
+              "mega_menu_title_4": "Vitamin C",
+              "mega_menu_url_4": "shopify:\/\/pages\/vitamin-c",
+              "mega_menu_image_5": "shopify:\/\/shop_images\/Biotin_d6741f24-af4f-49aa-994d-8f61ad47ac5a.png",
+              "mega_menu_title_5": "Biotin",
+              "mega_menu_url_5": "shopify:\/\/pages\/biotin"
+            }
           }
         },
         "block_order": [
           "1f1baf93-09ef-4850-9197-83c7ea374336",
-          "a189d048-b89e-4e11-88ed-e1050bffa71e"
+          "a189d048-b89e-4e11-88ed-e1050bffa71e",
+          "fc1c5d1b-7930-4054-b3d6-ea68cad7877f"
         ],
         "settings": {
           "show_anouncement_bar": true,
-          "announcement_bar_text": "Extra 3% OFF on online payments 🌟",
-          "announcement_link": "shopify:\/\/collections\/all",
+          "announcement_bar_text-1": "Use FIRST10 & get flat 10% OFF on your 1st Order",
+          "announcement_link-1": "shopify:\/\/collections\/all",
+          "announcement_bar_text-2": "Use NYU150, get ₹150 OFF on orders above ₹1499",
+          "announcement_link-2": "shopify:\/\/collections\/all",
+          "announcement_bar_text-3": "Buy Iron Gummies at ₹499 🤩",
+          "announcement_link-3": "shopify:\/\/products\/iron-gummies-for-women",
           "logo": "shopify:\/\/shop_images\/logo-min.png",
           "menu_linklist": "new-header-menu",
           "mobile_menu_linklist": "mobile-menu-new"
@@ -4446,6 +4475,14 @@
           "enable_free_shipping": false,
           "free_shipping_text": ""
         }
+      },
+      "product-recommendations2": {
+        "type": "product-recommendations2",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like",
+          "show_vendor": false
+        }
       }
     },
     "content_for_index": [
@@ -4463,17 +4500,23 @@
       "14e6fe7b-0338-4271-98a8-af465dbfffa4"
     ],
     "blocks": {
-      "16789939927838974014": {
-        "type": "shopify:\/\/apps\/rivyo-product-reviews-qa\/blocks\/app-embed\/f1860e84-309f-40ca-a2df-188435a622f3",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "10605408327587305396": {
         "type": "shopify:\/\/apps\/easygift-auto-add-to-cart\/blocks\/app-embed\/0f7d4f74-1e89-4820-aec4-6564d7e535d2",
         "disabled": false,
         "settings": {
           "version": "v3"
+        }
+      },
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "16789939927838974014": {
+        "type": "shopify:\/\/apps\/rivyo-product-reviews-qa\/blocks\/app-embed\/f1860e84-309f-40ca-a2df-188435a622f3",
+        "disabled": true,
+        "settings": {
         }
       }
     }

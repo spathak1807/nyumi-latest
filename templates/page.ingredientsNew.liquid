@@ -1,13 +1,304 @@
-<div class="page-width">
-  <div class="grid">
-    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-      <!-- <div class="section-header text-center">
-        <h1>{{ page.title }}</h1>
-      </div> -->
 
-      <!-- <div class="rte ">
-        {{ page.content }}
-      </div> -->
-    </div>
+<style>
+  .new_page_design{
+    margin:1rem auto;
+    padding-bottom:0;
+  }
+  .new_page_design p{
+    margin:0;
+  }
+  .new_page_design h2{
+   font-weight:400; ;
+  }
+  .new_page_design h4{
+    margin: 0;
+  }
+  /* .new_page_design span{
+    font-weight:500;
+    font-size:16px;
+    line-height:30px;
+  } */
+  .new_page_design .colored-p{
+    font-size:18px;
+    font-weight:500;
+    line-height:30px;
+  }
+  .new_page_design .colored-p span{
+    font-weight:600;
+  }
+  .new_page_design a:not(.btn){
+    border:none ;
+  }
+  .new_page_design button{
+    background:#f37268;
+    border-radius:50px;
+    border:none;
+    font-size:14px;
+    padding:0.5rem 1rem;
+    width:fit-content;
+    color:#fff;
+  }
+  .may-also2-like {
+    /* position: relative;
+    z-index: -9; */
+}
+  .also2-like {
+    color: #4d4d4d;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: left!important;
+    margin-left: 25px;
+    font-family: 'Manrope';
+}
+     .also2-like-image {
+    width: 140px;
+    height: 140px;
+    margin: 10px auto;
+}
+    .may-also2-like .swiper-wrapper{
+    overflow:auto;
+       -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+  }
+  .may-also2-like .swiper-wrapper::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  
+  p.also2-like-title{
+    font-size: 16px!important;
+    line-height:26px;
+    display: flex;
+    justify-content: center;
+    font-family: 'corbenr';
+    color: #000000;
+  }
+   p.also2-like-title{
+     text-align:center;
+      display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+   }
+     p.also2-like-price {
+    font-family: 'corbenr';
+    font-size: 20px;
+       line-height:30px;
+    color: #000000;
+    text-align: center;
+    margin-top: 2px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.also2-like-btn-container {
+   background-color: #F37168;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0px 0px 18px 18px;
+    height: 40px;
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.16 ));
+}
+  button.also2-like-btn {
+    background-color: transparent !important;
+   border: none;
+    outline: none;
+    background: none;
+    font-family: 'Manrope';
+    font-size: 16px!important;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    text-transform: lowercase;
+    padding: 0;
+    min-height:0px!important;
+}
+  .may-also2-like .swiper10{
+    z-index:0;
+    padding-bottom:10px;
+  }
+  .may-also2-like .swiper-slide{
+    width:200px!important;
+    border-radius: 18px;
+    margin-right: 18px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 6px;
+    gap:0;
+    padding:0;
+  }
+  .may-also2-like .swiper-wrapper{
+    padding-left:12px;
+  }
+  .also2-like-btn:hover{
+    background-color:transparent !important;
+  }
+  
+    
+  @media(max-width:749px){
+  .may-also2-like {
+    /* position: relative;
+    z-index: -9; */
+}
+  .also2-like {
+    color: #4d4d4d;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: left!important;
+    margin-left: 25px;
+    font-family: 'Manrope';
+}
+     .also2-like-image {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+}
+    .may-also2-like .swiper-wrapper{
+    overflow:auto;
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+  }
+    .may-also2-like .swiper-wrapper::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  p.also2-like-title{
+    font-size: 12px!important;
+    line-height:16px;
+    display: flex;
+    justify-content: center;
+    font-family: 'corbenr';
+    color: #000000;
+  }
+   p.also2-like-title{
+     text-align:center;
+      display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+   }
+     p.also2-like-price {
+    font-family: 'corbenr';
+    font-size: 14px;
+       line-height:18px;
+    color: #000000;
+    text-align: center;
+    margin-top: 2px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.also2-like-btn-container {
+   background-color: #F37168;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0px 0px 18px 18px;
+    height: 23px;
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.16 ));
+}
+  button.also2-like-btn {
+    background-color: transparent !important;
+   border: none;
+    outline: none;
+    background: none;
+    font-family: 'Manrope';
+    font-size: 12px!important;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    text-transform: lowercase;
+    padding: 0;
+    min-height:0px!important;
+}
+  .may-also2-like .swiper10{
+    z-index:0;
+    padding-bottom:10px;
+  }
+  .may-also2-like .swiper-slide{
+    width:125px!important;
+    border-radius: 18px;
+    margin-right: 18px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 6px;
+    gap:0;
+    padding:0;
+  }
+  .may-also2-like .swiper-wrapper{
+    padding-left:12px;
+  }
+  .also2-like-btn:hover{
+    background-color:transparent !important;
+  }
+  }
+</style>
+<div class="new_page_design page-width">
+  <!-- <div class="section-header text-center banner_set">
+    <h1>{{ page.title }}</h1>
+  </div> -->
+  <div class="rte eqpd page_content_style" id="page_content_fixed">
+  {{ page.content }}
   </div>
-</div>
+  <div class="may-also2-like">
+         
+         <div class="swiper100">
+            <div class="swiper-wrapper">
+            {% for product in page.metafields.custom.recommended_products.value%}
+            {% assign recommendations_product='' %}
+              <div id ="{{product.id}}-also2-like" class="swiper-slide" data-product-id={{ product.id }}>
+                {% if product.featured_image != blank %}
+                <div class="also2-like-image">
+                  <img src="{{ product.featured_image | img_url:'300x300' }}">
+                </div>
+                {% endif %}
+              {% if product.title != blank %}
+                <div class="product-title-like">
+                   <p class="also2-like-title">{{ product.title }}</p>
+                </div>
+                {% endif %}
+              {% if product.price != blank %}
+                <p class="also2-like-price">{{ product.price | money}}</p>
+                {% endif %}
+                {% comment %} <div class="also-like-btn-container">
+                    <button class="also-like-btn"> add to cart</button>
+                </div> 
+               {% endcomment %} 
+              <div id="image-also-like-2" class="also2-like-btn-container" variant-id="{{ product.variants.first.id }}" variant-name="{{ product.variants.first.title }}" price="{{ product.price }}" product-name="{{ product.title }}" product-id="{{ product.id }}">
+                  <form method="post" action="/cart/add">
+                  <input class="keep-hide" type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                  <input class="keep-hide" min="1" type="number" id="quantity" name="quantity" value="1"/>
+                 <button type="submit" name="add" variant-id="{{ product.variants.first.id }}" variant-name="{{ product.variants.first.title }}" price="{{ product.price }}" product-name="{{ product.title }}" product-id="{{ product.id }}"
+                  {% unless product.available %} aria-disabled="true"{% endunless %}
+                  aria-label="{% unless product.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
+                  class="also2-like-btn btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %} may-also-like"
+                  aria-haspopup="dialog"
+                  data-add-to-cart-text>
+                  <span id="atc-text" class="atc-btn" data-add-to-cart-text>
+                    {% unless product.available %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% else %}
+                      {{ 'products.product.add_to_cart'| t }}
+                    {% endunless %}
+                  </span>
+                  <span class="hide" data-loader>
+                    {% include 'icon-spinner' %}
+                  </span> 
+                  
+                </button>
+                 </form> </div>
+              </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+  <br>
+  <br>
+  <div class="product_breadcrumbs" style="text-align:center;font-family: 'manroper';">
+          <a href="https://{{ request.host }}">
+            Home 
+          </a>>
+           <strong>{{ page.title }}</strong>
+        </div>
+  </div>
+</div> 
+
