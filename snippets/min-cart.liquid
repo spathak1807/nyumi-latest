@@ -1192,7 +1192,7 @@
     {% endfor %}
 
    
-    <form class="apply_coupon_initial" style="display:none;">
+    <form class="apply_coupon_initial">
       <input class="input_box" placeholder="Enter Coupon Code" />
       <button class="initial_apply_btn">Apply</button>
     </form>
@@ -1249,7 +1249,7 @@
    </div>
 
 <!--   apply coupon section -->
-    <div class="coupon_section" style="display:none;">
+    <div class="coupon_section">
       <div class="coupon_header">
         <div class="coupon_heading"><i style="font-size:26px; font-weight: 800;" class="fa">&#xf104;</i><span>Apply Offers</span></div>
         <div class="minct_close"><i class="fa fa-times" aria-hidden="true"></i></div>
@@ -1741,14 +1741,14 @@
     $('.available_coupons').show()
     $('.minct_footer').show()
     $('.min_cart_inner hr').show()
-    $('.apply_coupon_initial').hide() //change
+    $('.apply_coupon_initial').show() //change
     $('.checkout_btn').show()
     $('.coupon_section').hide()
     if($('.empty-cart').css('display') == 'block') {
       $('.apply_coupon_initial').hide()
     }
     else {
-      $('.apply_coupon_initial').hide() //change
+      $('.apply_coupon_initial').show() //change
     }
     // setTimeout(function(){
     //   if($('.empty-cart').css('display') == 'block') {
@@ -1958,8 +1958,8 @@
         
         $('.coupon_heading i').click()
         $('.apply_coupon_initial .input_box')[0].value = code
-        $('.apply_coupon_initial .initial_apply_btn')[0].style.display = 'none'
-        $('.initial_apply_btn')[0].style.display = 'none'
+        $('.apply_coupon_initial .initial_apply_btn')[0].style.display = 'Remove'
+        $('.initial_apply_btn')[0].style.display = 'Remove'
         $( ".apply_coupon_initial .input_box" ).prop( "disabled", true );
         $('.initial_apply_btn input').prop("disabled",true)
         $('.error_message').hide()
@@ -2137,7 +2137,7 @@ show_upsell()
       $('.may-also-like').hide()
     }
     else {
-      $('.apply_coupon_initial').hide() //change
+      $('.apply_coupon_initial').show() //change
       $('.sub-footer').show()
       $('.empty-cart').hide()
       $('.may-also-like').show()
