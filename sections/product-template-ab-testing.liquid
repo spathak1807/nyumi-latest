@@ -3,7 +3,9 @@
 
 
 <style>
-
+.jdgm-star {
+    color: #ffcf47;
+}
 .loader {
     border: 4px solid #231f20!important;
     border-top: 4px solid #fff!important;
@@ -393,7 +395,7 @@
         </div>
         {% endcomment %}
         <h1 class="product-single__title">{{ product.title }}</h1>
-        
+        <div class="jdgm-rev-widg__summary-stars" aria-label="Average rating is 4.32 stars" role="img"> <span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--half"></span> <span class="jdgm-rev-widg__summary-average"><a class="jdgm-link" target="_blank" href="https://judge.me/reviews">4.32 out of 5</a></span></div>
         
         {% if product.metafields.my_fields.product_subtitle != blank %}
         <div class="product_sub_title">{{ product.metafields.my_fields.product_subtitle }}</div>
