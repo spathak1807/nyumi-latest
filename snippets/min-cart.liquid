@@ -1329,7 +1329,7 @@
                 $('.shipping .value')[0].innerText = '₹ 50'
                 $('.saving_message span')[0].innerText = '₹ ' + (discount_amount + orderTotal - price).toFixed(0)
               }
-               $('.items-discount').hide()
+               $('.items-discount').show()
             }else{
               $('.items-discount').hide()
                $('.items-discount span')[0].innerText = response.cart_level_discount_applications[0].title
