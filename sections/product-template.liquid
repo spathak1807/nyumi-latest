@@ -206,7 +206,8 @@
       <div class="product_image" id="product_slider">
         {% for image in product.images %}
         <div class="slider_itmes">
-          <img src="{{ image.src | product_img_url: 'master' }}" alt="{{ product.metafields.custom.alt_tag}}" />
+          {%   assign altText = product.metafields.custom.alt_tag.value %}
+          <img src="{{ image.src | product_img_url: 'master' }}" alt="{{ altText.forloop.index}}" />
         </div>
         {% endfor %}
       </div>
