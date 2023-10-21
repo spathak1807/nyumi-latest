@@ -1274,7 +1274,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))  
     const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',"")) 
     const disper=((camp-disp)/camp)*100 
-    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`
+    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%OFF`
   })
   setInterval(function(){
     for(var i=0; i<=$('.slider_itmes').length-3; i++){
