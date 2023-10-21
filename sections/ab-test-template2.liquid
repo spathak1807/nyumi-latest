@@ -270,6 +270,7 @@
 
   
   /* pdp hair changes sheet shared */
+  
   .product_sub_title span{
     font-weight: bold;
     letter-spacing: 0.8px;
@@ -1254,7 +1255,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const disp=parseInt($("#price-item--sale_id")[0].innerText.split(" ")[1].replaceAll(',',""))  
     const camp=parseInt($("#price-item--regular_id")[0].innerText.split(" ")[1].replaceAll(',',"")) 
     const disper=((camp-disp)/camp)*100 
-    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`
+    const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`+'OFF'
   })
   $('.concern-options .options p').click(function(event){
     for(var i=0; i<$('.concern-options .options p').length; i++) {
