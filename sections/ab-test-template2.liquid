@@ -267,10 +267,25 @@
  .product_thumb .slider_thumb.packs_img{
     display:none;
   }
+
+  
+  /* pdp hair changes sheet shared */
   .product_sub_title span{
     font-weight: bold;
     letter-spacing: 0.8px;
   }
+  .product_sub_title{
+text-transform:none;
+  }
+  @media (max-width: 767px){
+    span.price-item.price-item--sale {
+    font-size: 25px!important;
+    }
+    .product__price .price-item--regular {
+    font-size: 20px!important;
+   }
+}
+
 </style>
 <div class="product-template__container page-width"
   id="ProductSection-{{ section.id }}"
