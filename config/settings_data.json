@@ -909,8 +909,12 @@
         ],
         "settings": {
           "show_anouncement_bar": true,
-          "announcement_bar_text": "Dussehra Sale: Up to 40% OFF 🌟",
-          "announcement_link": "shopify:\/\/collections\/all",
+          "announcement_bar_text-1": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders.",
+          "announcement_link-1": "",
+          "announcement_bar_text-2": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders.",
+          "announcement_link-2": "",
+          "announcement_bar_text-3": "Use code NEWME for 15% off on your first purchase. Free Shipping on all orders.",
+          "announcement_link-3": "",
           "logo": "shopify:\/\/shop_images\/logo-min.png",
           "menu_linklist": "new-header-menu",
           "mobile_menu_linklist": "mobile-menu-new"
@@ -4268,20 +4272,6 @@
         "settings": {
         }
       },
-      "hairfall-woe": {
-        "type": "hairfall-woe",
-        "settings": {
-          "heading": "",
-          "subtitle": ""
-        }
-      },
-      "clinical-proof": {
-        "type": "clinical-proof",
-        "settings": {
-          "heading": "",
-          "subtitle": ""
-        }
-      },
       "ingredients-slider2": {
         "type": "ingredients-slider2",
         "blocks": {
@@ -4458,6 +4448,28 @@
           "show_share_buttons": true,
           "enable_free_shipping": false,
           "free_shipping_text": ""
+        }
+      },
+      "hairfall-woe": {
+        "type": "hairfall-woe",
+        "settings": {
+          "heading": "",
+          "subtitle": ""
+        }
+      },
+      "clinical-proof": {
+        "type": "clinical-proof",
+        "settings": {
+          "heading": "clinical trials",
+          "subtitle": "Nyumi hair gummies are clinically proven"
+        }
+      },
+      "product-recommendations2": {
+        "type": "product-recommendations2",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like",
+          "show_vendor": false
         }
       }
     },
