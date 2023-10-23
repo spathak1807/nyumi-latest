@@ -934,9 +934,9 @@
         ],
         "settings": {
           "show_anouncement_bar": true,
-          "announcement_bar_text-1": "Up to 25% OFF sitewide! 🤍",
+          "announcement_bar_text-1": "50% OFF sitewide! 🤍",
           "announcement_link-1": "shopify:\/\/collections\/all",
-          "announcement_bar_text-2": "Buy any 2 products & get 20% OFF | No code needed",
+          "announcement_bar_text-2": "",
           "announcement_link-2": "shopify:\/\/collections\/all",
           "announcement_bar_text-3": "Buy Iron Gummies at ₹499 🤩",
           "announcement_link-3": "shopify:\/\/products\/iron-gummies-for-women",
