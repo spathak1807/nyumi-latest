@@ -47,9 +47,10 @@
 {% section 'why-nyumi' %}
   {% endif %}
 {% section 'product-reviews' %}
-{% if product.id != 6092022481063 %}
-{% section 'product-faq' %}
-  {% endif %}
+{% comment %}{% if product.id != 6092022481063 %}
+
+ {% endif %}{% endcomment %}
+  {% section 'product-faq' %}
 {% if product.id == 6092022481063 %}
 <!--inserted  -->
 {% section 'summer-video' %}
