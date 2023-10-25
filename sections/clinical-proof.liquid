@@ -1,0 +1,399 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+
+<style>
+.clinical-last-slide h4{
+  font-weight: 800;
+    color: black;
+}
+.clinical-last-slide p{
+ font-size: 11px;
+    color: black;
+    font-weight: 600;
+  
+}
+  @media (max-width:767px){
+     .clinical-last-slide{
+    margin-top:1rem!important;
+  }
+  }
+ 
+ 
+
+
+
+  
+  .clinical-proof {
+    margin: 2rem 0;
+  }
+  .heading-wrapper h3 {
+    margin-bottom: 0;
+    font-family: "corbenr";
+    font-size:25px;
+    font-weight:400;
+  }
+  .swiper6 .swiper-button-next:after, .swiper6 .swiper-button-prev:after {
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+}
+  .swiper6 .swiper-button-next, .swiper6 .swiper-button-prev {
+        height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #f37168;
+    color: white;
+    padding: 10px;
+}
+  .heading-wrapper {
+    text-align: center;
+  }
+  .swiper6 {
+    background: #fff4ed;
+    padding: 1rem 0;
+    position: relative;
+  }
+  .clinical-proof h6 {
+    color: black;
+    text-align: center;
+    margin-bottom: 1rem !important;
+    font-family: 'Manrope';
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .proof-wrapper {
+    background: #fff4ed;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content:center;
+    gap:0.6rem;
+  }
+  .proof-wrapper > p {
+    font-size: 9px;
+    flex-basis: 34%;
+    line-height: 15px;
+    padding-right: 1rem;
+    font-weight:600;
+    text-align: center;
+    font-family:"Manrope";
+  }
+  .proof-img {
+    flex-basis: 65%;
+  }
+  .proof-img img {
+    padding-left: 1rem;
+  }
+  .proof-img p {
+   font-size: 7px;
+    text-align: center;
+    font-weight: 600;
+    /* padding-left: 0.5rem; */
+    font-family:"Manrope";
+  }
+  .comparison-images {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .before-wrapper p , .after-wrapper p {
+    color: #f37168;
+    font-weight:bold;
+  }
+  .clinical-last-slide {
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+      .heading-wrapper h3 {
+          font-size: 27px;
+    margin-bottom: 0.5rem;
+    }
+      .swiper6 .swiper-button-next:after, .swiper6 .swiper-button-prev:after {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+  .swiper6 .swiper-button-next, .swiper6 .swiper-button-prev {
+        height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #f37168;
+    color: white;
+    padding: 10px;
+}
+    .heading-wrapper p {
+       font-size: 16px;
+      font-family: "Manrope";
+      font-weight:600;
+      margin-bottom:1.4rem;
+    }
+    .proof-img img {
+      width: 60%;
+      padding: 0;
+    }
+    .proof-img {
+    flex-basis: 50%;
+}
+    .proof-img p {
+    font-size: 14px;
+    text-align: left; 
+}
+    .proof-wrapper > p {
+      font-size: 20px;
+      flex-basis: 40%;
+      line-height: 30px;
+       padding-right: unset; 
+      padding: 0 3rem;
+      text-align: left;
+    }
+    .clinical-proof h6 {
+          text-transform: uppercase;
+    font-size: 22px;
+      margin-bottom: 2rem !important;
+    }
+  }
+  @media (max-width: 768px) {
+    .comparison-images{
+      gap:0.5rem;
+      padding:1rem 2rem;
+    }
+    .after-wrapper{
+      width:100%;
+    }
+    .before-wrapper{
+      width:100%;
+    }
+    .before-wrapper img{
+      width:100%;
+    }
+    .after-wrapper img{
+      width:100%;
+    }
+    .heading-wrapper p {
+       font-size: 14px;
+      font-family: "Manrope";
+      font-weight:600;
+      margin-bottom:1rem;
+    }
+    .proof-wrapper{
+      flex-direction:column;
+    }
+    .proof-img {
+    width:90%;
+  }
+  .proof-img img {
+    padding-left: 0rem;
+    width:100%;
+  }
+    .proof-img p {
+   font-size: 10px;
+    text-align: left;
+    font-weight: 800;
+    padding-left: 0rem;
+    font-family:"Manrope";
+      color:black;
+  }
+    .proof-wrapper > p {
+    font-size: 14px;
+    flex-basis: 34%;
+      width:90%;
+    line-height: 20px;
+    padding-right: 1rem;
+    font-weight:600;
+    text-align: left;
+    font-family:"Manrope";
+  }
+  }
+</style>
+{% if product.metafields.custom.clinical_proof %}
+ {% assign slides = product.metafields.custom.clinical_proof.value %}
+ {% assign common_slides = slides.common_slides %}
+<div class='clinical-proof'>
+  <div class='heading-wrapper'>
+    <h3>{{ section.settings.heading }}</h3>
+    <p>{{ section.settings.subtitle }}</p>
+  </div>
+  <div class='carousel-container'>
+    <div class="swiper6">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+
+    <!-- <div class="swiper-slide">
+      <h6>{{ slides.slide1.headline }}</h6>
+      <div class='proof-wrapper page-width'>
+        <div class='proof-img'>
+          <img src='{{ slides.slide1.image  }}' />
+          <p>{{ slides.slide1.image_caption }}</p>
+        </div>
+        <p>{{ slides.slide1.description }}</p>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <h6>{{ slides.slide2.headline }}</h6>
+      <div class='proof-wrapper page-width'>
+        <div class='proof-img'>
+          <img src='{{ slides.slide2.image   }}' />
+          <p>{{ slides.slide2.image_caption }}</p>
+        </div>
+        <p>{{ slides.slide2.description }}</p>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <h6>{{ slides.slide3.headline }}</h6>
+      <div class='proof-wrapper page-width'>
+        <div class='proof-img'>
+          <img src='{{ slides.slide3.image  }}' />
+          <p>{{ slides.slide3.image_caption }}</p>
+        </div>
+        <p>{{ slides.slide3.description }}</p>
+      </div>
+    </div> -->
+
+
+
+    {% for common_slide in common_slides %}
+      <div class="swiper-slide">
+      <h6 style="margin-top:1rem;margin-bottom:0.5rem;">{{ common_slide.headline }}</h6>
+      <div class='proof-wrapper page-width'>
+        <div class='proof-img'>
+          <img src='{{ common_slide.image   }}' />
+          <p>{{ common_slide.image_caption }}</p>
+        </div>
+        <p>{{ common_slide.description }}</p>
+      </div>
+    </div>
+      {% endfor %}
+
+    <div class="swiper-slide last-slide">
+      <div class='clinical-last-slide'>  
+      <h4>{{ slides.comparison_slide.headline }}</h4>
+      <p>{{ slides.comparison_slide.subtitle }}</p>
+      <div class='comparison-images'>
+        <div class='before-wrapper'>
+          <img src='{{ slides.comparison_slide.image_before }}' alt='' />
+          <p>Before</p>
+        </div>
+        <div class='after-wrapper'>
+          <img src='{{ slides.comparison_slide.image_after }}' alt='' />
+          <p>After</p>
+        </div>
+      </div>
+      <p>*Results From Clinical Trials</p>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+  </div>
+</div>
+  {% endif %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper6', {
+ 
+  direction: 'horizontal',
+     slidesPerView: 1, 
+  centeredSlides: true,
+    centeredSlidesBounds: true,
+    
+   
+  spaceBetween: 15,
+    slidesOffsetAfter: 15,
+    // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+// autoplay: {
+//     delay: 3000, // time between each slide transition, in milliseconds
+//   }
+
+ 
+  
+});
+
+ 
+    var interval = setInterval(function () {
+       var w = window.innerWidth
+  if( w < 767){
+  if (swiper.isEnd) {
+    // Set the height of the "swiper-wrapper" to 350px if the last slide is active
+    document.querySelector('.swiper-wrapper').style.height = '350px';
+  } else {
+    // Set the height of the "swiper-wrapper" to 100% if the last slide is not active
+    document.querySelector('.swiper-wrapper').style.height = '100%';
+  }
+}
+}, 100);
+  
+   
+</script>
+
+
+{% schema %}
+  {
+    "name": "ClinicalProof",
+    "settings": [
+      {
+      "type": "text",
+      "id": "heading",
+      "label": "heading"
+    } ,
+      {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    }
+    ],
+    	"blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "text",
+           "id": "title",
+           "label": "Slide_title"
+         } ,
+         {
+           "type": "text",
+           "id": "caption",
+           "label": "Slide_caption"
+         } ,
+         {
+           "type": "image_picker",
+           "id": "slide_image",
+           "label": "Slide_Image"
+         } ,
+         {
+           "type": "text",
+           "id": "description",
+           "label": "Slide_description"
+         }
+       ]
+     }
+  ] ,
+ "presets": [
+    {
+      "name": "ClinicalProof",
+      "settings": {
+
+      }
+  }
+ ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+ 
