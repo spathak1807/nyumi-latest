@@ -54,9 +54,15 @@
         {{ product.metafields.judgeme.widget }}
       </div>
     <style>
+  {% if product.id == 8200003584256 or product.id == 6092022481063 %}
       .jdgm-review-widget {
   padding: 2em 10em !important;
   } 
+    {% else %}
+     .jdgm-review-widget {
+  padding: 5em 10em !important;
+  } 
+  {% endif %}
       .jdgm-row-media {
     display: none!important;
 }
@@ -89,9 +95,16 @@
     align-items: center!important;
 }
       @media (max-width:767px){
+ {% if product.id == 8200003584256 or product.id == 6092022481063 %}
         .jdgm-review-widget {
  padding: 1rem 1rem 1rem 1rem !important;
   } 
+   {% else %}
+   .jdgm-review-widget {
+ padding: 4rem 1rem 1rem 1rem !important;
+  } 
+ {% endif %}
+  }
         .jdgm-rev__header {
     position: relative!important;
     margin-bottom: 5px!important;
