@@ -4,9 +4,9 @@
       got doubts? get answers.
     </div>
     <section class="ac-container">
-      {{ page.metafields.custom.faq }}
+      
       {% for item in page.metafields.custom.faq %}
-        {{ block.value }}
+        {{ item }}
       <div class="product_tab_item faq-item" data-id="{{ forloop.index }}">
         <div class="pdtb_heading">
           {{ item.faq_ques }}
