@@ -5,14 +5,14 @@
     </div>
     <section class="ac-container">
       {{ page.metafields.custom.faq }}
-      {% for block in page.metafields.custom.faq %}
+      {% for item in page.metafields.custom.faq %}
         {{ block.value }}
       <div class="product_tab_item faq-item" data-id="{{ forloop.index }}">
         <div class="pdtb_heading">
-          {{ block.faq_ques }}
+          {{ item.faq_ques }}
         </div>
         <div class="pdtb_detail" style="display: none;">
-          {{ block.faq_ans }}
+          {{ item.faq_ans }}
         </div>
       </div>
       {% endfor %}    
