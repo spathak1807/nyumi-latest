@@ -5,7 +5,7 @@
     </div>
     <section class="ac-container">
       
-      {% for item in page.metafields.custom.faq %}
+      {% for item in page.metafields.custom.faq.value %}
         {{ item }}
       <div class="product_tab_item faq-item" data-id="{{ forloop.index }}">
         <div class="pdtb_heading">
