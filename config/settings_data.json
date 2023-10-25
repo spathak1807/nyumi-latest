@@ -4284,20 +4284,6 @@
         "settings": {
         }
       },
-      "hairfall-woe": {
-        "type": "hairfall-woe",
-        "settings": {
-          "heading": "",
-          "subtitle": ""
-        }
-      },
-      "clinical-proof": {
-        "type": "clinical-proof",
-        "settings": {
-          "heading": "",
-          "subtitle": ""
-        }
-      },
       "ingredients-slider2": {
         "type": "ingredients-slider2",
         "blocks": {
