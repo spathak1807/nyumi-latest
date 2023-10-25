@@ -4,6 +4,7 @@
       got doubts? get answers.
     </div>
     <section class="ac-container">
+      {{ page.metafields.custom.faq }}
       {% for block in page.metafields.custom.faq %}
         {{ block.value }}
       <div class="product_tab_item faq-item" data-id="{{ forloop.index }}">
