@@ -54,9 +54,15 @@
         {{ product.metafields.judgeme.widget }}
       </div>
     <style>
+  {% if product.id == 8200003584256 or product.id == 6092022481063 %}
       .jdgm-review-widget {
   padding: 2em 10em !important;
   } 
+    {% else %}
+     .jdgm-review-widget {
+  padding: 5em 10em !important;
+  } 
+  {% endif %}
       .jdgm-row-media {
     display: none!important;
 }
