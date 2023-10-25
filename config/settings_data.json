@@ -2,7 +2,7 @@
   "current": {
     "upsell_title": "Recommended for you",
     "upsell_collection": "upsell-products",
-    "upsell_message": "Free shipping on Online Payments!",
+    "upsell_message": "Buy any 2 products & get 20% OFF | No code needed",
     "free_shipping_text": "Free",
     "share_image": "shopify:\/\/shop_images\/image_10.png",
     "social_twitter_link": "https:\/\/mobile.twitter.com\/hellonyumi",
@@ -934,9 +934,9 @@
         ],
         "settings": {
           "show_anouncement_bar": true,
-          "announcement_bar_text-1": "FLASH SALE LIVE TILL 1 PM 😍",
+          "announcement_bar_text-1": "Up to 25% Off Sitewide 🤍",
           "announcement_link-1": "shopify:\/\/collections\/all",
-          "announcement_bar_text-2": "Flat 50% OFF sitewide!",
+          "announcement_bar_text-2": "Buy 2 products & get extra 20% OFF 🌟",
           "announcement_link-2": "shopify:\/\/collections\/all",
           "announcement_bar_text-3": "Buy Iron Gummies at ₹499 🤩",
           "announcement_link-3": "shopify:\/\/products\/iron-gummies-for-women",
