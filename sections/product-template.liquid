@@ -1,6 +1,15 @@
 <link rel="preload" href="{{ 'jquery.js' | asset_url }}" as="script">
 <link rel="preload" href="{{ 'slick.js' | asset_url }}" as="script">
-
+<script type="text/javascript">
+    window.weScript = {
+      id: 'YOUR_WEBENGAGE_APP_ID',
+      callback: function() {
+        // WebEngage SDK is loaded and ready
+        initializeWebEngage() ;
+      }
+    };
+  </script>
+<script type="text/javascript" src="https://cdn.webengage.com/js/widget/webengage-min-v1.js"></script>
 
 <style>
 .loader {
@@ -1007,19 +1016,21 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (buyNowButton) {
     buyNowButton.addEventListener('click', function() {
-      $("#buy-now-button")[0].innerHTML = ""
-      $("#loader").show();
+        $("#buy-now-button")[0].innerHTML = ""
+       $("#loader").show();
       const urlParams = new URLSearchParams(window.location.search);
       const variant_id = urlParams.get('variant') || "{{ current_variant.id }}"      
        console.log("param",variant_id)
       var variantId =  variant_id;
+      var qty = $('#Quantity-product-template')[0].value;
+      console.log("quantity",qty)
       var productTitle = this.getAttribute('product-title');
       var productPrice = this.getAttribute('product-price');
 
       // Create a JSON object representing the item to be added to the cart
       var item = {
         id: variantId,
-        quantity: 1,
+        quantity: qty,
         properties: {},
       };
 
@@ -1035,7 +1046,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
       })
       .then(function(data) {
-         
+          $("#loader").hide();
+         $("#buy-now-button")[0].innerHTML = "buy now"
          // $("#loader").hide();
        window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ecommerce:null});
@@ -1045,10 +1057,25 @@ document.addEventListener('DOMContentLoaded', function() {
                   items: [{
                     // product_id: product_id,
                     variant_id: variantId,
-                    quantity: 1
+                    quantity: qty
                   }]
                 }
               });
+
+         function initializeWebEngage() {
+        // Your custom initialization code here, if needed
+        // For example, you can set user properties or perform other actions
+
+        // Track the "BuyNow" event using WebEngage
+        if (typeof we !== 'undefined') {
+          we.track('BuyNow', {
+            variantId: variantId,
+            quantity: qty,
+            productTitle: productTitle,
+            productPrice: productPrice
+          });
+        }
+    }
           // Redirect to the checkout page
           window.location.href = '/checkout';
        
@@ -1060,6 +1087,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
 
         
 <script>
