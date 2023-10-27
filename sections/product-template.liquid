@@ -1062,20 +1062,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
               });
 
-         function initializeWebEngage() {
+         
         // Your custom initialization code here, if needed
         // For example, you can set user properties or perform other actions
 
         // Track the "BuyNow" event using WebEngage
         if (typeof we !== 'undefined') {
-          we.track('BuyNow', {
+          webengage.track('BuyNow', {
             variantId: variantId,
             quantity: qty,
             productTitle: productTitle,
             productPrice: productPrice
           });
         }
-    }
+    
           // Redirect to the checkout page
           window.location.href = '/checkout';
        
