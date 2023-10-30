@@ -4270,6 +4270,13 @@
               "faq_ques": "Is it good to take multivitamin gummies every day?",
               "faq_ans": "<p>Taking multivitamin gummies every day can be beneficial for individuals who may have nutrient deficiencies or struggle to meet their daily vitamin and mineral requirements through their diet alone.<\/p>"
             }
+          },
+          "0ce1d998-2b1d-4299-ab71-a5c2909e30df": {
+            "type": "product_type",
+            "settings": {
+              "faq_ques": "What are the benefits of multivitamin gummies?",
+              "faq_ans": "<p>Multivitamin gummies offer several benefits, including convenient and tasty supplementation, providing essential vitamins and minerals, supporting overall health, and potentially filling nutrient gaps in one's diet.<\/p>"
+            }
           }
         },
         "block_order": [
@@ -4279,7 +4286,8 @@
           "a5a45545-ead3-4125-ab5c-e6e1c4b366f9",
           "2ef832fe-78a8-42c3-80dc-851821c9a0e2",
           "d1cf359f-c51e-4e7a-ac89-3eba343ee9f3",
-          "270f1250-ac3c-4bc5-9e01-369d0c78594e"
+          "270f1250-ac3c-4bc5-9e01-369d0c78594e",
+          "0ce1d998-2b1d-4299-ab71-a5c2909e30df"
         ],
         "settings": {
         }
