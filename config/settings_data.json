@@ -4502,18 +4502,6 @@
       },
       "faq-section-ingredients": {
         "type": "faq-section-ingredients",
-        "blocks": {
-          "6e49dfce-d331-43cd-9c88-90810e2e816f": {
-            "type": "product_type",
-            "settings": {
-              "faq_ques": "How do you recommend eating Nyumi gummies?",
-              "faq_ans": "<p>Yes, we highly recommend it. Our gummies are intended as a daily dose of essential nutrients for you. <\/p>"
-            }
-          }
-        },
-        "block_order": [
-          "6e49dfce-d331-43cd-9c88-90810e2e816f"
-        ],
         "settings": {
         }
       }
