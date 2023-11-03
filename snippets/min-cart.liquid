@@ -1596,7 +1596,9 @@
   
   }
   function recursiveUpdate(result,itemString){
-   
+   if(result==0){
+     $('.cart_drawer_loder').removeClass('hide')
+   }
     $.ajax({
         type: "GET",
         url: "/cart.json",
@@ -1654,7 +1656,7 @@
   $(function(){
     const temp=0;
     const itemString="";
-    $('.cart_drawer_loder').removeClass('hide')
+    
     recursiveUpdate(temp,itemString)
   });
   $('body').on('click', '.msg-details', function(event){
