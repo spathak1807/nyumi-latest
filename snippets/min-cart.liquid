@@ -1609,11 +1609,11 @@
         $('.cart_drawer_loder').addClass('hide')
        
          get_cart(response);
-        setTimeout(function(){
+       
           // sortMeBy('data-line', 'div.minct_detail', 'div.item_details', 'asc')
           show_upsell()
           update_cart_price2(response)
-        },1500)
+        
         // comment
         const arr=[];
         [...$('.may-also-like .swiper-slide')].forEach(item=>{
