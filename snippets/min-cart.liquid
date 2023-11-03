@@ -1604,7 +1604,8 @@
   }
   function recursiveUpdate(result,itemString){
    if(result==0){
-     $('.cart_drawer_loder').removeClass('hide')
+     $('.cart_drawer_loder').removeClass('hide');
+     $('.sub-footer').hide();
    }
     $.ajax({
         type: "GET",
