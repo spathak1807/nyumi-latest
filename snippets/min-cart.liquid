@@ -1606,8 +1606,8 @@
     }).then((response) => {
      
       if(result!==response.item_count || itemString!==JSON.stringify(response.items)){
-        $('.cart_drawer_loder').addClass('hide')
        
+       $('.cart_drawer_loder').removeClass('hide')
          get_cart(response);
        
           // sortMeBy('data-line', 'div.minct_detail', 'div.item_details', 'asc')
@@ -1642,6 +1642,7 @@
           }
           // $(`#${response.items[i]}`)[0].style.display= "none"
         }
+         $('.cart_drawer_loder').addClass('hide')
         //comment end
     }
       if(parseInt($('.order-total .value')[0].innerText.split(" ")[1]) < parseInt($('.sub-total .value')[0].innerText.split(" ")[1])){
