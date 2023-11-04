@@ -522,10 +522,10 @@ text-transform:none;
                    <p class="concern-label">Concern: </p>
                    <div class="options">
                       {% assign concernText = product.metafields.custom.concern_text.value %}
-               {{ concernText["pack of 1"] }}
-                     <p data-id="0" class="active">Nourish Hair</p>
-                     <p data-id="1">Light Hair Fall</p>
-                     <p data-id="2">Severe Hair Fall</p>
+               
+                     <p data-id="0" class="active">{{ concernText["pack of 1"] }}</p>
+                     <p data-id="1">{{ concernText["pack of 2"] }}</p>
+                     <p data-id="2">{{ concernText["pack of 3"] }}</p>
                    </div>
                  </div>
                  <div class="pack-options">
