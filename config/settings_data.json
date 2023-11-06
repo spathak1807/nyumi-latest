@@ -13,7 +13,7 @@
     "enable_ajax": false,
     "checkout_header_image": "shopify:\/\/shop_images\/Checkout_Banner_Checkout_Banner_-_Mobile_copy.jpg",
     "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
-    "checkout_logo_position": "left",
+    "checkout_logo_position": "right",
     "checkout_logo_size": "small",
     "checkout_body_background_color": "#fff4ef",
     "checkout_sidebar_background_color": "#ffffff",
