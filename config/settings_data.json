@@ -2633,13 +2633,13 @@
               "subtitle_color": "#231f20",
               "button_background_color": "#f47169",
               "button_text_color": "#ffffff",
-              "desktop_image": "shopify:\/\/shop_images\/Diwali_CP_banner_desktop.jpg",
+              "desktop_image": "shopify:\/\/shop_images\/BAU-Collection-Page-Banner-Website.jpg",
               "content_alignment": "middle_right",
               "text_align": "default",
               "content_padding": 20,
               "horizontal_position": 8,
               "vertical_position": 8,
-              "mobile_image": "shopify:\/\/shop_images\/Diwali_CP_banner_mobile.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/BAU-Collection-Page-Banner-Mobile.jpg",
               "content_alignment_mobile": "bottom",
               "vertical_position_mobile": 0,
               "text_align_mobile": "default",
@@ -3001,13 +3001,13 @@
           "0d513f3e-804b-4e40-8166-84c2bbab17aa": {
             "type": "header",
             "settings": {
-              "link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0412\/3027\/0631\/files\/Diwali_HP_banner_desktop.jpg?v=1699216270"
+              "link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0412\/3027\/0631\/files\/BAU-Collection-Page-Banner-Website.jpg?v=1699905280"
             }
           },
           "f1597162-fe3e-4492-acb3-5dcbfa657b8f": {
             "type": "header",
             "settings": {
-              "link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0412\/3027\/0631\/files\/Diwali_HP_banner_mobile.jpg?v=1699216331"
+              "link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0412\/3027\/0631\/files\/BAU-Collection-Page-Banner-Mobile.jpg?v=1699905305"
             }
           }
         },
