@@ -935,12 +935,12 @@
         ],
         "settings": {
           "show_anouncement_bar": true,
-          "announcement_bar_text-1": "🌟 Diwali Sparkle Sale is Live! 🌟",
+          "announcement_bar_text-1": "🌟 Up to 30% Off Sitewide 🌟",
           "announcement_link-1": "shopify:\/\/collections\/all",
-          "announcement_bar_text-2": "Use Code SPARKLE & get extra 25% OFF ✨",
-          "announcement_link-2": "shopify:\/\/products\/iron-gummies-for-women",
-          "announcement_bar_text-3": "Applicable on Hair, Skin & Sleep Gummies",
-          "announcement_link-3": "",
+          "announcement_bar_text-2": "Use Code NYU20 & get extra 20% OFF on orders above ₹999",
+          "announcement_link-2": "shopify:\/\/collections\/all",
+          "announcement_bar_text-3": "Buy Hair & Skin Gummies Combo for ₹1565",
+          "announcement_link-3": "shopify:\/\/products\/hair-skin-gummies",
           "logo": "shopify:\/\/shop_images\/logo-min.png",
           "menu_linklist": "new-header-menu",
           "mobile_menu_linklist": "mobile-menu-new"
