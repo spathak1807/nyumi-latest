@@ -11,7 +11,6 @@
     "social_youtube_link": "https:\/\/www.youtube.com\/@hellonyumi\/",
     "favicon": "shopify:\/\/shop_images\/Favicon_ba414ee0-0eee-4fd6-b5f5-97a5d215b4d5.png",
     "enable_ajax": false,
-    "checkout_header_image": "shopify:\/\/shop_images\/Checkout_Banner_Checkout_Banner_-_Mobile_copy_2.jpg",
     "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
     "checkout_logo_position": "right",
     "checkout_logo_size": "small",
@@ -2436,6 +2435,7 @@
         "blocks": {
           "c5683119-5a64-4c9b-8c09-05594b4f2219": {
             "type": "slide",
+            "disabled": true,
             "settings": {
               "title": "",
               "description": "",
