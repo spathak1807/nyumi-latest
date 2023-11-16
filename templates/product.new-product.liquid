@@ -10,42 +10,18 @@
   The contents of the product.liquid template can be found in /sections/product-template.liquid
 {% endcomment %}
 
-{% if product.id == 8200003584256 %}
-  {% section 'product-template-ab-testing' %}
-{% elsif product.id == 6092022481063 %}
-  {% section 'ab-test-template2' %}
-{% else %}
-  {% section 'product-template' %}
-{% endif %}
-{% if product.id != 6092022481063 %}
-{% section 'FactsBox' %}
-{% section 'facts_carousel' %}
-  {% endif %}
-{% if product.id == 6092022481063 %}
+{% section 'product-template' %}
+
  <!--inserted  -->
 {% section 'clinical-proof' %}
 {% section 'hairfall-woe' %}
 <!--inserted end -->
-{% endif %}
 
 {% section 'product-page-icon' %}
 {% section 'product-ingredients' %}
-{% if product.id == 6092022481063 %}
-  {% section 'ingredients-slider2' %}
-{% else %}
-  {% section 'ingredients-slider' %}
-{% endif %}
+{% section 'ingredients-slider2' %}
 
-
-{% if product.id == 6092022481063 %}
-  {% section 'kept-out2' %}
-{% else %}
-  {% section 'nutrition-info' %}
-  {% section 'kept-out' %}
-{% endif %}
-{% if product.id != 6092022481063 %}
-{% section 'why-nyumi' %}
-  {% endif %}
+{% section 'kept-out2' %}
 
   <!-- Start of Judge.me code -->
   <div class='padding-rev_widget__jdgm'>
