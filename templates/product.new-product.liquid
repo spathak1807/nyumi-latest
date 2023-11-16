@@ -1,0 +1,316 @@
+<style>
+  #shopify-section-summer-video{
+    background:white !important;
+  }
+  .wc_product_review_badge .wc_icon_color svg path{
+    fill:#ffcf47 !important;
+  }
+</style>
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% if product.id == 8200003584256 %}
+  {% section 'product-template-ab-testing' %}
+{% elsif product.id == 6092022481063 %}
+  {% section 'ab-test-template2' %}
+{% else %}
+  {% section 'product-template' %}
+{% endif %}
+{% if product.id != 6092022481063 %}
+{% section 'FactsBox' %}
+{% section 'facts_carousel' %}
+  {% endif %}
+{% if product.id == 6092022481063 %}
+ <!--inserted  -->
+{% section 'clinical-proof' %}
+{% section 'hairfall-woe' %}
+<!--inserted end -->
+{% endif %}
+
+{% section 'product-page-icon' %}
+{% section 'product-ingredients' %}
+{% if product.id == 6092022481063 %}
+  {% section 'ingredients-slider2' %}
+{% else %}
+  {% section 'ingredients-slider' %}
+{% endif %}
+
+
+{% if product.id == 6092022481063 %}
+  {% section 'kept-out2' %}
+{% else %}
+  {% section 'nutrition-info' %}
+  {% section 'kept-out' %}
+{% endif %}
+{% if product.id != 6092022481063 %}
+{% section 'why-nyumi' %}
+  {% endif %}
+
+  <!-- Start of Judge.me code -->
+  <div class='padding-rev_widget__jdgm'>
+      <div style='clear:both'></div>
+      <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.widget }}
+      </div>
+    <style>
+  {% if product.id == 8200003584256 or product.id == 6092022481063 %}
+      .jdgm-review-widget {
+  padding: 2em 10em !important;
+  } 
+    {% else %}
+     .jdgm-review-widget {
+  padding: 5em 10em !important;
+  } 
+  {% endif %}
+      .jdgm-row-media {
+    display: none!important;
+}
+      a.jdgm-write-rev-link {
+    border: none!important;
+    background-color: #f37168!important;
+}
+      .jdgm-histogram__bar-content {
+    background-color: #388e3c!important;
+}
+   .jdgm-row-profile {
+    display: flex!important;
+    align-items: center!important;
+}
+        .jdgm-rev__icon {
+    border-radius: 50%!important;
+}
+          .jdgm-rev__header {
+    position: relative!important;
+    margin-bottom: 10px!important;
+    padding-bottom: 1rem!important;
+}
+      .jdgm-row-rating {
+    /* margin-bottom: 8px; */
+    position: absolute!important;
+    margin-bottom: 0px!important;
+    bottom: 0!important;
+    display: flex!important;
+    gap: 1rem!important;
+    align-items: center!important;
+}
+      @media (max-width:767px){
+ {% if product.id == 8200003584256 or product.id == 6092022481063 %}
+        .jdgm-review-widget {
+ padding: 1rem 1rem 1rem 1rem !important;
+  } 
+   {% else %}
+   .jdgm-review-widget {
+ padding: 4rem 1rem 1rem 1rem !important;
+  } 
+ {% endif %}
+  }
+        .jdgm-rev__header {
+    position: relative!important;
+    margin-bottom: 5px!important;
+    padding-bottom: 1rem!important;
+}
+            .jdgm-row-rating {
+    position: absolute!important;
+    margin-bottom: 0px!important;
+    bottom: 0!important;
+    display: flex!important;
+    gap: 1rem!important;
+    align-items: center!important;
+}
+       
+      }
+    </style>
+  </div>
+      <!-- End of Judge.me code -->
+{% comment %}
+{% section 'product-reviews' %}
+ {% endcomment %}
+{% section 'product-faq' %}
+
+{% if product.id == 6092022481063 %}
+<!--inserted  -->
+{% section 'summer-video' %}
+<!--inserted end -->
+{% endif %}
+{% if product.id == 6092022481063 %}
+  {% section 'product-recommendations2' %}
+{% else %}
+  {% section 'product-recommendations2' %}
+{% endif %}
+
+
+{% if collection %}
+  <div class="text-center return-link-wrapper page-width">
+    <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
+      {% include 'icon-arrow-left' %}
+      {{ 'products.product.back_to_collection' | t: title: collection.title }}
+    </a>
+  </div>
+{% endif %}
+
+<div style="text-align:center; margin-bottom:1rem;">
+<div class="product_breadcrumbs">
+          <a href="https://{{ request.host }}">
+            Home 
+          </a>/
+          <a href="https://{{ request.host }}/collections/all">
+            Products 
+          </a>/ <strong>{{ product.title }}</strong>
+        </div>
+  </div>
+  
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  {% comment %}
+  "url": {{ shop.url | append: product.url | json }},
+  {% endcomment %}
+  {%- if product.featured_media -%}
+    {%- assign media_size = product.featured_media.preview_image.width | append: 'x' -%}
+    "image": [
+      {{ product.featured_media | img_url: media_size | prepend: "https:" | json }}
+    ],
+  {%- endif -%}
+  "description": {{ product.description | strip_html | json }},
+  {% comment %}
+  {%- if current_variant.sku != blank -%}
+    "sku": {{ current_variant.sku | json }},
+  {%- endif -%}
+   {% endcomment %}
+  "brand": {
+    "@type": "Brand",
+    "name": {{ product.vendor | json }}
+  }, 
+   {% assign ryviu = product.metafields.ryviu %}
+    {% if ryviu %}
+      {%- assign aggregateRating = ryviu.product_reviews_info | split: ";" -%}
+      {%- assign r_avg = aggregateRating[1] | plus: 0 -%}
+      {%- assign r_count = aggregateRating[0] | plus: 0 -%}
+        {%- if r_count > 0 -%}       
+      "aggregateRating": {
+         "@type": "AggregateRating",
+         "ratingValue": "{{ r_avg }}",
+         "reviewCount": "{{ r_count }}"
+      },
+  {% endif %}  {% endif %}
+  "offers": 
+    {%- for variant in product.variants, limit:1  -%}
+      {
+        "@type" : "Offer",
+        {% comment %}
+        {%- if variant.sku != blank -%}
+          "sku": {{ variant.sku | json }},          
+        {%- endif -%}
+         {% endcomment %}
+        "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",        
+        "price" : {{ variant.price | divided_by: 100.00 | json }},
+        "priceCurrency" : {{ cart.currency.iso_code | json }},
+        "url" : {{ shop.url | append: variant.url | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  
+}
+</script>
+
+<script>
+  
+  // GA4 dataLayer => view item
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'view_item',
+    ecommerce: {
+      items: [{
+        item_name: '{{ product.title | json }}',
+        item_id: '{{ product.id }}',
+        price: '{{ product.price | divided_by:100 | json }}',
+        item_brand: '{{ product.vendor }}',
+        item_variant: '{{ product.variants[0].id }}'
+      }]
+    }
+  });
+  
+  // GA4 dataLayer => add to cart main product
+  document.addEventListener('click', function (event) {
+  if(!event.target.matches('.product-single button.product-form__cart-submit, .product-single button.product-form__cart-submit > span')) return;
+    var qty = document.getElementById('Quantity-product-template');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'add_to_cart',
+      ecommerce: {
+        items: [{
+          item_name: '{{ product.title | json }}',
+          item_id: '{{ product.id }}',
+          price: '{{ product.price | divided_by:100 | json }}',
+          item_brand: '{{ product.vendor }}',
+          quantity: qty.value
+        }]
+      }
+    });
+
+  }, false);
+  
+  // GA4 dataLayer => add to cart other products
+  document.addEventListener('click', function (event) {
+  if(!event.target.matches('.add_to_cart_custom button.product-form__cart-submit, .add_to_cart_custom button.product-form__cart-submit > span')) return;
+    var itm = event.target.closest('.grid__item');
+    var ttl = itm.querySelector('.product-card > a > span').textContent;
+    var tid = itm.querySelector('.add_to_cart_custom > form > input[name="id"]').value;
+    var rpr = itm.querySelector('.price-item.price-item--sale').textContent;
+    var prc = rpr.toString().replace('₹','').replace(',','').replace(' ','');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'add_to_cart',
+      ecommerce: {
+        items: [{
+          item_name: ttl,
+          item_id: tid,
+          price: parseFloat(prc),
+          quantity: '1'
+        }]
+      }
+    });
+  }, false);
+  
+</script>
+
+<script>
+   
+            {% assign cPrice =  product.compare_at_price | divided_by: 100 %}
+            {% assign rPrice =  product.price | divided_by: 100 %}
+            {% assign decPrice = cPrice | minus:rPrice %}
+  
+ 
+              
+  webengage.track("Product view", {
+              "Product Name" : {{ product.title | json }},
+              "Product url" :  {{ product.handle | json }},
+              "Product Id" :  {{ product.id }},
+              "Retail Price": {{ product.compare_at_price | divided_by: 100.00 | json }},
+              "Price": {{ product.price | divided_by:100 | json }},
+              "Discount": {{ product.compare_at_price_max | minus:product.price | divided_by:100  }},
+              "Product Image URL": {
+    			  "Big Image URL": "https:{{ product.featured_image | img_url:'master' }}",
+                  "Medium Image URL": "https:{{ product.featured_image | img_url:'medium'}}",
+                  "Small Image URL": "https:{{ product.featured_image | img_url:'small' }}"
+               }
+            });
+</script>
+
+<script type="application/ld+json" id="product_faq_json">
+</script>
