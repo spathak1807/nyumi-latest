@@ -210,7 +210,7 @@
 {% if product.metafields.custom.clinical_proof %}
  {% assign slides = product.metafields.custom.clinical_proof.value %}
  {% assign common_slides = slides.common_slides %}
-<div class='clinical-proof'>
+<div id="clinicalTrials" class='clinical-proof'>
   <div class='heading-wrapper'>
     <h3>{{ section.settings.heading }}</h3>
     <p>{{ section.settings.subtitle }}</p>
