@@ -17,7 +17,7 @@
     "checkout_sidebar_background_color": "#ffffff",
     "checkout_accent_color": "#f47169",
     "checkout_button_color": "#f47169",
-    "checkout_layout": "threepage",
+    "checkout_layout": "onepage",
     "sections": {
       "header": {
         "type": "header",
