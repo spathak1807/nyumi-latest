@@ -35,6 +35,10 @@
     <meta name="theme-color" content="{{ settings.color_button }}">
     <meta name="facebook-domain-verification" content="8d3spwlgfmsm7v6wnu316h7zso2o9e">
 
+    {% if page.handle == 'privacy-policy' %}
+      <meta name="robots" content="noindex">
+    {% endif %}
+
     {% if canonical_url contains 'corporate-sleep-program' %}
       <meta property="og:image" content="{{ 'corporate-sleep-program.png' | asset_url }}" >
       <meta property="og:image" content="{{ 'corporate-sleep-program.png' | asset_url }}" >
