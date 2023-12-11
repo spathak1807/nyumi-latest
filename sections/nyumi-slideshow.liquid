@@ -7,10 +7,10 @@
         <source srcset="{{ block.settings.mobile_image | img_url: 'master' }} {{ block.settings.mobile_video.width }}w" media="(max-width: 749px)" />
         <source srcset="{{ block.settings.desktop_image | img_url: 'master' }} {{ block.settings.desktop_video.width }}w" />
         <div class="desktop-image">
-          <img src="{{ block.settings.desktop_image | img_url: 'master' }}"  alt="{{ block.settings.title }}" loading= 'lazy'/>
+          <img src="{{ block.settings.desktop_image | img_url: 'master' }}"  alt="{{ block.settings.desktop_image.alt }}" loading= 'lazy'/>
         </div>
         <div class="mobile-image">
-          <img src="{{ block.settings.mobile_image | img_url: 'master' }}"  alt="{{ block.settings.title }}" loading= 'lazy'/>
+          <img src="{{ block.settings.mobile_image | img_url: 'master' }}"  alt="{{ block.settings.mobile_image.alt }}" loading= 'lazy'/>
         </div>
       {% elsif block.settings.desktop_video %}
         <div class="desktop-video">
