@@ -61,8 +61,8 @@
        {% endif %}
     {% endif %}
     {% if template == 'index' %}
-      <meta property="og:image" content="'https:'+{{ 'Nyumi_home.png' | asset_url }}" >
-      <meta property="og:image" content="'https:'+{{ 'Nyumi_home.png' | asset_url }}" >
+      <meta property="og:image" content="https:{{ 'Nyumi_home.png' | asset_url }}" >
+      <meta property="og:image" content="https:{{ 'Nyumi_home.png' | asset_url }}" >
       <meta property="og:image:secure_url" content="{{ 'Nyumi_home.png' | asset_url }}">
       <meta property="og:image:secure_url" content="{{ 'Nyumi_home.png' | asset_url }}">
     {% else %}
