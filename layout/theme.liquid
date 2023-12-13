@@ -63,14 +63,14 @@
     {% if template == 'index' %}
       <meta property="og:image" content="https:{{ 'Nyumi_home.png' | asset_url }}" >
       <meta property="og:image" content="https:{{ 'Nyumi_home.png' | asset_url }}" >
-      <meta property="og:image:secure_url" content="{{ 'Nyumi_home.png' | asset_url }}">
-      <meta property="og:image:secure_url" content="{{ 'Nyumi_home.png' | asset_url }}">
+      <meta property="og:image:secure_url" content="https:{{ 'Nyumi_home.png' | asset_url }}">
+      <meta property="og:image:secure_url" content="https:{{ 'Nyumi_home.png' | asset_url }}">
     {% else %}
       {% unless template.name == 'product' %}
-          <meta property="og:image" content="{{ 'safe_image_2x.png' | asset_url }}">
-          <meta property="og:image" content="{{ 'safe_image_2x.png' | asset_url }}">
-          <meta property="og:image:secure_url" content="{{ 'safe_image_2x.png' | asset_url }}">
-          <meta property="og:image:secure_url" content="{{ 'safe_image_2x.png' | asset_url }}">
+          <meta property="og:image" content="https:{{ 'safe_image_2x.png' | asset_url }}">
+          <meta property="og:image" content="https:{{ 'safe_image_2x.png' | asset_url }}">
+          <meta property="og:image:secure_url" content="https:{{ 'safe_image_2x.png' | asset_url }}">
+          <meta property="og:image:secure_url" content="https:{{ 'safe_image_2x.png' | asset_url }}">
       {% endunless %}
     {% endif %}
     
