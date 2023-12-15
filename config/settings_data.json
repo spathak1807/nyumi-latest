@@ -2465,7 +2465,7 @@
               "title": "",
               "description": "",
               "button_label": "Shop Now",
-              "button_link": "shopify:\/\/collections",
+              "button_link": "shopify:\/\/collections\/all",
               "title_color": "#231f20",
               "subtitle_color": "#231f20",
               "button_background_color": "#f47169",
