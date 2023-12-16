@@ -445,7 +445,7 @@ text-transform:none;
             Products 
           </a>/ {{ product.title }}
         </div>
-          <div class="product_sub_title"> 
+          <div class="product_sub_title" style="display:none"> 
           {% if product.metafields.custom.product_tag != blank %} 
             <span>{{ product.metafields.custom.product_tag }}</span>  
           {% endif %} 
@@ -669,7 +669,7 @@ text-transform:none;
         {% endif %} 
         {% if product.description != blank %} 
         <div class="product-single__description rte"> 
-          <div class='description-special'><a href="#clinicalTrials" style="text-decoration: none;"> {{ product.metafields.custom.description_special }} </a></div>  
+          <div class='description-special'><a href="#clinicalTrials"> {{ product.metafields.custom.description_special }} </a></div>  
           {{ product.description }} 
         </div>  
         {% endif %}
