@@ -1331,14 +1331,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`+ ' OFF'
   })
   let imageIndex;
-  $('.thumbnails-slider__btn').click(function(){
-    for(var i=0; i<=$('.slider_itmes').length-3; i++){
-      if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
-          console.log('i',i)
-        imageIndex = i
-      }
+  for(var i=0; i<=$('.slider_itmes').length-3; i++){
+    if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
+        console.log('i',i)
+      imageIndex = i
     }
-    $('.slider_itmes')[imageIndex].click()
+  }
+  $('.thumbnails-slider__btn')[0].click(function(){
+    $('.slider_itmes')[imageIndex-1].click()
+  })
+  $('.thumbnails-slider__btn')[1].click(function(){
+    $('.slider_itmes')[imageIndex+1].click()
   })
   setInterval(function(){
     for(var i=0; i<=$('.slider_itmes').length-3; i++){
