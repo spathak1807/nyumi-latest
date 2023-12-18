@@ -1363,6 +1363,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for(var i=0; i<=$('.slider_itmes').length-3; i++){
       if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
         $('.slider_thumb')[i].style.opacity = 1
+        imageIndex = i
       }
       else {
         $('.slider_thumb')[i].style.opacity = 0.5
