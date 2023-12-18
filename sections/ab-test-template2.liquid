@@ -1338,10 +1338,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   $('.thumbnails-slider__btn')[0].click(function(){
-    $('.slider_itmes')[imageIndex-1].click()
+    $('.slider_itmes')[imageIndex+1].classList.remove('slick-active')
+    $('.slider_itmes')[imageIndex].classList.add('slick-active')
   })
   $('.thumbnails-slider__btn')[1].click(function(){
-    $('.slider_itmes')[imageIndex+1].click()
+    $('.slider_itmes')[imageIndex+1].classList.remove('slick-active')
+    $('.slider_itmes')[imageIndex+2].classList.add('slick-active')
   })
   setInterval(function(){
     for(var i=0; i<=$('.slider_itmes').length-3; i++){
