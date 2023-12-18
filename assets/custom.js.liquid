@@ -4423,37 +4423,37 @@ client
         });
     }
     
-     async function edit_cart_line(qty , line, e){ 
-      e.target.parentElement.children[0].style.opacity = 0.5
-      e.target.parentElement.children[0].style.pointerEvents = 'none'
-      e.target.parentElement.children[1].classList.add('hide')
-      e.target.parentElement.children[2].classList.remove('hide')
-      e.target.parentElement.children[3].style.opacity = 0.5
-      e.target.parentElement.children[3].style.pointerEvents = 'none'
-      // setTimeout(function(){
-        
-      // },2000)
-      line = parseInt(line) + 1;
-       
-      var data = { quantity: qty, line: line };
-       var x= await jQuery.ajax({
+     async function edit_cart(qty , id){ 
+       $('.shimmer').css('display','flex');
+      $('.item_details').css('display','none');
+      $('.order-total .value').css('display','none');
+      $('.discount .value').css('display','none');
+      $('.sub-total .value').css('display','none');
+      $('.shipping .value').css('display','none');
+      $('.items-discount .value').css('display','none');
+      $('.grand-total .value').css('display','none');
+      $('.shimmer_order-total').css('display','flex');
+      $('.shimmer_discount').css('display','block');
+      $('.shimmer_sub-total').css('display','block');
+      $('.shimmer_shipping').css('display','block');
+      $('.shimmer_items-discount').css('display','block');
+      $('.shimmer_grand-total').css('display','block');
+      var data = { quantity: qty, id: id };
+       var x = await jQuery.ajax({
           type: 'POST',
           url: '/cart/change.js',
           data: data,
+         async: false,
           dataType: 'json',
           success: function(cart) {  
-             e.target.parentElement.children[0].style.opacity = 1
-             e.target.parentElement.children[0].style.pointerEvents = 'all'
-             e.target.parentElement.children[1].classList.remove('hide')
-             e.target.parentElement.children[2].classList.add('hide')
-             e.target.parentElement.children[3].style.opacity = 1
-             e.target.parentElement.children[3].style.pointerEvents = 'all'
-             // get_cart(); 
-             // update_cart_price()
-            // show_upsell()
+             get_cart(); 
+            setTimeout(function(){
+              sortMeBy('data-line', 'div.minct_detail', 'div.item_details', 'asc')
+              show_upsell()
+            },1500)
           },
           error: function (jqXHR, exception) {
-              //  alert('Low Stock');              
+                // <!-- alert('Low Stock');               -->
           }
         });
     }
