@@ -1828,6 +1828,49 @@ client
       
       $('#hire_exp .hrxp_outer_flx').append(html);
     }
+
+      async function edit_cart_line(qty , line, e){ 
+      e.target.parentElement.children[0].style.opacity = 0.5
+      e.target.parentElement.children[0].style.pointerEvents = 'none'
+      e.target.parentElement.children[1].classList.add('hide')
+      e.target.parentElement.children[2].classList.remove('hide')
+      e.target.parentElement.children[3].style.opacity = 0.5
+      e.target.parentElement.children[3].style.pointerEvents = 'none'
+      $('.shimmer').css('display','flex');
+      $('.item_details').css('display','none');
+      $('.order-total .value').css('display','none');
+      $('.discount .value').css('display','none');
+      $('.sub-total .value').css('display','none');
+      $('.shipping .value').css('display','none');
+      $('.items-discount .value').css('display','none');
+      $('.grand-total .value').css('display','none');
+      // setTimeout(function(){
+        
+      // },2000)
+      line = parseInt(line) + 1;
+       
+      var data = { quantity: qty, line: line };
+       var x= await jQuery.ajax({
+          type: 'POST',
+          url: '/cart/change.js',
+          data: data,
+          dataType: 'json',
+          success: function(cart) {  
+             e.target.parentElement.children[0].style.opacity = 1
+             e.target.parentElement.children[0].style.pointerEvents = 'all'
+             e.target.parentElement.children[1].classList.remove('hide')
+             e.target.parentElement.children[2].classList.add('hide')
+             e.target.parentElement.children[3].style.opacity = 1
+             e.target.parentElement.children[3].style.pointerEvents = 'all'
+             // get_cart(); 
+              // update_cart_price()
+            // show_upsell()
+          },
+          error: function (jqXHR, exception) {
+              //  alert('Low Stock');              
+          }
+        });
+    }
     
     function science_text(value, no){      
       var heading = '';
