@@ -378,6 +378,7 @@ text-transform:none;
       {% endif %}
       <div class="product_image" id="product_slider">
         {% for image in product.images %}
+        {% assign data_index_value = 0 %}
         <div data-index="{{ data_index_value }}" class="slider_itmes">
           <img src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" />
         </div>
