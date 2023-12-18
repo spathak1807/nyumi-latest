@@ -1330,7 +1330,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const disper=((camp-disp)/camp)*100 
     const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`+ ' OFF'
   })
-  var imageIndex;
+  var imageIndex=0;
   for(var i=0; i<=$('.slider_itmes').length-3; i++){
     if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
         console.log('i',i)
