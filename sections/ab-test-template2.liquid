@@ -376,9 +376,9 @@ text-transform:none;
           <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
         </button>
       {% endif %}
-      <div class="product_image product-single__thumbnails product-single__thumbnails-{{ section.id }}" id="product_slider">
+      <div class="product_image" id="product_slider">
         {% for image in product.images %}
-        <div class="slider_itmes product-single__thumbnails-item product-single__thumbnails-item--{{ section.settings.media_size }} js">
+        <div class="slider_itmes">
           <img src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" />
         </div>
         {% endfor %}
