@@ -1346,6 +1346,12 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.slider_itmes')[imageIndex+2].classList.add('slick-active')
   })
   setInterval(function(){
+    if(imageIndex == 0) {
+      $('.thumbnails-slider__prev').prop('disabled', true);
+    }
+    if($('.slider_itmes').length == $('.slider_itmes').length-3) {
+      $('.thumbnails-slider__next').prop('disabled', true);
+    }
     for(var i=0; i<=$('.slider_itmes').length-3; i++){
       if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
         $('.slider_thumb')[i].style.opacity = 1
