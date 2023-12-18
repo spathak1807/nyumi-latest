@@ -1347,6 +1347,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.slider_itmes')[imageIndex+2].classList.add('slick-active')
   })
   setInterval(function(){
+    console.log('imageIndex',imageIndex)
     if(imageIndex == 0) {
       $('.thumbnails-slider__prev').prop('disabled', true);
     }
