@@ -1351,8 +1351,8 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.slider_itmes')[imageIndex+1].classList.remove('slick-current')
     $('.slider_itmes')[imageIndex+2].classList.add('slick-active')
     $('.slider_itmes')[imageIndex+2].classList.add('slick-current')
-    $('.slider_itmes[data-slick-index="'+imageIndex+1+'"]').attr('aria-hidden',true)
-    $('.slider_itmes[data-slick-index="'+imageIndex+2+'"]').attr('aria-hidden',false)
+    $('.slider_itmes[data-slick-index="'+parseInt(imageIndex+1)+'"]').attr('aria-hidden',true)
+    $('.slider_itmes[data-slick-index="'+parseInt(imageIndex+2)+'"]').attr('aria-hidden',false)
   })
   setInterval(function(){
     if(imageIndex == 0) {
