@@ -1357,15 +1357,15 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.product_image').slick('slickGoTo',imageIndex+2)
   })
   setInterval(function(){
-    // if(imageIndex == 0) {
-    //   $('.thumbnails-slider__prev').prop('disabled', true);
-    // }
-    // else {
-    //   $('.thumbnails-slider__prev').prop('disabled', false);
-    // }
-    // if(imageIndex == $('.slider_itmes').length-3) {
-    //   $('.thumbnails-slider__next').prop('disabled', true);
-    // }
+    if(imageIndex == 0) {
+      $('.thumbnails-slider__prev').prop('disabled', true);
+    }
+    else {
+      $('.thumbnails-slider__prev').prop('disabled', false);
+    }
+    if(imageIndex == $('.slider_itmes').length-3) {
+      $('.thumbnails-slider__next').prop('disabled', true);
+    }
     // else {
     //   $('.thumbnails-slider__next').prop('disabled', false);
     // }
