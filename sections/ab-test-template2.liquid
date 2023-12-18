@@ -1337,11 +1337,11 @@ document.addEventListener('DOMContentLoaded', function() {
       imageIndex = i
     }
   }
-  $('.thumbnails-slider__btn')[0].click(function(){
+  $('.thumbnails-slider__prev').click(function(){
     $('.slider_itmes')[imageIndex+1].classList.remove('slick-active')
     $('.slider_itmes')[imageIndex].classList.add('slick-active')
   })
-  $('.thumbnails-slider__btn')[1].click(function(){
+  $('.thumbnails-slider__next').click(function(){
     $('.slider_itmes')[imageIndex+1].classList.remove('slick-active')
     $('.slider_itmes')[imageIndex+2].classList.add('slick-active')
   })
