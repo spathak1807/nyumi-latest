@@ -1354,6 +1354,12 @@
 </script>
 {% endcomment %}
 
+  <script>
+    $('.minct_qty_sign.minius_sighn').click(function(){
+      console.log('hii clicked')
+    })
+  </script>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <script>
@@ -1614,7 +1620,6 @@
     $element.detach().appendTo($selector);
   }
   function get_cart(resuelt){
-    console.log('hii clicked')
       // $('.cart_drawer_loder').removeClass('hide')
       console.log('resulttttt',resuelt)
         show_mincart(resuelt);
