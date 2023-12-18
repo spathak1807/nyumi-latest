@@ -1338,7 +1338,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   $('.thumbnails-slider__prev').click(function(){
-    console.log('iiiiiii',imageIndex,$('.slider_itmes'))
+    console.log('iiiiiii',imageIndex,$('.slider_itmes')[imageIndex])
     // $('.slider_itmes.slick-current').attr('aria-hidden',true)
     // $('.slider_itmes')[imageIndex+1].classList.remove('slick-active')
     // $('.slider_itmes')[imageIndex+1].classList.remove('slick-current')
@@ -1348,6 +1348,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.product_image').slick('slickGoTo',imageIndex)
   })
   $('.thumbnails-slider__next').click(function(){
+    console.log('iiiiiii',imageIndex,$('.slider_itmes')[imageIndex])
     // $('.slider_itmes.slick-current').attr('aria-hidden',true)
     // $('.slider_itmes')[imageIndex+1].classList.remove('slick-active')
     // $('.slider_itmes')[imageIndex+1].classList.remove('slick-current')
