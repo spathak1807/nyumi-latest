@@ -350,7 +350,7 @@
 
 
     
-<script>
+<script> 
   function preloadFunc() {
      
 var nyumi_api = {
@@ -4057,6 +4057,8 @@ client
       top_scroll = top_scroll%2;
       product_img_gif(top_scroll);
       top_scroll += 1;
+
+      
       if($('.minct_item[data-id="43711468077312"] .remove_and_qty .plus_sign').length > 0){
         $('.minct_item[data-id="43711468077312"] .remove_and_qty .plus_sign').css('pointer-events','none')
         $('.minct_item[data-id="43711468077312"] .remove_and_qty .plus_sign').css('opacity','0.5')
@@ -4119,6 +4121,35 @@ client
                 $('.upsell_variant')[j].children[i].style.display = 'none'
             }
         } 
+      }
+
+      if($('.shimmer_order-total').css('display')=='flex') {
+        $('.order-total .value').css('display','none')
+        $('.discount .value').css('display','none')
+        $('.sub-total .value').css('display','none')
+        $('.shipping .value').css('display','none')
+        $('.items-discount .value').css('display','none')
+        $('.grand-total .value').css('display','none')
+        $('.saving_message').css('display','none')
+        $('.item_details').css('display','none')
+      }
+      else {
+        if($('.item_details').length==0 || ($('.item_details').length == 1 && $('.minct_qty')[0].innerText == '0')) {
+          $('.pricing_details').css('display','none')
+          $('.empty-cart').css('display','block')
+        }
+        else {
+          $('.order-total .value').css('display','block')
+          $('.discount .value').css('display','block')
+          $('.sub-total .value').css('display','block')
+          $('.shipping .value').css('display','block')
+          $('.items-discount .value').css('display','block')
+          $('.grand-total .value').css('display','block')
+          $('.saving_message').css('display','block')
+          $('.item_details').css('display','block')
+          $('.pricing_details').css('display','block')
+          $('.shimmer_saving_message').css('display','none');
+        }
       }
       
     }, 800);
@@ -4533,13 +4564,26 @@ client
     });
     
     
+    $('body').on('click', '.minct_qty_sign.minius_sighn', function(event){
+      $('.shimmer').css('display','flex');
+      $('.item_details').css('display','none');
+      $('.order-total .value').css('display','none');
+      $('.discount .value').css('display','none');
+      $('.sub-total .value').css('display','none');
+      $('.shipping .value').css('display','none');
+      $('.items-discount .value').css('display','none');
+      $('.grand-total .value').css('display','none');
+    })
     
-    $('body').on('click', '.minct_qty_sign', function(event){
-      // $('.cart_drawer_loder').removeClass('hide');
-      // setTimeout(function(){
-      //   $('.cart_drawer_loder').addClass('hide');
-      // },1000);
-      
+    $('body').on('click', '.minct_qty_sign', function(event){     
+        $('.shimmer').css('display','flex');
+        $('.item_details').css('display','none');
+        $('.order-total .value').css('display','none');
+        $('.discount .value').css('display','none');
+        $('.sub-total .value').css('display','none');
+        $('.shipping .value').css('display','none');
+        $('.items-discount .value').css('display','none');
+        $('.grand-total .value').css('display','none');
       var qty = parseInt($(this).closest('.minct_item_qty').find('.minct_qty').html());
       var id = $(this).closest('.minct_item').attr('data-line');
       // $('.new_upsell').hide()
@@ -4591,6 +4635,13 @@ client
               $('.empty-cart')[1].style.display = 'none'
             }
           }
+          
+          $('.order-total .value').css('display','block');
+          $('.discount .value').css('display','block');
+          $('.sub-total .value').css('display','block');
+          $('.shipping .value').css('display','block');
+          $('.items-discount .value').css('display','block');
+          $('.grand-total .value').css('display','block');
         })
       },2000)  
       
@@ -4798,6 +4849,20 @@ client
     }
     
     async function add_to_cart(that, Recommendation){
+      $('.shimmer').css('display','flex');
+      $('.item_details').css('display','none');
+      $('.order-total .value').css('display','none');
+      $('.discount .value').css('display','none');
+      $('.sub-total .value').css('display','none');
+      $('.shipping .value').css('display','none');
+      $('.items-discount .value').css('display','none');
+      $('.grand-total .value').css('display','none');
+      $('.shimmer_order-total').css('display','flex');
+      $('.shimmer_discount').css('display','block');
+      $('.shimmer_sub-total').css('display','block');
+      $('.shimmer_shipping').css('display','block');
+      $('.shimmer_items-discount').css('display','block');
+      $('.shimmer_grand-total').css('display','block');
       $('.btn[data-add-to-cart]').prop('disabled',true)
       that.find('[data-add-to-cart-text]').html('Adding...');
        var x = await jQuery.ajax({
@@ -4832,6 +4897,7 @@ client
     }
 
     function sortMeBy(arg, sel, elem, order) {
+        $('.item_details').css('display','none')
               var $selector = $(sel),
                 $element = $selector.children(elem);
             
@@ -4854,6 +4920,16 @@ client
               });
             
               $element.detach().appendTo($selector);
+              $('.shimmer').css('display','none');
+              setTimeout(function(){
+                $('.item_details').css('display','block');
+                $('.order-total .value').css('display','block');
+                $('.discount .value').css('display','block');
+                $('.sub-total .value').css('display','block');
+                $('.shipping .value').css('display','block');
+                $('.items-discount .value').css('display','block');
+                $('.grand-total .value').css('display','block');
+              },1000)
             }
     
     async function get_cart(){
@@ -4871,10 +4947,8 @@ client
             show_mincart(resuelt);
             $('.checkout_btn').css('display','flex')
           $('.cart_drawer_loder').addClass('hide')
-            // setTimeout(function(){
+              $('.item_details').css('display','none');
               sortMeBy('data-line', 'div.minct_detail', 'div.item_details', 'asc');
-              // show_upssell()
-            // },2000)
 
           nyumi_api.webengage_view_cart(resuelt);
             if($('.item_details').length == 1 && $('.minct_qty')[0].innerText == 0) {
@@ -4884,7 +4958,7 @@ client
               $('.empty-cart').show()
               }
             else {
-              $('.item_details').show()  
+              <!-- $('.item_details').show()   -->
 <!--               $('.apply_coupon_initial').show() -->
               $('.sub-footer').show()
               $('.empty-cart').hide()
@@ -4894,8 +4968,6 @@ client
     }
 
     function update_cart_price() {
-    
-      // if($('.empty-cart')[0].style.display = 'none'){
     $.ajax({
         type: "GET",
         url: "/cart.json",
@@ -4945,6 +5017,16 @@ client
             $('.discount .value')[0].innerText = '-₹ ' + (orderTotal - price + discount_amount).toFixed(0)
             $('.grand-total .value')[0].innerText = '₹ ' + (response.total_price/100).toFixed(0)
             $('.checkout_btn span')[0].innerText = 'Total ₹ ' + (response.total_price/100).toFixed(0)
+
+              $('.shimmer_order-total').css('display','none');
+          $('.shimmer_discount').css('display','none');
+          $('.shimmer_sub-total').css('display','none');
+      $('.shimmer_saving_message').css('display','none');
+          $('.shimmer_shipping').css('display','none');
+          $('.shimmer_items-discount').css('display','none');
+          $('.shimmer_grand-total').css('display','none');
+          $('.shimmer_saving_message').css('display','none');
+
           
     setTimeout(function(){
         if($('.items-discount').css('display') == 'none') {
@@ -5068,7 +5150,7 @@ client
               conpare_at_price = ''
             }
          html +='<p class="empty-cart" style="display:none;">'+'Your cart is empty'+'</p>'+
-                 '<div class="item_details" data-line="'+index+'">'+'<div class="minct_item" data-line="'+index+'" data-id="'+item.id+'" data-price="'+item.price+'">'+
+                 '<div class="item_details" style="display:none;" data-line="'+index+'">'+'<div class="minct_item" data-line="'+index+'" data-id="'+item.id+'" data-price="'+item.price+'">'+
                   '<div class="minct_item_img">';
                    if(typeof item.image !== 'undefined')
                    html +='<img src="'+item.image+'"  alt="#"/>';
@@ -5147,18 +5229,17 @@ client
     }
       productJSONData()
        
-      if($('.item_details').length == 1 && $('.minct_qty')[0].innerText == 0) {
-        $('.item_details').hide()  
-<!--         $('.apply_coupon_initial').hide() -->
-        $('.sub-footer').hide()
-        $('.empty-cart').show()
-        }
-      else {
-        $('.item_details').show()  
-<!--         $('.apply_coupon_initial').show() -->
-        $('.sub-footer').show()
-        $('.empty-cart').hide()
-      }
+//       if($('.item_details').length == 1 && $('.minct_qty')[0].innerText == 0) {
+//         $('.item_details').hide()  
+// <!--         $('.apply_coupon_initial').hide() -->
+//         $('.sub-footer').hide()
+//         $('.empty-cart').show()
+//         }
+//       else { 
+// <!--         $('.apply_coupon_initial').show() -->
+//         $('.sub-footer').show()
+//         $('.empty-cart').hide()
+//       }
       
       update_cart_price()
       $('body').on('click', '.msg-details', function(event){
