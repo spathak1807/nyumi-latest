@@ -4827,7 +4827,20 @@ client
     }
     
     async function edit_cart(qty , id){ 
-       
+       $('.shimmer').css('display','flex');
+      $('.item_details').css('display','none');
+      $('.order-total .value').css('display','none');
+      $('.discount .value').css('display','none');
+      $('.sub-total .value').css('display','none');
+      $('.shipping .value').css('display','none');
+      $('.items-discount .value').css('display','none');
+      $('.grand-total .value').css('display','none');
+      $('.shimmer_order-total').css('display','flex');
+      $('.shimmer_discount').css('display','block');
+      $('.shimmer_sub-total').css('display','block');
+      $('.shimmer_shipping').css('display','block');
+      $('.shimmer_items-discount').css('display','block');
+      $('.shimmer_grand-total').css('display','block');
       var data = { quantity: qty, id: id };
        var x = await jQuery.ajax({
           type: 'POST',
