@@ -378,7 +378,7 @@ text-transform:none;
       {% endif %}
       <div class="product_image product-single__thumbnails product-single__thumbnails-{{ section.id }}" id="product_slider">
         {% for image in product.images %}
-        <div class="slider_itmes">
+        <div class="slider_itmes product-single__thumbnails-item product-single__thumbnails-item--{{ section.settings.media_size }} js">
           <img src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" />
         </div>
         {% endfor %}
