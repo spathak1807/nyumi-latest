@@ -382,6 +382,7 @@ text-transform:none;
         <div data-index="{{ data_index_value }}" class="slider_itmes">
           <img src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt }}" />
         </div>
+        {% assign data_index_value = data_index_value | plus: 1 %}
         {% endfor %}
       </div>
       <div class="product_thumb_outer">
@@ -1329,7 +1330,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const disper=((camp-disp)/camp)*100 
     const perd=$("#data-sale-discount_id")[0].innerText=`${disper.toFixed(0)}%`+ ' OFF'
   })
-  setInterval(function(){
+  function imageDots() {
     for(var i=0; i<=$('.slider_itmes').length-3; i++){
       if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
         $('.slider_thumb')[i].style.opacity = 1
@@ -1338,6 +1339,12 @@ document.addEventListener('DOMContentLoaded', function() {
         $('.slider_thumb')[i].style.opacity = 0.5
       }
     }
+  }
+  $('.thumbnails-slider__btn').click(function(event){
+    console.log('hii',event)
+  })
+  setInterval(function(){
+    imageDots()
   })
   
 </script>
