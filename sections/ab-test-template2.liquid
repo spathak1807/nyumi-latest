@@ -1343,15 +1343,18 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.slider_itmes')[imageIndex+1].classList.remove('slick-current')
     $('.slider_itmes')[imageIndex].classList.add('slick-active')
     $('.slider_itmes')[imageIndex].classList.add('slick-current')
+    $('.slider_itmes')[imageIndex+1].attr('aria-hidden',false)
+    $('.slider_itmes')[imageIndex].attr('aria-hidden',false)
   })
   $('.thumbnails-slider__next').click(function(){
     $('.slider_itmes')[imageIndex+1].classList.remove('slick-active')
     $('.slider_itmes')[imageIndex+1].classList.remove('slick-current')
     $('.slider_itmes')[imageIndex+2].classList.add('slick-active')
     $('.slider_itmes')[imageIndex+2].classList.add('slick-current')
+    $('.slider_itmes')[imageIndex+1].attr('aria-hidden',false)
+    $('.slider_itmes')[imageIndex+2].attr('aria-hidden',false)
   })
   setInterval(function(){
-    console.log('imageIndex',imageIndex)
     if(imageIndex == 0) {
       $('.thumbnails-slider__prev').prop('disabled', true);
     }
