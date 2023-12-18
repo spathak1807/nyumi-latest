@@ -17,6 +17,70 @@
 {% assign iron = all_products[some_handle] %}
 
 <style>
+  .shimmer {
+    display: flex;
+    gap: 10px;
+    padding: 1rem 0;
+  }
+  .shimmerBG {
+    animation-duration: 2.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+    background: #ddd;
+    background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
+    background-size: 1200px 100%;
+    border-radius: 5px;
+  }
+  .shimmerIMG {
+    height: 65px;
+    width: 65px;
+  }
+  .shimmerTitle {
+    height: 24px;
+    width: 250px;
+  }
+  .shimmerPrice {
+    height: 24px;
+    width: 100px;
+    margin-top: 10px;
+  }
+
+  .shimmer_order-total, 
+  .shimmer_discount, 
+  .shimmer_sub-total, 
+  .shimmer_shipping, 
+  .shimmer_items-discount, 
+  .shimmer_grand-total {
+    height: 18px;
+    width: 60px;
+  }
+  .shimmer_saving_message {
+    height: 18px;
+    width: 250px;
+    margin: 1rem auto;
+  }
+  
+  
+  @-webkit-keyframes shimmer {
+      0% {
+          background-position: -100% 0;
+      }
+      100% {
+          background-position: 100% 0;
+      }
+  }
+  
+  @keyframes shimmer {
+      0% {
+          background-position: -1200px 0;
+      }
+      100% {
+          background-position: 1200px 0;
+      }
+  }
+  
   /* starts my css for you may also like section */
   input.keep-hide{
     display:none;
@@ -1207,28 +1271,35 @@
         <strong>Price Summary</strong>
         <div class="order-total">
           <p class="title">Order Total</p>
+          <p class="shimmer shimmerBG shimmer_order-total" style="display: none;"></p>
           <p class="value">{{ cart.total_price | money_with_currency }}</p>
         </div>
         <div class="discount">
           <p class="title">Discount</p>
+          <p class="shimmer shimmerBG shimmer_discount" style="display: none;"></p>
           <p class="value" style="color:#f37168">---</p>
         </div>
         <div class="sub-total" style="display:none">
           <p class="title">Sub Total</p>
+          <p class="shimmer shimmerBG shimmer_sub-total" style="display: none;"></p>
           <p class="value">{{ cart.total_price | money_with_currency }}</p>
         </div>
         <div class="shipping">
-        <p class="title">Shipping</p>
+          <p class="title">Shipping</p>
+          <p class="shimmer shimmerBG shimmer_shipping" style="display: none;"></p>
           <p class="value">---</p>
         </div>
         <div class="items-discount">
           <p class="title">Coupon Code: <span></span></p>
+          <p class="shimmer shimmerBG shimmer_items-discount" style="display: none;"></p>
           <p class="value">---</p>
         </div>
         <div class="grand-total">
           <p class="title">Total</p>
+          <p class="shimmer shimmerBG shimmer_grand-total" style="display: none;"></p>
           <p class="value"><span style="text-decoration: line-through; margin-right:4px;color:grey;">{{ cart.total_price | money_with_currency }}</span> <span>---</span></p>
         </div>
+      <p class="shimmer shimmerBG shimmer_saving_message" style="display: none;"></p>
       <div class="saving_message">You are saving <span>---</span> on this order</div>
       </div>
       
@@ -1304,7 +1375,7 @@
 </script>
 <script>
   function update_cart_price2(response) {
-    
+    $('.item_details').css('display','none')
             if(response.items.length<1){
               $('.may-also-like').hide()
             }else{
@@ -1349,6 +1420,15 @@
             $('.discount .value')[0].innerText = '-₹ ' + (orderTotal - price + discount_amount).toFixed(0)
             $('.grand-total .value')[0].innerText = '₹ ' + (response.total_price/100).toFixed(0)
             $('.checkout_btn span')[0].innerText = 'Total ₹ ' + (response.total_price/100).toFixed(0)
+
+    $('.item_details').css('display','block')
+        $('.shimmer_order-total').css('display','none');
+          $('.shimmer_discount').css('display','none');
+          $('.shimmer_sub-total').css('display','none');
+          $('.shimmer_shipping').css('display','none');
+          $('.shimmer_items-discount').css('display','none');
+          $('.shimmer_grand-total').css('display','none');
+          $('.shimmer_saving_message').css('display','none');
           
     setTimeout(function(){
         if($('.items-discount').css('display') == 'none') {
@@ -1416,6 +1496,13 @@
               conpare_at_price = ''
             }
          html +='<p class="empty-cart" style="display:none;">'+'Your cart is empty'+'</p>'+
+                 '<div class="shimmer" style="display:none;">'+
+                   '<div class="shimmerBG shimmerIMG"></div>'+
+                   '<div class="shimmerContent">'+
+                     '<div class="shimmerBG shimmerTitle"></div>'+
+                     '<div class="shimmerBG shimmerPrice"></div>'+
+                   '</div>'+
+                 '</div>'+
                  '<div class="item_details" data-line="'+index+'">'+'<div class="minct_item" data-line="'+index+'" data-id="'+item.id+'" data-price="'+item.price+'">'+
                   '<div class="minct_item_img">';
                    if(typeof item.image !== 'undefined')
@@ -1487,18 +1574,18 @@
     }
       productJSONData()
        
-      if($('.item_details').length == 1 && $('.minct_qty')[0].innerText == 0) {
-        $('.item_details').hide()  
-        // $('.apply_coupon_initial').hide()
-        $('.sub-footer').hide()
-        $('.empty-cart').show()
-        }
-      else {
-        $('.item_details').show()  
-        // $('.apply_coupon_initial').show()
-        $('.sub-footer').show()
-        $('.empty-cart').hide()
-      }
+      // if($('.item_details').length == 1 && $('.minct_qty')[0].innerText == 0) {
+      //   $('.item_details').hide()  
+      //   // $('.apply_coupon_initial').hide()
+      //   $('.sub-footer').hide()
+      //   $('.empty-cart').show()
+      //   }
+      // else {
+      //   $('.item_details').show()  
+      //   // $('.apply_coupon_initial').show()
+      //   $('.sub-footer').show()
+      //   $('.empty-cart').hide()
+      // }
       
       // update_cart_price2(cart)
 }
@@ -2391,6 +2478,35 @@ show_upsell()
 
       if($('.items-discount .value')[0].innerText == '-₹ 0') {
         $('.items-discount').hide()
+      }
+
+      if($('.shimmer_order-total').css('display')=='flex') {
+        $('.order-total .value').css('display','none')
+        $('.discount .value').css('display','none')
+        $('.sub-total .value').css('display','none')
+        $('.shipping .value').css('display','none')
+        $('.items-discount .value').css('display','none')
+        $('.grand-total .value').css('display','none')
+        $('.saving_message').css('display','none')
+        $('.item_details').css('display','none')
+      }
+      else {
+        if($('.item_details').length==0 || ($('.item_details').length == 1 && $('.minct_qty')[0].innerText == '0')) {
+          $('.pricing_details').css('display','none')
+          $('.empty-cart').css('display','block')
+        }
+        else {
+          $('.order-total .value').css('display','block')
+          $('.discount .value').css('display','block')
+          $('.sub-total .value').css('display','block')
+          $('.shipping .value').css('display','block')
+          $('.items-discount .value').css('display','block')
+          $('.grand-total .value').css('display','block')
+          $('.saving_message').css('display','block')
+          $('.item_details').css('display','block')
+          $('.pricing_details').css('display','block')
+          $('.shimmer_saving_message').css('display','none');
+        }
       }
 
     },100)
