@@ -1370,15 +1370,15 @@ document.addEventListener('DOMContentLoaded', function() {
     else {
       $('.thumbnails-slider__next').prop('disabled', false);
     }
-    // for(var i=0; i<=$('.slider_itmes').length-3; i++){
-    //   if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
-    //     $('.slider_thumb')[i].style.opacity = 1
-    //     imageIndex = i
-    //   }
-    //   else {
-    //     $('.slider_thumb')[i].style.opacity = 0.5
-    //   }
-    // }
+    for(var i=0; i<=$('.slider_itmes').length-3; i++){
+      if($('.slider_itmes')[i+1].classList.contains('slick-active')) {
+        $('.slider_thumb')[i].style.opacity = 1
+        imageIndex = i
+      }
+      else {
+        $('.slider_thumb')[i].style.opacity = 0.5
+      }
+    }
   })
   
 </script>
