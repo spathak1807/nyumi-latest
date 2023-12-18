@@ -1347,12 +1347,12 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.slider_itmes')[imageIndex].attr('aria-hidden',false)
   })
   $('.thumbnails-slider__next').click(function(){
-    $('.slider_itmes.slick-current').attr('aria-hidden',true)
+    $('.slider_itmes.slick-current').props('aria-hidden',true)
     $('.slider_itmes')[imageIndex+1].classList.remove('slick-active')
     $('.slider_itmes')[imageIndex+1].classList.remove('slick-current')
     $('.slider_itmes')[imageIndex+2].classList.add('slick-active')
     $('.slider_itmes')[imageIndex+2].classList.add('slick-current')
-    $('.slider_itmes.slick-current').attr('aria-hidden',false)
+    $('.slider_itmes.slick-current').props('aria-hidden',false)
   })
   setInterval(function(){
     if(imageIndex == 0) {
