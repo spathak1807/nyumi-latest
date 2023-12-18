@@ -1353,7 +1353,7 @@ document.addEventListener('DOMContentLoaded', function() {
     else {
       $('.thumbnails-slider__prev').prop('disabled', false);
     }
-    if($('.slider_itmes').length == $('.slider_itmes').length-3) {
+    if(imageIndex == $('.slider_itmes').length-3) {
       $('.thumbnails-slider__next').prop('disabled', true);
     }
     else {
