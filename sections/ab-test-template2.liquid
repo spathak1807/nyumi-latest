@@ -347,7 +347,7 @@ text-transform:none;
         </div>
         {% endfor %}
       </div>
-       <div class="product_thumb_outer">
+      <div class="product_thumb_outer">
          <ul class="product_thumb" id="product_slider_thumb" style="min-width: 100%;"">
            {% assign data_index_value = 0 %}
            {% for image in product.images %}
@@ -359,7 +359,7 @@ text-transform:none;
          </ul>
       </div>
       
-      {% comment %}
+      
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
       {%- for media in product.media -%}
         {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale %}
@@ -431,7 +431,6 @@ text-transform:none;
           {% endif %}
         </div>
       {% endif %}
-      {% endcomment %}
       
     </div>
     <div class="grid__item {{ product_description_width }}">
