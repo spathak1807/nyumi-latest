@@ -345,7 +345,7 @@ text-transform:none;
     <div class="grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       <div class="product_image" id="product_slider">
         {% if enable_thumbnail_slides == true %}
-          <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
+          <button type="button" class="btn btn--link thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
             {% include 'icon-chevron-left' %}
             <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
           </button>
@@ -356,11 +356,11 @@ text-transform:none;
         </div>
         {% endfor %}
         {% if enable_thumbnail_slides == true %}
-            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
-              {% include 'icon-chevron-right' %}
-              <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
-            </button>
-          {% endif %}
+          <button type="button" class="btn btn--link thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
+            {% include 'icon-chevron-right' %}
+            <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
+          </button>
+        {% endif %}
       </div>
       <div class="product_thumb_outer">
          <ul class="product_thumb" id="product_slider_thumb" style="min-width: 100%;"">
